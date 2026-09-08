@@ -2300,3 +2300,8 @@ int main() {
    cout << "Cost for 500 Miles: " << (500 / gasMileage) * gasPrice << endl; // 500 miles
    return 0;
 }
+
+
+//git rebased 194108SEB2026
+// 
+// 
