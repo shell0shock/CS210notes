@@ -2622,3 +2622,413 @@ else if x < 18 //if this branch is reached, than x is a number from 13 to 17
 else 
 //relations without = are noninclusive
 // if it was <= 18 than it'd be 13,14,15,16,17,18
+
+//Relational operators can be combined for better range control
+// >= greater than or equal to, and <= less than or equal to allows for precise range limits raher than implicit range detection
+/*The second branch outputs "Fewer than -80" when the value of userInput is less than -80. Fill in the expression for the first branch that outputs "-80 or more".
+
+Ex: If the input is -78, then the output is:
+
+-80 or more */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int userInput;
+
+   cin >> userInput; 
+
+   if (userInput >= -80) { // using > = ensures it catches the -80 and all lower numbers
+      cout << "-80 or more" << endl;       
+   }
+   else {
+      cout << "Fewer than -80" << endl;
+   }
+
+   return 0;
+}
+
+// if 90 or more -> outputs 90 or more, otherwise (less than 90) outputs less than 90
+#include <iostream>
+using namespace std;
+
+int main() {
+   int userVal;
+
+   cin >> userVal; 
+
+   if (userVal >= 90) {
+      cout << "90 or more" << endl;
+   }
+   else {
+      cout << "Less than 90" << endl;
+   }
+   return 0;
+}
+
+//Integers userSalary and companyBudget are read from input. If userSalary is less than or equal to 150000, then assign companyBudget with companyBudget minus 150000
+#include <iostream>
+using namespace std;
+
+int main() {
+   int userSalary;
+   int companyBudget;
+
+   cin >> userSalary;
+   cin >> companyBudget;
+
+   if (userSalary <= 150000) {
+      companyBudget = companyBudget - 150000;
+   }
+
+   cout << companyBudget << endl;
+
+   return 0;
+}
+
+/*Integer deskCount is read from input. If deskCount is greater than or equal to 11, then output "A good number of desks". Otherwise, output "Not enough desks". End with a newline. */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int deskCount;
+
+   cin >> deskCount;
+
+   if (deskCount >= 11) {
+      cout << "A good number of desks" << endl;
+   }
+   else {
+      cout << "Not enough desks" << endl;
+   }
+
+   return 0;
+}
+
+/*
+Integers objectCount, acceptedGroups, and remainingGroups are read from input.
+If objectCount is greater than or equal to 17, then add 3 to acceptedGroups. Otherwise, add 1 to remainingGroups. */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int objectCount;
+   int acceptedGroups;
+   int remainingGroups;
+
+   cin >> objectCount;
+   cin >> acceptedGroups;
+   cin >> remainingGroups;
+
+   if (objectCount >= 17) {
+      acceptedGroups = acceptedGroups + 3;
+   }
+   else {
+      remainingGroups +=1;
+   }
+
+   cout << acceptedGroups << endl;
+   cout << remainingGroups << endl;
+
+   return 0;
+}
+
+/*When the input integer variable frequency is:
+
+    less than or equal to 404, output "Too low".
+    between 404 exclusive and 788 exclusive, output "Visible".
+    greater than or equal to 788, output "Too high".
+
+End with a newline. */
+
+#include <iostream>
+using namespace std;
+
+int main() {
+   int frequency;
+
+   cin >> frequency;
+
+   if (frequency <= 404) {
+      cout << "Too low" << endl;
+   }
+   else if (frequency > 404 && frequency < 788) {
+      cout << "Visible" << endl;
+   }
+   else if (frequency >= 788) {
+      cout << "Too high" << endl;
+   }
+
+   return 0;
+}
+/*When the given integer variable numberOfProducts is:
+
+    greater than or equal to 18, output "Needs more than one box".
+    between 5 inclusive and 18 exclusive, output "Large box".
+    between 1 inclusive and 4 inclusive, output "Medium box".
+    less than 1, output "Invalid input".
+
+End with a newline.  */
+
+#include <iostream>
+using namespace std;
+
+int main() {
+   int numberOfProducts;
+
+   cin >> numberOfProducts;
+
+   if (numberOfProducts >= 18) {
+      cout << "Needs more than one box" << endl;
+   }
+   else if (numberOfProducts > 4 && numberOfProducts < 18) {
+      cout << "Large box" << endl;
+   }
+   else if (numberOfProducts >=1 && numberOfProducts <= 4) {
+      cout << "Medium box" << endl;
+   }
+   else if (numberOfProducts < 1) {
+      cout << "Invalid input" << endl;
+   }
+
+   return 0;
+}
+
+//Logical Operators - AND NOT & OR
+//AND - Both operators need to be true for it to evaluate as true
+//OR - AT LEAST one operator needs to be true to evaluate to true, can be both
+//NOT - Negation, True when operator condition is false
+//combining relational operators and logical operators is useful for range detection
+//(0 < x) AND (x < 100) -> X is between 1 & 99
+// (x< -5) OR (x > 10) -> X is either less than -5 or more than 10
+//AND in C++ - &&
+//NOT in C++ - !
+//OR in C++ - ||
+//Group operations with parentheses to ensure proper results
+
+//example: TV Channels - Cable TV usually has normal channels from 2-499, HD from 1002-1499
+#include <iostream>
+using namespace std;
+
+int main() {
+   int userChannel;
+   char channelType;
+   
+   cin >> userChannel;
+   
+   if ((userChannel >= 2) && (userChannel <= 499)) {
+      channelType = 's'; //normal chanels (standard)
+   }
+   else if ((userChannel >= 1002) && (userChannel <= 1499)) {
+      channelType = 'h'; //HD Channels
+   }
+   else {
+      channelType = 'e'; //all others
+   }
+
+   cout << "Channel type: " << channelType << endl;
+   
+   return 0;
+}
+
+/*Modify the given if statement so that "Not a small town" is output if sizeInput is outside the range 1100 - 4600 inclusive. Otherwise, "Small town" is output. */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int sizeInput;
+
+   cin >> sizeInput;
+
+   // Modify the following line
+   if ((sizeInput < 1100) || (sizeInput > 4600)) { //originally used &&
+      cout << "Not a small town" << endl;
+   }
+   else {
+      cout << "Small town" << endl;
+   }
+
+   return 0;
+}
+
+/*Large towns have populations in the range 550 - 4000 inclusive.
+  Write an if statement that outputs "Not a large town" if the input numResidents is not in this range.
+  Otherwise, output "Large town". End each output with a newline. */
+
+#include <iostream>
+using namespace std;
+
+int main() {
+   int numResidents;
+
+   cin >> numResidents;
+   if ((numResidents < 550) || (numResidents > 4000)) {
+      cout << "Not a large town" << endl;
+   }
+   else {
+      cout << "Large town" << endl;
+   }
+
+   return 0;
+}
+
+/*The temperature of ethanol in degrees Fahrenheit is read from input into integer variable ethanolTemp. If ethanolTemp is:
+
+    < -172 degrees Fahrenheit, output "Ethanol: solid state".
+    ≥ -172 degrees Fahrenheit and < 174 degrees Fahrenheit, output "Ethanol: liquid state".
+
+Otherwise, output "Ethanol: gaseous state". End each output with a newline.
+
+Ex 1: If the input is -495, then the output is:
+
+Ethanol: solid state
+
+Ex 2: If the input is 162, then the output is:
+
+Ethanol: liquid state
+
+Ex 3: If the input is 456, then the output is:
+
+Ethanol: gaseous state
+
+Note: Use implicit ranges to simplify the solution. */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int ethanolTemp;
+
+   cin >> ethanolTemp;
+   if (ethanolTemp < -172) {
+      cout << "Ethanol: solid state" << endl;
+   }   
+   else if ((ethanolTemp >= -172) && (ethanolTemp < 174)) {
+      cout << "Ethanol: liquid state" << endl;
+   }
+   else {
+      cout << "Ethanol: gaseous state" << endl;
+   }
+
+   return 0;
+}
+/*If integer salaryNum is in the inclusive range:
+
+    0 - 51000, output "17% income tax bracket".
+    51001 - 75000, output "21% income tax bracket".
+    75001 - 250000, output "38% income tax bracket".
+
+Otherwise, output "Invalid input". End each output with a newline.
+Ex 1: If the input is 17000, then the output is:
+
+17% income tax bracket
+
+Ex 2: If the input is 60000, then the output is:
+
+21% income tax bracket
+
+Ex 3: If the input is 128000, then the output is:
+
+38% income tax bracket
+
+Ex 4: If the input is 273000, then the output is:
+
+Invalid input*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+   int salaryNum;
+
+   cin >> salaryNum;
+
+   if ((salaryNum >=0) && (salaryNum <= 51000)) {
+      cout << "17% income tax bracket" << endl;
+   }
+   else if ((salaryNum >=51001) && (salaryNum <= 75000)) {
+      cout << "21% income tax bracket" << endl;
+   }
+   else if ((salaryNum >=75001) && (salaryNum <= 250000)) {
+      cout << "38% income tax bracket" << endl;
+   }
+   else {
+      cout << "Invalid input" << endl;
+   }
+
+   return 0;
+}
+//logical operators can be used to combine range detectin expressions and others
+if (num >= 100 && num <= 150) - num is 100-150
+else if (num >=200 && num <= 250) - num is 200-250
+//Combined:
+if ((num >= 100 && num <= 150) || (num >= 200 && num <= 250)) 
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+   int x;
+
+   x = 4;
+   if ( (x < 7) && !(x <= 2) ) {
+      cout << "a" << endl;
+   }
+   if ( (x > 5) && !(x >= 7) ) {
+      cout << "b" << endl;
+   }
+   cout << "c" << endl;
+   
+   return 0;
+} //output: a \n c \n -> a is less than 7, but not lessthan or equal to 2 so firstbranch is true
+
+/*Integer grapesOrdered is read from input representing the number of grapes. Output:
+
+    "Large carton", if there are 30 - 70 grapes inclusive.
+    "Extra large carton", if there are 130 - 160 grapes inclusive.
+ */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int grapesOrdered;
+
+   cin >> grapesOrdered;  
+
+   if ((grapesOrdered >=30) && (grapesOrdered <= 70)) {
+      cout << "Large carton" << endl;
+   }
+   else if ((grapesOrdered >=130) && (grapesOrdered <= 160)) {
+      cout << "Extra large carton" << endl;
+   }
+
+   return 0;
+}
+
+/*Integer forksRequested is read from input representing the number of forks. Output:
+
+    "Standard package", if the number of forks is greater than or equal to 40 and less than 80.
+    "Full package", if the number of forks is greater than 130 and less than or equal to 160.
+    "Not efficient to ship", otherwise.
+
+End each output with a newline. */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int forksRequested;
+
+   cin >> forksRequested;  
+
+   if ((forksRequested >= 40) && (forksRequested < 80)) {
+      cout << "Standard package" << endl;
+   }
+   else if ((forksRequested > 130) && (forksRequested <= 160)) {
+      cout << "Full package" << endl;
+   }
+   else {
+      cout << "Not efficient to ship" << endl;
+   }
+
+   return 0;
+}
