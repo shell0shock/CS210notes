@@ -2593,3 +2593,32 @@ int main() {
 
    return 0;
 }
+
+//if-else-if is useful for number range detection
+//  can be used to detect & assign an action for each portion of a range of numbers
+// only need to detect the upper range, the expression is only reached if subsequent expressions
+// are false so the lower bound is implicitly stated
+if (number < 6) { //number is 0 - 5
+  do thing;
+}
+else if (number < 8) { //number is 6-7 (lol) it's greaterthan or equal to 6 because the prior branch
+  do other thing;
+}
+else if (number < 10) { //number 8,9
+  do this thing instead;
+}
+else if (number < 12) { //number 10,11
+  now do this;
+}
+else {
+  do that;
+}
+
+//x is nonnegative
+if x < 13
+  asdf
+else if x < 18 //if this branch is reached, than x is a number from 13 to 17
+  asdf
+else 
+//relations without = are noninclusive
+// if it was <= 18 than it'd be 13,14,15,16,17,18
