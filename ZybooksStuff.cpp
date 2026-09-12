@@ -2303,5 +2303,293 @@ int main() {
 
 
 //git rebased 194108SEB2026
-// 
-// 
+
+//Branch - sequence of statements that only execute if a certain condition is met
+// If branch - a branch that's taken IFF a statement is true
+// branches usually return back to the original code sequence
+// if-else branch - 2x branches, one if true, the other if not true
+#include <iostream>
+using namespace std;
+int main() {
+  int x;
+  int y;
+  int max;
+  cin >> x;
+  cin >> y;
+  if (x>y) {
+    max = x;
+  }
+  else {
+    max = y;
+  }
+  cout << max;
+  return 0;
+}
+
+//if-else-if - if-else extended as much as needed
+// each branch is sequentially executed, once one is found to be true that branch is taken; if none are true than the else block executes
+//else block is optional, if not included none of the if branches execute
+
+//If statemens are surrounded by braces after the expression condition, which is in parentheses
+// only execute if expression is found true
+// Equality operator - ==, means that left is equal to right, not that left is right
+
+#include <iostream>
+using namespace std;
+
+int main() {
+   int hotelRate;
+   int numYears;
+
+   hotelRate = 150;
+
+   cout << "Enter number of years married: ";
+   cin >> numYears;
+
+   if (numYears == 50) { //checks that numYears is equal to 50
+      cout << "Congratulations on 50 years "
+            << "of marriage!" << endl;
+
+      hotelRate = hotelRate / 2;
+   }
+
+   cout << "Your hotel rate: ";
+   cout << hotelRate << endl;
+
+   return 0;
+}
+
+//inequality - ! = -> Doesn't equal
+// Boolean - T/F 
+//equality & inequality expressions evaluate to a boolean value
+//chars are used often with equality expressions
+x == 'c';
+
+//if-else statements to test for even/odd
+
+22
+
+#include <iostream>
+using namespace std;
+
+int main() {
+   int userNum;
+   int divRemainder;
+
+   cout << "Enter a number: ";
+   cin  >> userNum;
+
+   divRemainder = userNum % 2;
+
+   if (divRemainder == 0) { //userNum % 2 = 0, no remainder after a half division
+       cout << userNum << " is even." << endl;
+   }
+   else {
+       cout << userNum << " is odd." << endl;
+   }
+
+   return 0;
+}
+
+
+bonusVal = 12;
+if (bonusVal == 12) {
+   bonusVal = bonusVal + 2; 
+   bonusVal = 3 * bonusVal;
+}
+else {
+   bonusVal = bonusVal + 10;
+}
+//bonusval will equal 42, since bonusVal is equal to 12, the if block executes so bonusVal is then 12 + 2, and then 14 * 3
+
+//If numPeople equals 10, execute groupSize = 2 * groupSize. Otherwise, execute groupSize = 3 * groupSize and numPeople = numPeople - 1. 
+if (numPeople == 10) {
+    groupSize = 2 *groupSize;
+}
+else {
+    groupSize = 3 * groupSize;
+    numPeople = numPeople - 1;
+}
+
+//If numPlayers does not equal 11, execute teamSize = 11. Otherwise, execute teamSize = numPlayers. Then, no matter the value of numPlayers, execute teamSize = 2 * teamSize
+if (numPlayers != 11) {
+    teamSize = 11;
+}
+else {
+    teamSize  = numPlayers;
+}
+teamSize = 2 * teamSize;
+
+//Write an if-else statement for the following:
+//If userTickets is equal to 7, execute awardPoints = 1. Else, execute awardPoints = userTickets.
+//Ex: If userTickets is 3, then awardPoints = 3.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+   int awardPoints;
+   int userTickets;
+
+   cin >> userTickets; // Program will be tested with values: 5, 6, 7, 8.
+
+   if (userTickets == 7) {
+      awardPoints = 1;
+   }
+   else {
+      awardPoints = userTickets;
+   }
+
+   cout << awardPoints << endl;
+
+   return 0;
+}
+
+//If numDifference is not equal to -15, execute totalDifference = -10. Else, execute totalDifference = numDifference.
+#include <iostream>
+using namespace std;
+
+int main() {
+   int totalDifference;
+   int numDifference;
+
+   cin >> numDifference; // Program will be tested with values: -13 -14 -15 -16.
+
+   if (numDifference != -15) {
+      totalDifference = -10;
+   }
+   else {
+      totalDifference = numDifference;
+   }
+
+   cout << totalDifference << endl;
+
+   return 0;
+}
+
+//multibranch if-else: 3+ expressions to be evaluated, once one is true that branch is followed, none true else branch followed
+if (expression1) {
+   // Statements that execute when expression1 is true
+   // (first branch)
+}
+else if (expression2) {
+   // Statements that execute when expression1 is false and expression2 is true
+   // (second branch)
+}
+else {
+   // Statements that execute when expression1 is false and expression2 is false
+   // (third branch)
+}
+
+#include <iostream>
+using namespace std;
+
+int main() {
+   int numYears;
+
+   cout << "Enter number years married: ";
+   cin  >> numYears;
+
+   if (numYears == 1) {
+      cout << "Your first year -- great!" << endl;
+   }
+   else if (numYears == 10) {
+      cout << "A whole decade -- impressive." << endl;
+   }
+   else if (numYears == 25) {
+      cout << "Your silver anniversary -- enjoy." << endl;
+   }
+   else if (numYears == 50) {
+      cout << "Your golden anniversary -- amazing." << endl;
+   }
+   else {
+      cout << "Nothing special." << endl;
+   }
+
+   return 0;
+}
+
+//Relation & equality operators work for ints, chars, and floats
+// comparing chars -> compares their ACII encoding's numeric value
+// Floats shouldn't be compared using equality as they are represented imprecisely
+// Operators can also be used for strings
+//        Strings are EQUAL if they have the same number of characters and those characters are identical, including capitalization
+
+//If integer degreesCelsius is 100, output "Boiling point". Otherwise, output "Not the boiling point". End with a newline.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+   int degreesCelsius;
+
+   cin >> degreesCelsius;
+
+   if (degreesCelsius == 100) {
+      cout << "Boiling point" << endl;
+   }
+   else {
+      cout << "Not the boiling point" << endl;
+   }
+
+   return 0;
+}
+
+/*If integer numberOfSides is:
+
+    5, output "Pentagon".
+    6, output "Hexagon".
+
+Otherwise, output "Unexpected polygon". End with a newline. */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int numberOfSides;
+
+   cin >> numberOfSides;
+
+   if (numberOfSides == 5) {
+      cout << "Pentagon" << endl;
+   }
+   else if (numberOfSides == 6) {
+      cout << "Hexagon" << endl;
+   }
+   else {
+      cout << "Unexpected polygon" << endl;
+   }
+   return 0;
+}
+
+/*
+  
+  If integer numLegs is:
+  
+      1, output "Uniped".
+      4, output "Quadruped".
+      6, output "Hexapod".
+  
+  Otherwise, output "Leg count not found". End with a newline. */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int numLegs;
+
+   cin >> numLegs;
+
+   if (numLegs == 1) {
+      cout << "Uniped" << endl;
+   }
+   else if (numLegs == 4) {
+      cout << "Quadruped" << endl;
+   }
+   else if (numLegs == 6) {
+      cout << "Hexapod" << endl;
+   }
+   else {
+      cout << "Leg count not found" << endl;
+   }
+
+   return 0;
+}
