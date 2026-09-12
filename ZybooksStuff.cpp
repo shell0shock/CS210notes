@@ -3032,3 +3032,570 @@ int main() {
 
    return 0;
 }
+
+//multiple if statements in sequence can be used  to detect multiple features with independent actions
+//multiple if statements allow mroe than one branc hto be executed
+// looks like a multibranch if else but is not the same
+
+#include <iostream>
+using namespace std;
+
+int main() {
+   int userAge;
+   
+   cout << "Enter age: ";
+   cin  >> userAge;
+   
+   // Note that more than one "if" statement can execute - if userAge is 35 then ALL branches execute except the first
+   if (userAge < 16) {
+      cout << "Enjoy your early years." << endl;
+   }
+   
+   if (userAge > 15) {
+      cout << "You are old enough to drive." << endl;
+   }
+   
+   if (userAge > 17) {
+      cout << "You are old enough to vote." << endl;
+   }
+   
+   if (userAge > 24) {
+      cout << "Most car rental companies will rent to you." << endl;
+   }
+   
+   if (userAge > 34) {
+      cout << "You can run for president." << endl;
+   }
+   
+   return 0;
+}
+
+//nested ifs -> if the branch executes, the if inside of it also executes
+
+
+
+numBoxes  = 0;
+numApples = 9; 
+
+if (numApples < 10) { //9<10 so this branch executes
+   if (numApples < 5) { //not true, doesn't execute
+      numBoxes = 1;
+   }
+   else { //this branch executes
+      numBoxes = 2; 
+   }
+}
+else if (numApples < 20) { //if that was only an if than we would have our 2 + 1 numBoxes
+   numBoxes = numBoxes + 1;
+}
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+   int numPuppies;
+   
+   numPuppies = 4;
+
+   if (numPuppies > 2) {
+      cout << "c" << endl;
+   }
+
+   if (numPuppies > 7) {
+      cout << "d" << endl;
+   }
+
+   if (numPuppies < 9) {
+      cout << "h" << endl;
+   }
+   
+   cout << "m" << endl;
+
+   return 0;
+} //output: c \n h \n m \n
+
+//Nested if-else - if statements within if statements
+//useful for making decisions based on multiple things - discounts based on price and items purchased
+if (numItems > 3) {     
+   if (totalCost > 100) {       // numItems > 3 and totalCost > 100
+      saleDiscount = 20;
+   }
+   else if (totalCost > 50) {  // numItems > 3 and totalCost > 50
+      saleDiscount = 10;
+   }
+}
+else if (numItems > 0) {
+   ...
+}
+
+/*Integer timeAfterClass is read from input. Write multiple if statements:
+
+    If timeAfterClass is greater than 10, then output "I can finish at least a third of my homework."
+    If timeAfterClass is greater than or equal to 45, then output "I can finish my homework and have extra time."
+    If timeAfterClass is less than 2, then output "I don't have time to do my homework."
+
+End each output with a newline. */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int timeAfterClass;
+
+   cin >> timeAfterClass;
+
+   if (timeAfterClass > 10) {
+      cout << "I can finish at least a third of my homework." << endl;
+   }
+   if (timeAfterClass >= 45) {
+      cout << "I can finish my homework and have extra time." << endl;
+   }
+   if (timeAfterClass < 2) {
+      cout << "I don't have time to do my homework." << endl;
+   }
+
+   return 0;
+}
+
+/*Integers numScore1 and numScore2 are read from input. Write one if statement and one if-else statement:
+
+    If numScore1 is less than 0, then output "numScore1 is negative."
+    If numScore2 is less than or equal to 35, then assign numScore2 with 10.
+    Otherwise, output "numScore2 is greater than 35."
+
+End each output with a newline. */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int numScore1;
+   int numScore2;
+
+   cin >> numScore1;
+   cin >> numScore2;
+
+   if (numScore1 < 0) {
+      cout << "numScore1 is negative." << endl;
+   }
+   if (numScore2 <= 35) {
+      numScore2 = 10;
+   }
+   else {
+      cout << "numScore2 is greater than 35." << endl;
+   }
+
+   cout << "numScore2 is " << numScore2 << "." << endl;
+
+   return 0;
+}
+/*Integers numLemons and moneyOnHand are read from input. Each lemon costs 3 dollars.
+
+Write the following if-else statement. Within the if branch, write the following assignment and nested if-else statement:
+
+    If numLemons is greater than or equal to 5:
+        Assign variable totalCost with the product of numLemons and 3.
+        If totalCost is less than or equal to moneyOnHand, then output "Successful purchase".
+        Otherwise, output "Not all lemons purchased".
+    Otherwise, output "Not allowed to purchase less than 5 lemons".
+
+End each output with a newline. */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int numLemons;
+   int moneyOnHand;
+   int totalCost;
+
+   cin >> numLemons;
+   cin >> moneyOnHand;
+ 
+   if (numLemons >= 5) {
+      totalCost = numLemons * 3;
+      if (totalCost <= moneyOnHand) {
+         cout << "Successful purchase" << endl;
+      }
+      else {
+         cout << "Not all lemons purchased" << endl;
+      }
+   }
+   else {
+      cout << "Not allowed to purchase less than 5 lemons" << endl;
+   }
+
+   return 0;
+}
+
+//if the branch is only one statement the braces aren't needed, but good practice is to use them
+if (numSales < 20)
+   salesBonus = 0;
+else
+   totBonus = totBonus + 1; 
+   salesBonus = 20; //technically the indentation doesn't matter, so without the braces this just executes after the else in the code
+
+   if (numSales < 20) {
+      salesBonus = 0;
+   }
+   else {
+      totBonus = totBonus + 1; 
+      salesBonus = 20;
+   } // executes the way it should
+
+   numItems = 0;
+   bonusVal = 5;
+   if (bonusVal > 10)
+      // Update bonusVal
+      bonusVal = bonusVal - 1; 
+      numItems = bonusVal;  
+   numItems = numItems + 1;
+   //numItems = 6 afterward, numItems = bonusVal isn't part of the branch despite apperances due to missing braces
+
+
+/*Re-type the code and fix any errors. The code should convert non-positive numbers to 1.
+   if (userNum > 0)
+      cout << "Positive." << endl;
+   else
+      cout << "Not positive, converting to 1." << endl;
+      userNum = 1;
+    
+   cout << "Final: " << userNum << endl;
+ */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int userNum;
+
+   cin >> userNum;
+
+   if (userNum > 0) {
+      cout << "Positive." << endl;
+   }
+   else {
+      cout << "Not positive, converting to 1." << endl;
+      userNum = 1;
+   }
+   cout << "Final: " << userNum << endl;
+
+
+   return 0;
+}
+
+//using = in an if over == will run even though it's wrong, it will assign he left side with the right and then the branch executes
+//as the value is not 0 so it's true
+numItems = 3; 
+if (numItems = 10) {
+   numItems = numItems + 1; //numItems will be 11
+}
+//Toll calculation example
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+   int timeHour;      // Time of travel hour
+   int timeMinute;    // Time of travel minute
+   char inputColon;   // Used to read time format
+   double tollAmount;
+   
+   cout << "Enter time of travel (HH:MM in 24 hour format): ";
+   
+   // Read an integer (hour), colon (char), and integer (minute)
+   cin  >> timeHour >> inputColon >> timeMinute;
+   
+   // Determine toll based on hour of travel
+   if (timeHour < 6) {         // Before 6:00 am
+      tollAmount = 1.55;
+   }
+   else if (timeHour < 10) {   // 6 am to 9:59 am
+      tollAmount = 4.65;
+   }
+   else if (timeHour < 18) {   // 10 am to 5:59 pm
+      tollAmount = 2.35;
+   }
+   else {                      // 6 pm and after
+      tollAmount = 1.55;
+   }
+   
+   // Output time and toll amount
+   cout << "Toll at " << timeHour << ":";
+   
+   // Output minute with formatting (discussed elsewhere) to
+   // print two digits for minutes.
+   cout << setw(2) << setfill('0') << timeMinute;
+   cout << " is " << tollAmount << endl;
+   
+   return 0;
+}
+
+//toll calculation using week day and time
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+   int timeHour;      // Time of travel hour (24 hour format)
+   int timeMinute;    // Time of travel minute
+   int typeOfDay;     // 0 - weekday, 1 - weekend/holiday
+   char inputColon;   // Used to read time format
+   double tollAmount;
+   
+   cout << "Enter time of travel (HH:MM in 24 hour format): ";
+   
+   // Read an integer (hour), colon (char), and integer (minute)
+   cin  >> timeHour >> inputColon >> timeMinute;
+   
+   cout << "Enter type of day (0 - weekday, 1 - weekend/holiday): ";
+   cin >> typeOfDay;
+   
+   if (typeOfDay == 0) { // Weekday time and rates
+                         // Determine toll based on hour of travel
+      if (timeHour < 6) {         // Before 6:00 am
+         tollAmount = 1.55;
+      }
+      else if (timeHour < 10) {   // 6 am to 9:59 am
+         tollAmount = 4.65;
+      }
+      else if (timeHour < 18) {   // 10 am to 5:59 pm
+         tollAmount = 2.35;
+      }
+      else {                      // 6 pm and after
+         tollAmount = 1.55;
+      }
+   }
+   else { // Weekend/holiday time and rates
+          // Determine toll based on hour of travel
+      if (timeHour < 8) {         // Before 8:00 am
+         tollAmount = 1.55;
+      }
+      else if (timeHour < 12) {   // 8 am to 11:59 am
+         tollAmount = 3.05;
+      }
+      else if (timeHour < 16) {   // 12 pm to 3:59 pm
+         tollAmount = 3.45;
+      }
+      else if (timeHour < 19) {   // 4 pm to 6:59pm
+         tollAmount = 3.60;
+      }
+      else if (timeHour < 22) {   // 7 pm to 9:59 pm
+         tollAmount = 3.05;
+      }
+      else {                      // 10 pm and after
+         tollAmount = 1.55;
+      }
+   }
+   
+   // Output toll using am/pm format
+   cout << "Toll at ";
+   
+   // Output hour adjusting for am/pm format
+   if (timeHour == 0) {
+      cout << "12:";
+   }
+   else if (timeHour <= 12) {
+      cout << timeHour << ":";
+   }
+   else {
+      cout << timeHour - 12 << ":";
+   }
+   
+   // Output minute with formatting (discussed elsewhere) to
+   // print two digits for minutes.
+   cout << setw(2) << setfill('0') << timeMinute;
+
+   // Output am/pm
+   if (timeHour < 12) {
+      cout << " am";
+   }
+   else {
+      cout << " pm";
+   }
+   
+   cout << " is " << tollAmount << endl;
+   
+   return 0;
+}
+
+//Toll Calculator using carpool discounts
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+   int timeHour;      // Time of travel hour (24 hour format)
+   int timeMinute;    // Time of travel minute
+   int typeOfDay;     // 0 - weekday, 1 - weekend/holiday
+   int numPeople;    // People in vehicle
+   char inputColon;   // Used to read time format
+   double tollAmount;
+   
+   cout << "Enter time of travel (HH:MM in 24 hour format): ";
+   
+   // Read an integer (hour), colon (char), and integer (minute)
+   cin  >> timeHour >> inputColon >> timeMinute;
+   
+   cout << "Enter type of day (0 - weekday, 1 - weekend/holiday): ";
+   cin >> typeOfDay;
+   
+   cout << "Enter number of people in vehicle: ";
+   cin >> numPeople;
+   
+   if (typeOfDay == 0) { // Weekday time and rates
+                         // Determine toll based on hour of travel
+      if (timeHour < 6) {         // Before 6:00 am
+         tollAmount = 1.55;
+      }
+      else if (timeHour < 10) {   // 6 am to 9:59 am
+         tollAmount = 4.65;
+      }
+      else if (timeHour < 18) {   // 10 am to 5:59 pm
+         tollAmount = 2.35;
+      }
+      else {                      // 6 pm and after
+         tollAmount = 1.55;
+      }
+   }
+
+   
+   else { // Weekend/holiday time and rates
+          // Determine toll based on hour of travel
+      if (timeHour < 8) {         // Before 8:00 am
+         tollAmount = 1.55;
+      }
+      else if (timeHour < 12) {   // 8 am to 11:59 am
+         tollAmount = 3.05;
+      }
+      else if (timeHour < 16) {   // 12 pm to 3:59 pm
+         tollAmount = 3.45;
+      }
+      else if (timeHour < 19) {   // 4 pm to 6:59 pm
+         tollAmount = 3.60;
+      }
+      else if (timeHour < 22) {   // 7 pm to 9:59 pm
+         tollAmount = 3.05;
+      }
+      else {                      // 10 pm and after
+         tollAmount = 1.55;
+      }
+   }
+
+   
+   // Check for carpool rate (3 or more people) and update toll
+   if (numPeople >= 3) {
+      // If on a weekday between 6:00 am and 9:59 am, toll is half off
+      if ((typeOfDay == 0) && (timeHour >= 6) && (timeHour < 10)) {
+         tollAmount = tollAmount * 0.5;
+      }
+      // Otherwise, the toll is free
+      else {
+         tollAmount = 0.0;
+      }
+   }
+   
+   // Output toll using am/pm format
+   cout << "Toll at ";
+   
+   // Output hour adjusting for am/pm format
+   if (timeHour == 0) {
+      cout << "12:";
+   }
+   else if (timeHour <= 12) {
+      cout << timeHour << ":";
+   }
+   else {
+      cout << timeHour - 12 << ":";
+   }
+
+   
+   // Output minute with formatting (discussed elsewhere) to
+   // print two digits for minutes.
+   cout << setw(2) << setfill('0') << timeMinute;
+   // Output am/pm
+   if (timeHour < 12) {
+      cout << " am";
+   }
+   else {
+      cout << " pm";
+   }
+   cout << " is " << tollAmount << endl;
+   return 0;
+}
+
+//Bitwise operators -> & and |, not the same as && or ||
+//Precedence rules - https://en.cppreference.com/cpp/language/operator_precedence 
+//Order of operations for expression evaluation, use parentheses to avoid mistakes
+
+/*The following code contains a precedence error. Find and fix the precedence error by adding parentheses so the program outputs "Need to order more desserts" if both of the following are true:
+
+    Either numCupcakes is less than or equal to 10 or numPancakes is less than 8.
+    numDonuts is less than 7.
+
+Otherwise, "Enough desserts in stock" is output. */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int numCupcakes;
+   int numPancakes;
+   int numDonuts;
+
+   cin >> numCupcakes;
+   cin >> numPancakes;
+   cin >> numDonuts;
+
+   // Fix the precedence error in the following line
+   if ((numCupcakes <= 10 || numPancakes < 8) && numDonuts < 7) { //original  if (numCupcakes <= 10 || numPancakes < 8 && numDonuts < 7) {
+      cout << "Need to order more desserts" << endl;
+   }
+   else {
+      cout << "Enough desserts in stock" << endl; 
+   }
+
+   return 0;
+}
+
+/*The following code contains a logic error.
+Find and fix the logic error so the program outputs "The person is school age." if ageNum is greater than 4 and is less than 18
+otherwise outputs "The person is not school age.". */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int ageNum;
+
+   cin >> ageNum;
+
+   // Fix the logic error in the following line
+   if (ageNum > 4 && ageNum < 18) { //original if (4 < ageNum < 18) {
+      cout << "The person is school age." << endl;
+   }
+   else {
+      cout << "The person is not school age." << endl; 
+   }
+
+   return 0;
+}
+/*Integers numCheesecakes, numBeignets, and numPeople are read from input.
+  Complete the following code so that "Desserts can be divided equally." is output if the total number of desserts is divisible by numPeople.
+  Otherwise, "Desserts cannot be divided equally." is output. */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int numCheesecakes;
+   int numBeignets;
+	int numPeople;
+
+   cin >> numCheesecakes;
+   cin >> numBeignets;
+	cin >> numPeople;
+
+   if ((numCheesecakes + numBeignets + numPeople) % numPeople ==0) { //this line had nothing in parentheses
+      cout << "Desserts can be divided equally." << endl;
+   }
+   else {
+      cout << "Desserts cannot be divided equally." << endl; 
+   }
+
+   return 0;
+}
