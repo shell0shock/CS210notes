@@ -3599,3 +3599,257 @@ int main() {
 
    return 0;
 }
+//switch statements - clearly represent multi-branch behavior involvign a variable compared toa constant
+//program executes the firstcase whose constant expression matches the switch expression value
+//then goes to end of program
+//only 1 case will be executed
+//default case needs established, if no case is met then default executes
+//think of cases as very specific conditions that you wnat code to run if they are met
+//depending on userVal, different things will happen, if no userval is set than numItems defaults to 55
+//if userval = 1 -> Case 1 executes
+//Case number is often the value you want the expression to meet
+switch (userVal) {
+   case 1:
+      numItems = 5; 
+      break;
+
+   case 3:
+      numItems = 12; 
+      break;
+
+   case 4:
+      numItems = 99;
+      break;
+
+   default:
+      numItems = 55;
+      break;
+}
+//general form of switch statement
+//the expression should be an int or char, not a string or float
+//each case MUST have a constant expression, cannot be a variable
+//case order doesn't matter as long as they include breaks
+//always have a default case
+switch (expression) {
+   case constantExpr1: 
+      // Statements
+      break;
+
+   case constantExpr2:
+      // Statements
+      break;
+   
+   ...
+   
+   default: // If no other case matches
+      // Statements
+      break;
+}
+//example - dog years
+#include <iostream>
+using namespace std;
+
+/* Estimates dog's age in equivalent human years.
+   Source: www.dogyears.com
+*/
+
+int main() {
+   int dogAgeYears;
+
+   cout << "Enter dog's age (in years): ";
+   cin  >> dogAgeYears;
+
+   switch (dogAgeYears) {
+      case 0:
+         cout << "That's 0-14 human years." << endl;
+         break;
+
+      case 1:
+         cout << "That's 15 human years." << endl;
+         break;
+
+      case 2:
+         cout << "That's 24 human years." << endl;
+         break;
+
+      case 3:
+         cout << "That's 28 human years." << endl;
+         break;
+
+      case 4:
+         cout << "That's 32 human years." << endl;
+         break;
+
+      case 5:
+         cout << "That's 37 human years." << endl;
+         break;
+
+      default:
+         cout << "Human years unknown." << endl;
+         break;
+   }
+
+   return 0;
+}
+//omitting the break will cause "falling through" behavior
+//the cases below the case without the break will also execute, his can be useful if multiple cases do the same thing
+switch (dogAgeMonths) {
+   case 0:
+   case 1:
+   case 2: //cases 0 1 & 2 will say the same thing
+      cout << "That's 0-14 human months." << endl;
+      break;
+//BOOLEAN data types - T/F, in C++ is represented by bool
+//the bool variables can be set using eiher true / false keywords or by assigning it the result of a logical expression
+bool isWeekend = true;
+bool isLargeParty = (partySize>6); 
+
+//Example - Restaraunt wait times
+#include <iostream>
+using namespace std;
+
+int main() {
+   int waitTime;
+   int partySize;
+   char day;
+   bool isLargeParty;
+   bool isWeekend;
+   
+   // Get day of reservation
+   cout << "Day of reservation (T/W/R/F/S/U): ";
+   cin >> day;
+   if (day == 'F' || day == 'S' || day == 'U') {
+      isWeekend = true;
+   }
+   else {
+      isWeekend = false;
+   }
+   
+   // Get party size
+   cout << "Enter party size: ";
+   cin  >> partySize;
+   isLargeParty = (partySize > 6); //sets this bool to true if partySize is over 6, false otherwise
+   
+   // Determine wait time based on day of week and party size
+   if (isWeekend && !isLargeParty) { //if it's the weekend and largeParty is false
+      waitTime = 30;
+   }
+   else if (!isWeekend && !isLargeParty) { //isWeekend false and ISLargeParty false
+      waitTime = 10;
+   }
+   else if (isWeekend && isLargeParty) {
+      waitTime = 45;
+   }
+   else {
+      waitTime = 15;
+   }
+   
+   cout << "Restaurant wait time is " << waitTime << " minutes." << endl;
+   
+   return 0;
+}
+//complex programs tha combine logical and relational operators and expressions can be simplified using 
+//boolean variables, set the bool variables with the result of the expressions using relational operators
+//then, the if-else only needs to use logical operations using the bools
+isHot = (currentTemp > desiredTemp); //setting bool variables with the values of the relaionals
+isReallyHot = (currentTemp > (desiredTemp + 5.0));
+isHumid = (currentHumidity > 0.50);
+   
+if (isReallyHot) { //if else can use only true / false bool values 
+   // Use A/C and evaporative cooler
+   acOn = true;
+   evapCoolerOn = true;
+}
+else if (isHot && isHumid) {
+   // Use A/C
+   acOn = true;
+   evapCoolerOn = false;
+}
+else if (isHot && !isHumid) {
+   // Use evaporative cooler
+   acOn = false;
+   evapCoolerOn = true;
+}
+else {
+   acOn = false;
+   evapCoolerOn = false;
+}
+
+//Assign isTeenager with true if kidAge is 13 to 19 inclusive. Otherwise, assign isTeenager with false. 
+#include <iostream>
+using namespace std;
+
+int main() {
+   bool isTeenager;
+   int kidAge;
+
+   cin >> kidAge;
+
+   isTeenager = ((kidAge >= 13) && (kidAge <= 19));
+
+   if (isTeenager) {
+      cout << "Teen" << endl;
+   }
+   else {
+      cout << "Not teen" << endl;
+   }
+
+   return 0;
+}
+
+//String Comparison can be done with == and != 
+//Strings are equal if they have the same number of and identical characters
+//apple is not equal to Apple
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+   string userWord;
+
+   cout << "Enter a word: ";
+   cin  >> userWord;
+
+   if (userWord == "USA") {
+      cout << "United States of America";
+   }
+   else {
+      cout << userWord;
+   }
+   cout << endl;
+
+   return 0;
+}
+//relational operators can also be used to compare strings
+//the string's numeric ASCII encoding is compared, startign at index 0 until a strign's end is reached or
+//it evaluates to false
+//Apples is less than apples because A = 65 & a = 97
+//if existing chars are the same, the shorter string is less than
+
+/*Print the two strings, firstString and secondString, in alphabetical order. Assume the strings are lowercase
+End with newline. Sample output:
+capes rabbits
+ */
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+   string firstString;
+   string secondString;
+
+   cin >> firstString;
+   cin >> secondString;
+
+   if (firstString < secondString) {
+      cout << firstString << " " << secondString << endl;
+   }
+   else {
+      cout << secondString << " " <<  firstString << endl;
+   }
+
+   return 0;
+}
+//String Access Operations
+//Strings are character sequences in memory, each string char has a position number -> the Index, starting at 0
