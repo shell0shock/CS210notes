@@ -3853,3 +3853,363 @@ int main() {
 }
 //String Access Operations
 //Strings are character sequences in memory, each string char has a position number -> the Index, starting at 0
+//String - Alex | Index 0 - A, 1-l, 2-e,3-x
+//accessing string chars by index value - use at()
+//at(): The notation someString.at(x) accesses the character at index x of a string. 
+string myString = "Alex";
+myString.at(0) //A
+  //example - Word Scramble
+
+#include <iostream>
+#include <string> //needed for strigns
+using namespace std;
+
+int main() {
+   string userWord;
+
+   cout << "Enter a 5-letter word: ";
+   cin  >> userWord; //gets word from input
+
+   cout << "Scrambled: "; //0s 1h 2a 3r 4t
+   cout << userWord.at(3); //if word is shart - r
+   cout << userWord.at(1); //if word is shart - h
+   cout << userWord.at(4); //if word is shart - t
+   cout << userWord.at(0); //if word is shart - s
+   cout << userWord.at(2); //if word is shart - a
+   cout << endl;
+
+   return 0;
+}
+//characters from a string index can also be changed using .at()
+myStr = "Poops";
+myStr.at(4) = 'y'; // it's now Poopy
+
+//ex
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+   string userWord ="Caterpillar";
+   int replaceIndex;
+   
+   cout << "Enter an index (0-10): ";
+   cin  >> replaceIndex;
+
+   userWord.at(replaceIndex) = '*'; //replaces whatever char the user seleced by index with * - Cater*illar, *aterpillar, etc
+
+   cout << "Updated string: ";
+   cout << userWord << endl;
+
+   return 0;
+}
+
+//Often we'd need to know or work with a string's size, last char, etc
+//if you know the string length, last char is index length -1 -> mystr = Hey - y @ 3-1 -> index 2
+//.size() returns the string length
+//myStr.size() -> 3
+//Appending is commonly needed in programming
+//.push_back("what we're adding"); adds a char to end of string
+//my_Str = "poop" -> myStr.push_back('y') -> myStr = poopy
+//using .append() or + can add strings together
+myStr1 = "I need more time";
+myStr2 = " for Zybooks";
+newStr1 = myStr1.append(myStr2); // I need more time for Zybooks
+newStr2 = myStr1 + myStr2; // I need more time for Zybooks
+
+//example - captions
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+   string userCaption;
+   char lastChar;
+   int lastIndex;
+
+   cout << "Enter a caption: ";
+   getline(cin, userCaption); // get's user input including spaces until new line
+
+   lastIndex = userCaption.size() - 1; // finds last index by getting size minus 1
+   lastChar  = userCaption.at(lastIndex); //gets end char using index position and .at()
+
+   if ( (lastChar != '.') && (lastChar != '!') && (lastChar != '?') ) { // if lastchar isn't a period, exclamation or quesiton
+      // User's caption lacked ending punctuation, so add a period
+      userCaption.append(".");
+   }
+
+   cout << "New: ";
+   cout << userCaption << endl;
+
+   return 0;
+}
+//.size() and .length() both return a strings lenth
+myStr.at(myStr.size()-1) // returns last char
+
+//append can only add strings, not chars
+//.append('?') -> not valid, error
+//.at(index) will generate an execption if the index id out of range for the string's size
+//exception - detected runtime error printing out a mesage & terminate program
+//you can use C's [] notation in C++ for string indices, but the error checkign isn't great
+userText[7] = '!'; //when userText = "Monday" may try and do it anyways despite not having an index 7, just use .at()
+
+/*Assign secretID with firstName, a space, and lastName.
+If firstName is Barry and lastName is Allen, then output is:
+Barry Allen
+ */
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+   string secretID;
+   string firstName;
+   string lastName;
+
+   cin >> firstName;
+   cin >> lastName;
+
+   secretID = firstName + " " + lastName;
+
+   cout << secretID << endl;
+   return 0;
+}
+
+/*Given string inputText, change the fifth character of inputText to 'A'.
+
+Ex: If the input is:
+
+tiger
+
+then the output is:
+
+tigeA
+
+Note: Assume the length of string inputText is greater than or equal to 5. */
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+   string inputText;
+
+   getline(cin, inputText);
+
+   inputText.at(4) = 'A';
+
+   cout << inputText << endl;
+
+   return 0;
+}
+
+/* Given string userString on one line and character inputChar on the next line
+output "Found match" if the fourth character of userString matches inputChar
+Otherwise, output "No match". End with a newline.
+Ex: If the input is:
+guitar
+t
+then the output is:
+Found match
+Note: Assume the length of string userString is greater than or equal to 4.*/
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+   string userString;
+	char inputChar;
+
+   getline(cin, userString);
+	cin >> inputChar;
+
+   if (userString.at(3) == inputChar) {
+      cout << "Found match" << endl;
+   }
+   else { 
+      cout << "No match" << endl;
+   }
+
+   return 0;
+}
+
+/*Given string strInput, output "A question" if the string's last character is '?'.
+  Otherwise, output "Not a question". End with a newline.
+
+Ex: If the input is:
+
+Where are you from?
+
+then the output is:
+
+A question */
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+   string strInput;
+   
+   getline(cin, strInput);
+
+   if (strInput.at(strInput.size()-1) == '?') {
+      cout << "A question" << endl;
+   }
+   else {
+      cout << "Not a question" << endl;
+   }
+
+   return 0;
+}
+/*Given string inputStr on one line and string toAdd on the next line
+assign resultStr with the copy of inputStr with toAdd appended.
+Ex: If the input is:
+Fuzzy fox
+!!!
+
+then the output is:
+Fuzzy fox!!! */
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+   string inputStr;
+	string toAdd;
+	string resultStr;
+
+	getline(cin, inputStr);
+	getline(cin, toAdd);
+
+   resultStr = inputStr.append(toAdd);
+
+   cout << resultStr << endl;
+
+   return 0;
+}
+
+//including the cctype library provides several character manipulation functinos
+#include <cctype>
+//ctype standa for char, the first c indicates it's from the C language library
+//grants the use of:
+isalpha(c) // true if char is alphatbetic
+isdigit(c)//true if char is a digit
+isspace(c) //true if whitespace char
+toupper(c) //capitalizes char
+tolower(c)//lowers case of char
+
+//state abbreviation capilization example
+#include <iostream>
+#include <cctype>
+using namespace std;
+
+int main() {
+   char let0;
+   char let1;
+
+   cout << "Enter a two-letter state abbreviation: ";
+   cin >> let0;
+   cin >> let1;
+
+   if ( ! (isalpha(let0) && isalpha(let1)) ) {
+      cout << "Error: Both are not letters." << endl;
+   }
+   else {
+      let0 = toupper(let0);
+      let1 = toupper(let1);
+      cout << "Capitalized: " << let0 << let1 << endl;
+   }
+
+   return 0;
+}
+
+//toUpper & toLower doesn't modify string, just returns the modified version
+/*Variable userString is assigned with a 2-character string read from input.
+If userString's second character is not alphabetic, output "The second character is not alphabetic."
+Otherwise, output "The second character is alphabetic: " followed by the alphabetic character.
+End each output with a newline.
+
+Ex: If the input is n1, then the output is:
+
+The second character is not alphabetic.
+ */
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
+
+int main() {
+   string userString;
+
+   getline(cin, userString);
+
+   if (!isalpha(userString.at(1))) {
+      cout << "The second character is not alphabetic." << endl;
+   }
+   else {
+      cout << "The second character is alphabetic: " << userString.at(1) << endl;
+   }
+
+   return 0;
+}
+/*Variable inString is assigned with a 3-character string read from input.
+If inString's first and second characters are both alphabetic characters, output "Valid string". Otherwise, output "Invalid string". End each output with a newline.
+
+Ex 1: If the input is sh5, then the output is:
+
+Valid string
+
+Ex 2: If the input is f54, then the output is:
+
+Invalid string */
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
+
+int main() {
+   string inString;
+
+   getline(cin, inString);
+
+   if (isalpha(inString.at(0)) && isalpha(inString.at(1))) {
+      cout << "Valid string" << endl;
+   }
+   else {
+      cout << "Invalid string" << endl;
+   }
+
+   return 0;
+}
+/*Variable userString is assigned with a 2-character string read from input
+If userString's first character is an uppercase letter, output "String is valid"
+Otherwise, output "String is not valid". End each output with a newline.
+
+Ex 1: If the input is Tq, then the output is:
+
+String is valid
+
+Ex 2: If the input is nb, then the output is:
+
+String is not valid */
+
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
+
+int main() {
+   string userString;
+
+   getline(cin, userString);
+
+   if (userString.at(0) == toupper(userString.at(0)) && isalpha(userString.at(0))) {
+      cout << "String is valid" << endl;
+   }
+   else {
+      cout << "String is not valid" << endl;
+   }
+
+   return 0;
+}
