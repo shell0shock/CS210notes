@@ -4213,3 +4213,1746 @@ int main() {
 
    return 0;
 }
+//standard if-elses are so common they can be written in shorthand
+myVar = (condition) ? expr1:expr2; //is the same as:
+if (condition) {
+  myVar = expr1;
+}
+else {
+  myVar = expr2;
+}
+//conditionals have the form (condition) ? exprWhenTrue:exprWhenFalse;
+//if x =2 and the conditional is (x==2) ? 5:9*x; -> X is then 5
+//the ? & : are Ternary Operators
+//avoid them when possible as they can become confusting, put parentheses around the first expression to enhance readability
+
+
+if (x < 100) {
+   y = 0;
+}
+else {
+   y = x;
+}
+
+//as a conditional -> y = (x<100) ? 0:x;
+
+/*
+ Using a conditional expression, write a statement that increments numUsers if updateDirection is 1
+ otherwise decrements numUsers. Ex: if numUsers is 8 and updateDirection is 1, numUsers becomes 9
+ if updateDirection is 0, numUsers becomes 7.  */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int numUsers;
+   int updateDirection;
+
+   cin >> numUsers;
+   cin >> updateDirection;
+
+   numUsers = (updateDirection ==1) ? numUsers+=1:numUsers-=1;
+
+   cout << "New value is: " << numUsers << endl;
+
+   return 0;
+}
+//omitting the first part before the colon won't change the var
+myNumber = 5;
+yourNumber = (myNumber >= 4) ? myNumber : 9; //if true, myNumber doesn't change
+
+//Float Comparison - don't use ==, like float1==float2 -> some floating-point numbers can't be represented exactly in the limited avialable memory bits like 64 bits
+//floats that should be the exact same may only be close when compared
+numMeters = 0.7;  
+numMeters = numMeters - 0.4;
+numMeters = numMeters - 0.3;// numMeters expected to be 0, but is actually -0.0000000000000000555112 
+if (fabs(numMeters - 0.0) < 0.001) {
+   // Equals 0.
+}
+else {
+   // Does not equal 0.
+}
+//0.7 for nummeters may actually be 0.6999999999999999999999555910790
+
+//Close Enough Comparison for floats
+//use fabs(x-y)<0.0001; for comparison, use fabs as the difference between x & y may be negative
+//fabs from the math library #include <cmath>
+//the difference threshold indicating that floats are equal when compared with fabs is called the Epsilon
+//epsilon value depends on the expected values for the program but 0.0001 is common 
+fabs(x-1.0) < 0.0001 // checks if x = 1.0
+//example comparing temps
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+   double bodyTemp;
+
+   cout << "Enter body temperature in Fahrenheit: ";
+   cin >> bodyTemp;
+
+   if (fabs(bodyTemp - 98.6) < 0.0001) { //using epsilon to check if bodyTemp == 98.6
+      cout << "Temperature is exactly normal." << endl; //if user enters 98.6000001 it will still say exactly normal, for this inputs you need a much smaller epsilon like 0.0000000001
+   else if (bodyTemp > 98.6) {
+      cout << "Temperature is above normal." << endl;
+   }
+   else {
+      cout << "Temperature is below normal." << endl;
+   }
+
+   return 0;
+}
+
+//to see the inexact values for floats use a manipulator for output formatting
+#include <iostream>
+#include <ios>
+#include <iomanip>
+using namespace std;
+
+int main() {
+   double sampleValue1 = 0.2;
+   double sampleValue2 = 0.3;
+   double sampleValue3 = 0.7;
+   double sampleValue4 = 0.0;
+   double sampleValue5 = 0.25;
+   
+   
+   cout << "sampleValue1 using just cout: " 
+        << sampleValue1 << endl;
+
+   cout << setprecision(25) //shows the float at 25 chars past decimal
+        << "sampleValue1 is " << sampleValue1 << endl //sampleValue1 is 0.2000000000000000111022302 if user enters 0.2
+        << "sampleValue2 is " << sampleValue2 << endl
+        << "sampleValue3 is " << sampleValue3 << endl
+        << "sampleValue4 is " << sampleValue4 << endl
+        << "sampleValue5 is " << sampleValue5 << endl;
+   
+   return 0;
+}
+
+//Short Circuit Evaluation - Logical Operators evaluate operands from L -> R
+//Short Cicuit Evaluation skips later evaluations of operands if the logical operator's result can be determined from firstoperand
+//AND && - short circuits to False if 1st operand is false, skips 2nd operand eval
+//OR || - short circuits to True if 1st operand is true, skips 2nd operand eval
+(x < 3) && (y < 2) && (z ==5) //if x=1 and y=0 then all operands are evaled, if x is 4 than the whole thign is falase
+//x = 1 so first part is true, goes to 2nd eval, y = 0 so 2nd part is true, moves to Z eval
+
+
+((x > 2) || (y < 4)) && (z == 10) // if x =4, y = 1 & z = 10 then the OR operaotr evals to true for first part, doesn't matter what 2nd part is
+//since first part is now true all that needs evaled is 10, since our logical and first portion (the OR operation) is true it needs to eval the 2nd
+
+
+
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;                       
+
+int main() {
+   string inputName;
+   string searchName;
+   string coreGtld1;
+   string coreGtld2;
+   string coreGtld3;
+   string coreGtld4;
+   // FIXME: Add a fourth core gTLD: .info
+   bool isCoreGtld = false;
+
+   coreGtld1 = ".com";
+   coreGtld2 = ".net";
+   coreGtld3 = ".org";
+   coreGtld3 = ".info";
+
+   cout << endl << "Enter a top-level domain name: " << endl;
+   cin >> inputName;
+
+   searchName = inputName;
+// FIXME: Allow the user to enter a name with or without a leading period
+   if (searchName.at(0) == '.') {
+     searchName = searchName.erase(0,1); //.erase(x,y) -> erases a char at index(x) and removes the amount of chars at (y) - this removes only 1 char, at index 0
+   }
+   
+   // Determine whether the user-entered name is a gTLD
+   if (searchName == coreGtld1) {
+      isCoreGtld = true;
+   }
+   else if (searchName == coreGtld2) {
+      isCoreGtld = true;
+   }
+   else if (searchName == coreGtld3) {
+      isCoreGtld = true;
+   }
+   else if (searchName == coreGtld4) {
+     isCoreGtld = true;
+   }
+   else {
+      isCoreGtld = false;
+   }
+
+   cout << "The name \"" << inputName << "\" ";
+   if (isCoreGtld) {
+      cout << "is a core gTLD." << endl;
+   }
+   else {
+      cout << "is not a core gTLD." << endl;
+   }
+
+   return 0;
+}
+
+//Loops - program construct that repeatedly executes loop's code statments,called the loop body, while the loops's expression is true
+//when the loop expression evaluates to false, the loop is exited and subsequent code executes
+//each pass through the loop body - Iteration
+//While Loops - Loop that executes loop body for constant iterations while the loop expression is true
+//need to set a break or escpae or it will run indefinitely
+//even if expression is found fale during loop, until that body executes and expression is checked again th loop continues
+while (expression) { // Loop expression
+    // Loop body: Executes if expression evaluated to true 
+    // After body, execution jumps back to the "while"
+}
+// Statements that execute after the expression evaluates to false
+
+#include <iostream>
+using namespace std;
+
+int main() {
+  int currPower;
+  char userChar;
+ 
+  currPower = 2;
+  userChar = 'y';
+ 
+  while (userChar == 'y') { //as long as userChar is 'y' this loop executes
+     cout << currPower << endl;
+     currPower = currPower * 2;
+     cin >> userChar; //forgetting this or a break will cause infinite loop
+  }
+ 
+  cout << "Done" << endl;
+ 
+  return 0;
+}
+
+
+int userNum = 3;
+
+while (userNum > 0) { //loop will always execute at least once as userNum is instantiated with 3
+   // Do something
+   userNum = // Get input into userNum
+}
+
+
+//example: F-C conversion
+#include <iostream>
+using namespace std;
+
+int main() {
+   double celsiusValue;
+   double fahrenheitValue;
+   char userChar;
+
+   celsiusValue = 0.0;
+   userChar = 'y';
+
+   while (userChar == 'y') {
+      fahrenheitValue = (celsiusValue * 9.0 / 5.0) + 32.0;
+
+      cout << celsiusValue << " C is ";
+      cout << fahrenheitValue << " F" << endl; 
+
+      cout << "Type y to continue, any other to quit: ";
+      cin >> userChar;
+
+      celsiusValue = celsiusValue + 5;
+      cout << endl;
+   }
+
+   cout << "Goodbye." << endl;
+
+   return 0;
+}
+
+//above examples had input only retrieved during lop at end of loop body
+//anothe common way is to get input before the loop
+//thie helps determine when loop will run
+cin << loopVar;
+while (loopVar > 0) { //if loopVar is -1, loop never executes
+  //do loop stuff
+  cin << loopVar; // determines if loop breaks or not
+}
+
+//loop expressions
+//various expressions can be used in while loops, sometimes the loop will only execute if a value is > or < than a value
+//sometimes loop only executes if loopVar != other value
+
+#include <iostream>
+using namespace std;
+
+int main() {
+  int userNum;
+ 
+  cin >> userNum;
+ 
+  while (userNum > 0) {
+     cout << userNum % 10 << endl;
+     userNum = userNum / 10;
+  }
+ 
+  return 0;
+}
+
+//loop example - ancestors
+#include <iostream>
+using namespace std;
+
+int main() {
+   const int YEARS_PER_GEN = 20; // Approx. years per generation
+   int userYear;                 // User input
+   int consYear;                 // Year being considered
+   int numAnc;                   // Approx. ancestors in considered year
+   
+   consYear = 2020;
+   numAnc = 2;
+
+   cout << "Enter a past year (neg. for B.C.): ";
+   cin >> userYear;
+      
+   while (consYear >= userYear) { // as long as consYears more than userYear, loop executes
+      cout << "Ancestors in " << consYear << ": " << numAnc << endl;
+      
+      numAnc = 2 * numAnc;                 // Each ancestor had two parents //doubles amount of ancestors to output (x2, one for each parent)
+      consYear = consYear - YEARS_PER_GEN; // Go back 1 generation //decreases consYear by 20, lowering iteration count
+   }
+   
+   return 0;
+}
+ /*Enter a past year (neg. for B.C.): 1900
+ Ancestors in 2020: 2
+ Ancestors in 2000: 4
+ Ancestors in 1980: 8
+ Ancestors in 1960: 16
+ Ancestors in 1940: 32
+ Ancestors in 1920: 64
+ Ancestors in 1900: 128
+ */
+
+ //infinite loops are super common when programmers either forget an escape sequence, break or set the loop expression to something that won't change
+ //use > or < and == for loop expression so that it's forced to evaluate some kind of change in variables
+ //using = instead of == will not cause the loop expression to recognize change in variable value thus giving infinite loop
+ z = 0;
+ c = 'y';
+ 
+ while (c = 'y') {
+    cout << z << " ";
+    cin >> c; //no matter what the user inputs here, c ='y' will not be changed due to previous assignment and will loop infinitely
+    z = z + 1;
+ }
+ 
+ x = 10;
+ 
+ while (x != 3) { //x will NEVER be equal to 3 here, infinite loop
+    cout << x << " ";
+    x = x / 2;
+ }
+
+ #include <iostream>
+ using namespace std;
+ 
+ int main() {
+    int g;
+ 
+    g = 0;
+ 
+    while (g <= 3) {
+       cout << g << endl;
+       g = g + 1;
+    }
+ 
+    return 0;
+ } //output - 0 1 2 3 all separated by endl
+
+ /*A while loop reads characters from input into variable valueIn. Write an expression that executes the while loop while character 's' is not read into valueIn. */
+ #include <iostream>
+ using namespace std;
+ 
+ int main() {
+    char valueIn;
+ 
+    cin >> valueIn;
+    while (valueIn != 's') {
+       cout << "User entered " << valueIn << endl;
+       cin >> valueIn;
+    }
+ 
+    cout << "Loop terminated" << endl;
+ 
+    return 0;
+ }
+ /*Character userIn is read from input. Write a while loop that reads characters from input while character 'e' is not read. In each iteration:
+ 
+     Update charSum with the sum of charSum and 1.
+     Then, read the next character from input into variable userIn.
+ 
+ Character 'e' should not be included in the count. */
+
+ #include <iostream>
+ using namespace std;
+  
+ int main() {
+    char userIn;
+	int charSum;
+ 
+	charSum = 0;
+	cin >> userIn;
+ 
+    while (userIn != 'e') {
+       charSum += 1;
+       cin >> userIn;
+    }
+ 
+    cout << charSum << endl;
+ 
+	return 0;
+ }
+
+ /*Integer valueIn is read from input. Write a while loop that iterates while valueIn is non-negative. In each iteration:
+ 
+     Update integer finalVal as follows:
+         If valueIn is even, add valueIn to finalVal.
+         Otherwise, subtract valueIn from finalVal.
+     Then, read the next integer from input into variable valueIn.
+ 
+ */
+ #include <iostream>
+ using namespace std;
+ 
+ int main() {
+    int valueIn;
+    int finalVal;
+ 
+    finalVal = 0;
+    cin >> valueIn;
+ 
+    while (valueIn >= 0) {
+       if (valueIn % 2 == 0) {
+          finalVal = finalVal + valueIn;
+       }
+       else {
+          finalVal = finalVal - valueIn;
+       }
+       cin >> valueIn;
+    }
+ 
+    cout << "Final value is " << finalVal << endl;
+ 
+    return 0;
+ }
+
+
+ //Example Greatest common divisor
+
+ #include <iostream>
+ using namespace std;
+ 
+ // Output GCD of user-input numA and numB
+ 
+ int main() {
+    int numA;  // User input
+    int numB;  // User input
+    
+    cout << "Enter first positive integer: ";
+    cin  >> numA;
+    
+    cout << "Enter second positive integer: ";
+    cin  >> numB;
+    
+    while (numA != numB) { // Euclid's algorithm
+       if (numB > numA) {
+          numB = numB - numA;
+       }
+       else {
+          numA = numA - numB;
+       }
+    }
+    
+    cout << "GCD is: " << numA << endl;
+    
+    return 0;
+ }
+/*Enter first positive integer: 9
+Enter second positive integer: 7
+GCD is: 1
+
+...
+
+Enter first positive integer: 15
+Enter second positive integer: 10
+GCD is: 5
+
+...
+
+Enter first positive integer: 99
+Enter second positive integer: 33
+GCD is: 33
+
+...
+
+Enter first positive integer: 500
+Enter second positive integer: 500
+GCD is: 500 */
+
+
+//ex - conversation loop program
+#include <iostream>
+#include <string>
+using namespace std;
+
+/* Program that has a conversation with the user. 
+   Uses a if-else statements and a random number (sort of) 
+   to mix up the program's responses. */
+
+int main() {
+   int randNum0_3;         // Random number 0 to 3
+   string userText;        // User input
+   
+   cout << "Tell me something about yourself." << endl;
+   cout << "You can type \"Goodbye\" at anytime to quit." 
+        << endl << endl << "> ";
+   
+   getline(cin, userText);
+   
+   while (userText != "Goodbye") {
+      randNum0_3 = userText.size() % 4; // "Random" num. %4 ensures 0-3
+
+      if (randNum0_3 == 0) {
+         cout << endl << "Please explain further." 
+              << endl << endl << "> ";
+      }
+      else if (randNum0_3 == 1) {
+         cout << endl << "Why do you say: \"" << userText << "\"?" 
+              << endl << endl << "> ";
+      }     
+      else if (randNum0_3 == 2) {
+         cout << endl << "I don't think that's right." 
+              << endl << endl << "> ";
+      }     
+      else if (randNum0_3 == 3) {
+         cout << endl << "What else can you share?" 
+              << endl << endl << "> ";
+      }
+      else {
+         cout << endl << "Uh-oh, something went wrong. Try again." 
+              << endl << endl;
+      }
+      
+      getline(cin, userText);
+   }
+   
+   cout << endl << "It was nice talking with you. Goodbye." << endl;
+   
+   return 0;
+}
+/*Tell me something about yourself.
+You can type "Goodbye" at anytime to quit.
+
+> I'm 26 years old.
+
+Why do you say: "I'm 26 years old."?
+
+> Well, I was born 26 years ago.
+
+I don't think that's right.
+
+> I am sure it is correct.
+
+Please explain further.
+
+> Goodbye
+
+It was nice talking with you. Goodbye. */
+
+//Sentinel Value - special value indicating the end of a list, like a list of positive integers ending with 0 - 10 1 6 3 0
+//often used to force a looop break
+
+#include <iostream>
+using namespace std;
+
+// Outputs average of list of positive integers
+// List ends with 0 (sentinel) - not included in the calculation of the average
+// Ex: 10 1 6 3 0  yields (10 + 1 + 6 + 3) / 4, or 5
+
+int main() {
+   int currValue;
+   int valuesSum;
+   int numValues;
+
+   valuesSum = 0;
+   numValues = 0;
+
+   cin >> currValue;
+
+   while (currValue > 0) { // Get values until 0 (or less)
+      valuesSum = valuesSum + currValue;
+      numValues = numValues + 1;
+      cin >> currValue;
+   }
+
+   cout << "Average: " << (valuesSum / numValues) << endl;
+
+   return 0;
+}
+/*10 1 6 3 0
+Average: 5
+
+...
+
+90 70 30 10 99 1 0
+Average: 50 */
+
+
+/*Use cin to read remaining integers from input into inputNumber while inputNumber is not -1000
+For each integer read before -1000, if the integer is non-positive, output the integer followed by a newline and multiply productOfSelected by the integer. */
+#include <iostream>
+using namespace std;
+
+int main() {
+	int inputNumber;
+	int productOfSelected;
+	
+	productOfSelected = 1;
+
+   cin >> inputNumber;  // The first integer is read
+
+   while (inputNumber != -1000) {
+      if (inputNumber <= 0) {
+         cout << inputNumber << endl;
+         productOfSelected = productOfSelected * inputNumber;
+      }
+      cin >> inputNumber;
+   }
+
+   cout << "The product of all non-positive integers is " << productOfSelected << endl;
+
+	return 0;
+}
+/*The first integer is read from input. Read the remaining integers while the integers are in the range -10 to 45, both exclusive.
+  For each integer read that is in the given range, output the integer followed by " is good".
+  Then, output the integer read that causes the reading to stop followed by " is bad". End each output with a newline. */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int inVal;
+
+   cin >> inVal;  // The first integer is read
+
+   while (inVal > -10 && inVal < 45) { 
+         cout << inVal << " is good" << endl;
+         cin >> inVal;
+      }
+      cout << inVal << " is bad" << endl;
+   return 0;
+}
+/*Integer shirtCount is initialized with 0. String inputWord is read from input. Write a loop that iterates while inputWord is not equal to "Done". In each iteration of the loop:
+
+    Increment shirtCount if inputWord is equal to "Shirt".
+    Read string inputWord from input. */
+#include <iostream>
+using namespace std;
+
+int main() {
+	string inputWord;
+	int shirtCount;
+
+	shirtCount = 0;
+
+	cin >> inputWord;
+
+   while (inputWord != "Done") {
+      if (inputWord == "Shirt") {
+         shirtCount +=1;
+      }
+      cin >> inputWord;
+   }
+
+	cout << "Shirt occurs " << shirtCount << " time(s)." << endl;
+
+   return 0;
+}
+/*String inputWord is read from input and integer sumCounts is initialized with 0. Write a loop that iterates while inputWord is not equal to "Stop". In each iteration of the loop:
+
+    Read integer clothingStock from input.
+    Increase sumCounts by the value of clothingStock.
+    Output the value of inputWord, followed by a newline.
+    Read string inputWord from input. */
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+   string inputWord;
+   int clothingStock;
+	int sumCounts;
+
+   cin >> inputWord;
+	sumCounts = 0;
+
+   while (inputWord != "Stop") {
+      cin >> clothingStock;
+      sumCounts = sumCounts + clothingStock;
+      cout << inputWord << endl;
+      cin >> inputWord;
+   }
+
+	cout << sumCounts << " items" << endl;
+
+   return 0;
+}
+
+/*The first and second integers in the input are read into variables previousIn and currentIn, respectively. Write a loop that iterates while currentIn is greater than previousIn. In each iteration:
+
+    Output currentIn, followed by " is greater than ", previousIn, and ". Sequence is increasing." End with a newline.
+    Assign previousIn with currentIn.
+    Read the next integer from input and assign currentIn with the integer read.
+
+After the loop, output the last integer read followed by " breaks the sequence." and a newline. */
+
+#include <iostream>
+using namespace std;
+
+int main() {
+   int currentIn;
+   int previousIn;
+   
+   cin >> previousIn;
+   cin >> currentIn;
+   cout << "Sequence starts at " << previousIn << "." << endl;
+
+   while (currentIn > previousIn) {
+      cout << currentIn << " is greater than " << previousIn << ". Sequence is increasing." << endl;
+      previousIn = currentIn;
+      cin >> currentIn;
+   }
+   cout << currentIn << " breaks the sequence." << endl;
+
+   return 0;
+}
+
+//For Loops - a loop often iterates for a specific amount of times, like needing 10 iterateions or one iteration per input val or list item
+//For loops are extremely useful here
+//a For Loop is a 3 part loop, it has a loop variable initialization, a loop expression, and a loop variable update
+//a for loop describes iterating a speficif number of times easier and more clearly than using a while loop
+//think "for x in y, do this" and this helps set the amount needed for the for loop
+
+for (initialExpression; conditionExpression; updateExpression) {
+  // Loop body
+}
+// Statements after the loop
+
+//While Loop version:
+int i;
+i = 0;
+while (i < 5) {
+  //loop body
+  i = i + 1;
+}
+
+//for loop
+int i;
+for (i = 0; i < 5; i = i+1) {
+  //loop body
+}
+//i = i+1; is so common it has it's own shorthand - the increment operator ++ -> ++i and the decrement operator -- -> --i
+//it goes BEFORE i so that it's range and adjustments staywithin scope
+//++i pre increment -> increments value then returns it -> returns new incremented value and modifies value in place
+//i++ post increment -> returns value then increments it -> returns the old value,  creates a temporary copy of old value
+int i;
+...
+for (i = 0; i < N; ++i) {
+   ...
+}
+
+
+//example - interest savings
+#include <iostream>
+using namespace std;
+
+int main() {
+   double initialSavings;  // User-entered initial savings
+   double interestRate;    // Interest rate
+   double currSavings;     // Current savings with interest
+   int i;                  // Loop variable
+
+   cout << "Enter initial savings: ";
+   cin  >> initialSavings;
+
+   cout << "Enter interest rate: ";
+   cin  >> interestRate;
+
+   cout << endl << "Annual savings for 10 years: " << endl;
+
+   currSavings = initialSavings;
+   for (i = 0; i < 10; ++i) {
+      cout << "$" << currSavings << endl;
+      currSavings = currSavings + (currSavings * interestRate);
+   }
+
+   return 0;
+}
+//ex - average calculation - first input determins list size
+include <iostream>
+using namespace std;
+
+// Outputs average of list of integers
+// First value indicates list size
+// Ex: 4  10 1 6 3  yields (10 + 1 + 6 + 3) / 4, or 5
+
+#int main() {
+   int currValue;
+   int valuesSum;
+   int numValues;
+   int i;
+
+   cin >> numValues; // Gets number of values in list
+
+   valuesSum = 0;
+
+   for (i = 0; i < numValues; ++i) { //iterates until i = numValue 
+      cin >> currValue; // Gets next value in list
+      valuesSum += currValue;
+   }
+
+   cout << "Average: " << (valuesSum / numValues) << endl;
+
+   return 0;
+}
+
+#include <iostream>
+using namespace std;
+
+int main() {
+   int i;
+   
+   for (i = 0; i < 5; ++i) {
+      cout << i;
+   }
+
+   return 0;
+}
+//output - 01234
+
+/*countVal is read from input representing the number of integers to be read
+A for loop reads integers from input into variable inputNum to be output. Complete the for loop statement to iterate countVal times. */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int countVal;
+	int inputNum;
+   int i;
+
+   cin >> countVal;
+
+   for (i = 0; i < countVal; ++i) {
+      cin >> inputNum;
+		cout << inputNum << endl;
+   }
+
+   return 0;
+}
+/*Integer inputCount is read from input representing the number of integers to be read next. A for loop iterates from 0 to inputCount - 1. Inside the loop:
+
+    Assign variable inputVal with an integer read from input.
+    Output "Amount: " followed by inputVal, ending with a newline.
+ */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int inputCount;
+   int inputVal;
+   int i;
+
+   cin >> inputCount;
+
+   for (i = 0; i < inputCount; ++i) {
+
+      cin >> inputVal;
+      cout << "Amount: " << inputVal << endl;
+
+   }
+
+   return 0;
+}
+
+/*Integer numVals is read from input representing the number of integers to be read next. Use a for loop to iterate from 0 to numVals - 1. In the loop:
+
+    Assign inputVal with the integer value read from input.
+    Output inputVal.
+    Unless inputVal is the last input read, output "|" after inputVal.
+ */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int numVals;
+   int inputVal;
+   int i;
+
+   cin >> numVals;
+
+   for (i = 0; i < numVals; ++i) {
+      cin >> inputVal;
+      cout << inputVal;
+      if (i != numVals-1) {
+         cout << "|";
+      }
+   }
+
+   cout << endl;
+
+   return 0;
+}
+
+//ex - finding max list value
+#include <iostream>
+using namespace std;
+
+// Outputs max of list of integers
+// First value indicates list size
+// Ex: 4 -1 9 0 3  yields 9
+
+int main() {
+   int maxSoFar;
+   int currValue;
+   int numValues;
+   int i;
+   
+   cin >> numValues;
+   
+   for (i = 0; i < numValues; ++i) {
+      cin >> currValue;
+      
+      if (i == 0) { // First iteration
+         maxSoFar = currValue;
+      }
+      else if (currValue > maxSoFar) {
+         maxSoFar = currValue;
+      }
+   }
+   
+   if (numValues > 0) {
+      cout << "Max: " << maxSoFar << endl;
+   }
+   
+   return 0;
+}
+//ex - generate a data table C - F
+/*following program generates a table of Celsius and Fahrenheit temperature values, in increments of 5 C.
+The for loop counts from -10 to 40 in increments of 5, and names the loop variable currC rather than i to be more descriptive.  */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int currC;
+   double equivalentF;
+   
+   for (currC = -10; currC <= 40; currC += 5) { //set current celcius to -10, as long as it's not 40 it adds 5 for each iteration
+      equivalentF =  (currC * 9.0 / 5.0) + 32.0; // conversion from C to F
+
+      cout << currC << " C is ";
+      cout << equivalentF << " F";
+      cout << endl;
+   }
+   
+   return 0;
+}
+/*Write a for loop that prints: 1 2 ... lastNumber
+
+Ex: If the input is:
+
+4
+
+the output is:
+
+1 2 3 4 */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int lastNumber;
+   int i;
+
+   cin >> lastNumber;
+
+   for(i = 1; i < lastNumber+1; ++i) {
+      cout << i << " ";
+   }
+
+   return 0;
+}
+
+/*Write code that prints: countNum ... 2 1
+Print a newline after each number. 
+
+Ex: If the input is:
+
+3
+
+the output is:
+
+3
+2
+1 */
+
+#include <iostream>
+using namespace std;
+
+int main() {
+   int countNum;
+   int i;
+
+   cin >> countNum;
+
+   for(i = countNum; i >=1; --i) {
+      cout << i << endl;
+   }
+
+   return 0;
+}
+/*Write code that prints: Ready! numVal ... 2 1 Go!
+Your code should contain a for loop. Print a newline after each number and after each line of text. 
+
+Ex: If the input is:
+
+3
+
+the output is:
+
+Ready!
+3
+2
+1
+Go! */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int numVal;
+   int i;
+
+   cin >> numVal;
+   cout << "Ready!" << endl;
+   for ( i = numVal; i >= 1; --i) {
+      cout << i << endl;
+   }
+   cout << "Go!" << endl;
+
+   return 0;
+}
+
+/*Write a for loop that iterates seven times to find the minimum value in a list of seven integer values. Within the loop:
+
+    Read an integer value from input into variable inValue.
+    The first value assigned to inValue is the smallest integer value read by default, since no other values have been read yet.
+    Thus, if the current iteration is the first iteration, assign lowestVal with inValue.
+    Otherwise, if inValue is less than lowestVal, assign lowestVal with the value of inValue.
+ */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int inValue;
+   int lowestVal;
+   int i;
+
+   for (i = 0; i < 7; ++i) {
+      cin >> inValue;
+      if (i ==0) {
+         lowestVal = inValue;
+      }
+      else if (inValue < lowestVal) {
+         lowestVal = inValue;
+      }
+   }
+
+   cout << lowestVal << endl;
+
+   return 0;
+}
+
+/*Integer valCount is read from input representing the number of integer values to be read next. Use a for loop to read the remaining integer values from input. Within the loop:
+
+    For each integer value read, output "Value read: " followed by the value and a newline.
+    Assign largestVal with the largest integer value read.
+ */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int valCount;
+   int inValue;
+   int largestVal;
+   int i;
+
+   cin >> valCount;
+
+   for (i = 0; i < valCount; ++i) {
+      cin >> inValue;
+      cout << "Value read: " << inValue << endl;
+      
+      if (i == 0 || inValue > largestVal) {
+         largestVal = inValue;
+      }
+   }
+
+   cout << "Largest: " << largestVal << endl;
+
+   return 0;
+}
+/*Integer inputCount is read from input representing the number of integers to be read next. Use a for loop to read in the remaining integers from input into val
+If all integers read from input are even, assign allEven with true. Otherwise, assign allEven with false.
+
+Code at the end of main() outputs "All match" if allEven is true, or "Not all match" if allEven is false.
+
+Ex: If the input is:
+
+3
+50 70 10
+
+then the output is:
+
+All match
+
+Note: Even integers are divisible by 2. */
+
+#include <iostream>
+using namespace std;
+
+int main() {
+   int inputCount;
+   bool allEven;
+   int i;
+   int val;
+   
+   allEven = true;
+   cin >> inputCount;
+
+   for (i = 0; i < inputCount; ++i) {
+      cin >> val;
+      if (val % 2 != 0) {
+         allEven = false;
+      }
+   }
+
+   if (allEven) {
+      cout << "All match" << endl;
+   }
+   else {
+      cout << "Not all match" << endl;
+   }
+
+   return 0;
+}
+/*Integer valCount is read from input representing the number of integers to be read next. Use a loop to read the remaining integers from input into val
+  If any of the integers are in the range 10 to 100 inclusive, assign allValid with false. Otherwise, assign allValid with true.
+
+Code at the end of main() outputs "Only valid value(s)" if allValid is true, or "Invalid value(s)" if allValid is false.
+
+Ex: If the input is:
+
+2
+55 120
+
+then the output is:
+
+Invalid value(s)
+ */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int valCount;
+   bool allValid;
+   int i;
+   int val;
+   
+   allValid = true;
+   cin >> valCount;
+
+   for (i = 0; i < valCount; ++i) {
+      cin >> val;
+      
+      if (val >= 10 && val <= 100) {
+         allValid = false;
+      }
+   }
+
+   if (allValid) {
+      cout << "Only valid value(s)" << endl;
+   }
+   else {
+      cout << "Invalid value(s)" << endl;  
+   }
+
+   return 0;
+}
+
+//often strings need iterated through, char by char using their index values to compare them
+
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
+
+int main() {
+   string inputWord;
+   int numLetters;
+   unsigned int i;
+
+   cout << "Enter a word: ";
+   cin  >> inputWord;
+
+   numLetters = 0;
+   for (i = 0; i < inputWord.size(); ++i) {
+      if (isalpha(inputWord.at(i))) {
+         numLetters += 1;
+      }
+   }
+
+   cout << "Number of letters: " << numLetters << endl;
+
+   return 0;
+}
+//often, a programmer watns to iterate throguh a string until something is done, for instance changing strings in a list to match formatting etc
+
+//find() searches for exact match
+//replace() replaces each instance with the desired text
+
+//ex - changes all occurences of "U.S.A: with "USA"
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+   string userText;
+   int usaIndex;
+
+   cout << "Enter text: ";
+   getline(cin, userText); //get input til next newline
+
+   // At least one occurrence exists
+   while (userText.find("U.S.A.") != string::npos) { //string::npos - special constant value that indicates not fount / until the end of the string - used when searching substrings for chars
+      // Get index of first instance
+      usaIndex = userText.find("U.S.A."); //find
+
+      // U.S.A. is 6 long
+      userText.replace(usaIndex, 6, "USA");
+   }
+
+   cout << "New text: " << userText<< endl;
+
+   return 0;
+}
+/*A website requires that passwords do not contain spaces. For each character in checkStr that is a space, assign the character with a hashtag ('#').
+Note: isspace() returns true if a character is whitespace, and false otherwise.
+Ex: isspace(' ') returns true. isspace('a') returns false. */
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
+
+int main() {
+   string checkStr;
+   unsigned int i;
+   
+   getline(cin, checkStr);
+
+   for (i = 0; i < checkStr.size(); ++i) {
+      if (isspace(checkStr.at(i))) {
+         checkStr.at(i) = '#';
+      }
+   }
+
+   cout << "Adjusted password: " << checkStr << endl;
+   
+   return 0;
+}
+
+/*String password is read from input. For each character in password that is a digit, increment count by 1. Then, output "Valid" if count is less than 5 and password's length is less than 11. Otherwise, output "Invalid". End each output with a newline.
+Note: isdigit() returns true if a character is a digit, and false otherwise. Ex: isdigit('8') returns true. isdigit('a') returns false. */
+
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
+
+int main() {
+   string password;
+   int i;
+   int count;
+   
+   getline(cin, password);
+   count = 0;
+   
+   for (i = 0; i < password.size(); ++i) {
+      if (isdigit(password.at(i))) {
+         count +=1;
+      }
+   }
+   if (count<5 && password.length() < 11) {
+      cout << "Valid" << endl;
+   }
+   else {
+      cout << "Invalid" << endl;
+   }
+   
+   return 0;
+}
+
+/*
+"abc" is a string commonly found in weak passwords.
+Use a while loop to count the number of occurrences of "abc" in passwordStr, and replace each occurrence of "abc" in passwordStr with an empty string("").  
+
+
+string.find(item) returns the index of the first occurrence of item in string. If no occurrence is found, then the function returns string::npos.
+str.replace(indx, n, "") replaces the n characters starting at index indx of str with an empty string.
+ */
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+   string passwordStr;
+   int count;
+	int strIndex;
+   
+   cin >> passwordStr;
+
+   count = 0;
+	strIndex = 0;
+
+   strIndex = passwordStr.find("abc");
+   while (strIndex != string::npos) {
+      count +=1;
+      passwordStr.replace(strIndex, 3, "");
+      strIndex = passwordStr.find("abc");
+   }
+
+   cout << "Number of occurrences: " << count << endl;
+	cout << "Remaining string: " << passwordStr << endl;
+   
+   return 0;
+}
+
+
+//nested loops - loops within other loops, contains inner and outer loop
+//inner loop is within the main loop, for each main loop iteration the inner loop also iterates
+
+//ex - 2 letter .com domain names
+
+#include <iostream>
+using namespace std;
+
+/* Output all two-letter .com Internet domain names */
+
+int main() {
+   char letter1;
+   char letter2;
+   
+   cout << "Two-letter domain names:" << endl;
+   
+   letter1 = 'a';
+   while (letter1 <= 'z') { //main loop
+      letter2 = 'a';
+      while (letter2 <= 'z') { //inner loop
+         cout << letter1 << letter2 << ".com" << endl;
+         ++letter2;
+      }
+      ++letter1;
+   }
+   
+   return 0;
+}
+
+//nested loop example - histogram
+#include <iostream>
+using namespace std;
+
+int main() {
+   int numAsterisk;  // Number of asterisks to print
+   int i;            // Loop counter
+   
+   numAsterisk = 0;
+
+   while (numAsterisk >= 0) {
+      cout << "Enter an integer (negative to quit): ";
+      cin >> numAsterisk;
+      
+      if (numAsterisk >= 0) {
+         cout << "Depicted graphically:" << endl;
+         for (i = 1; i <= numAsterisk; ++i) {
+            cout << "*";
+         }
+         cout << endl << endl;
+      }
+   }
+   
+   cout << "Goodbye." << endl;
+
+   return 0;
+}
+/*Integers outerInput and innerInput are read from input. The outer while loop executes outerInput times.
+  Complete the inner while loop to execute (innerInput + 1) times for each iteration of the outer while loop.
+
+Ex: If the input is 2 6, then the output is:
+
+Inner loop ran 14 times
+ */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int outerInput;
+   int innerInput;
+   int count;
+   int i;
+   int j;
+
+   cin >> outerInput;
+   cin >> innerInput;
+
+   count = 0;
+   i = 0;
+   while (i < outerInput) {
+		j = 0;
+		while (j <= innerInput) {
+         ++count;
+         ++j;
+      }
+      ++i;
+   }
+
+   cout << "Inner loop ran " << count << " times" << endl;
+
+   return 0;
+}
+/*Integer userNum is read from input. For each number from 1 to userNum both inclusive, output the number's value of percent sign characters ('%') followed by the number on a new line.
+
+Ex: If the input is 4, then the output is:
+
+%1
+%%2
+%%%3
+%%%%4
+ */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int userNum;
+   int i;
+   int j;
+
+   cin >> userNum;
+   
+   for (i = 1; i <= userNum; ++i) {
+      for ( j = 1; j <= i; ++j) {
+         cout << "%";
+      }
+      cout << i << endl;
+   }
+
+   return 0;
+}
+/*In Max's mailbox service, each PO box is labeled with a letter followed by an integer. Given integers numRows and numColumns, output the label for each PO box, followed by a space
+End each row with a newline.
+    Rows are in alphabetical order. PO boxes in the first row all start with the letter A.
+    Columns are in ascending order. PO boxes in the first column all end with the integer 1. */
+#include <iostream>
+using namespace std;
+
+int main() {
+   int numRows;
+   int numColumns;
+   int currentRow;
+   char currentRowLetter;
+   int currentColumn;
+   int currentColumnInteger;
+   
+   cin >> numRows;
+   cin >> numColumns;
+
+   currentRowLetter = 'A';
+   for (int i = 0; i < numRows; ++i) {
+      currentColumnInteger = 1;
+      for (int j = 0; j < numColumns; ++j) {
+         cout << currentRowLetter << currentColumnInteger << " ";
+         currentColumnInteger +=1;
+      }
+      cout << endl;
+      currentRowLetter +=1;
+   }
+
+   return 0;
+}
+
+//Programs should be built incrementally - not all at once
+//write code, test, fix, write more, continue
+//FIXME comments - comment labeled appropriately, shows your future self what you need to fix / implement
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+   string phoneStr;   // User input: Phone number string
+   unsigned int i;    // Current element in phone number string
+   char currChar;     // Current char in phone number string
+   
+   cout << "Enter phone number: ";
+   cin >> phoneStr;
+   
+   cout << "Numbers only: ";
+   for (i = 0; i < phoneStr.size(); ++i) { // For each element
+      currChar = phoneStr.at(i);
+      if ((currChar >= '0') && (currChar <= '9')) {
+         cout << currChar; // Print element as is
+      }
+      // FIXME: Add else-if branches for letters and hyphen
+      else {
+         cout << '?';
+      }
+   }
+   
+   cout << endl;
+   
+   return 0;
+}
+//Break statements - end a loop immediately
+
+//Continue Statements - causes an immediate jump to the loop condition check
+//can sometiems imrpove loop readability
+#include <iostream>
+using namespace std;
+
+int main() {
+   const int EMPANADA_COST = 3;
+   const int TACO_COST     = 4;
+   
+   int userMoney;
+   int numTacos;
+   int numEmpanadas;
+   int mealCost;
+   int maxEmpanadas;
+   int maxTacos;
+   int numOptions;
+   int numDiners;
+
+   mealCost = 0;
+   numOptions = 0;
+   
+   cout << "Enter money for meal: ";
+   cin >> userMoney;
+   
+   cout << "How many people are eating: ";
+   cin >> numDiners;
+   
+   maxEmpanadas = userMoney / EMPANADA_COST;
+   maxTacos     = userMoney / TACO_COST;
+   
+   for (numTacos = 0; numTacos <= maxTacos; ++numTacos) {
+      for (numEmpanadas = 0; numEmpanadas <= maxEmpanadas; ++numEmpanadas) {
+         
+         // Total items purchased must be equally 
+         // divisible by number of diners
+         if ( ((numTacos + numEmpanadas) % numDiners) != 0) {
+            continue; //CONTINUE STATEMENT -> skips the rest of the loop body, jumps back to the start of our For loop
+         }
+         
+         mealCost = (numEmpanadas * EMPANADA_COST) + (numTacos * TACO_COST);
+         
+         if (mealCost == userMoney) {
+            cout << "$" << mealCost << " buys " << numEmpanadas
+                 << " empanadas and " << numTacos 
+                 << " tacos without change." << endl;
+            numOptions = numOptions + 1;
+         }
+      }
+   }
+   
+   if (numOptions == 0) {
+      cout << "You cannot buy a meal without " 
+           << "having change left over." << endl;
+   }
+   
+   return 0;
+}
+
+#include <iostream>
+using namespace std;
+
+int main() {
+   int stop;
+   int n;
+
+   cin >> stop;
+
+   for (n = 3; n < 9; ++n) {
+      cout << n << endl;
+
+      if (n > stop) {
+         cout << "stop" << endl;
+         break;
+      }
+   }
+
+   return 0;
+} //input - 4, output - 3 4 5 stop  all with newlines 
+
+#include <iostream>
+using namespace std;
+
+int main() {
+   int a;
+   int b;
+   int c;
+
+   cin >> a;
+   cin >> b;
+   cin >> c;
+
+   while (a < b) {
+      cout << a;
+      cout << endl;
+      
+      if (a > c) {
+         break;
+      }
+
+      a += 3;
+   }
+
+   return 0;
+}
+/*
+  The loop iterates while a < b. In every iteration, the value of a is output, followed by a newline.
+  
+      If a > 9, the break statement executes, and the loop exits.
+      Otherwise, a is incremented by 3 and the loop continues to execute.
+ */
+//input - 3 24 9
+//output
+//3
+//6
+//9
+//12
+
+//Scope - Variable can only be used within the block of code they're contained, like in main() or if you declare int i in a loop
+#include <iostream>
+using namespace std;
+
+int main() {
+
+   // int val1  = userNum;    // ERROR
+  int userNum = 2;           // Name valid to main's "}"  
+  int newNum  = userNum + 1;
+  int i;
+
+   for (i = 0; i < newNum; ++i) {
+     int valSquared;        // Name valid to for's "}"
+     valSquared = userNum * userNum;
+     cout << i << " squared: " << valSquared << endl;
+  }
+
+   // cout << "Last value: " << valSquared << endl; // ERROR
+
+   return 0;
+}
+
+//scope issues are SUPER common when using for loops
+for (int i = 0; i < 5; ++i) {
+   x = x + i; //i can be used, it's declared within this blockl
+}
+
+
+x = x + i;  // ERROR - i is out of scope, basically doesn't exist
+
+
+
+/*Mad Libs are activities that have a person provide various words, which are then used to complete a short story in unexpected (and hopefully funny) ways.
+
+Write a program that takes a string and an integer as input, and outputs a sentence using the input values as shown in the example below.
+The program repeats until the input string is quit and disregards the integer input that follows.
+
+Ex: If the input is:
+
+apples 5
+shoes 2
+quit 0
+
+the output is:
+
+Eating 5 apples a day keeps you happy and healthy.
+Eating 2 shoes a day keeps you happy and healthy. */
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+   string word;
+   int amount;
+   
+   cin >> word;
+   cin >> amount;
+
+   while (word != "quit") {
+      cout << "Eating " << amount<< " " << word << " a day keeps you happy and healthy." << endl; 
+      cin >> word;
+      cin >> amount;
+   }
+   return 0;
+}
+
+
+//Mod 2 assignmnet
+/*
+ * Calculator.cpp
+ *
+ *  Date: 13SEP2026
+ *  Author: Alexander Cochrane
+ */
+
+#include <iostream>
+
+using namespace std;
+
+int main() //corrected from void main() to int main() as per C++ standards
+{
+	char statement[100];
+	int op1, op2;
+	char operation;
+	char answer = 'Y'; //corrected char declaration from "" to '', "" are for strings
+	while (answer == 'Y' || answer == 'y')	{ //corrected loop expression from 'y' to 'Y', y!=Y, added both cases using logic
+
+		cout << "Enter expression" << endl;
+
+		cin >> op1 >> operation >> op2; //corrected order of integer inputs
+
+		if (operation == '+') { //corrected double to single quotes, added braces for for loop
+			cout << op1 << " + " << op2 << " = " << op1 + op2 << endl; //corrected direction for cout carrots
+		}
+		if (operation == '-') { //changed semi colon to braces, added closing brace
+			cout << op1 << " - " << op2 << " = " << op1 - op2 << endl;//corrected direction for cout carrots
+		}
+		if (operation == '*') { //added braces
+			cout << op1 << " * " << op2 << " = " << op1 * op2 << endl; //added semicolon & changed operator to * from /
+		}
+		if (operation == '/') {
+			cout << op1 << " / " << op2 << " = " << op1 / op2 << endl; //changed operator to / from *
+		} //added open and close braces
+		cout << "Do you wish to evaluate another expression? " << endl;
+		cin >> answer;
+		if (answer == 'N' || answer == 'n') { //added exit conditions and message 
+			cout << "Program Finished." << endl;
+		}
+	}
+}
