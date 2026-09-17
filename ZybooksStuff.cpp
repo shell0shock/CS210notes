@@ -5956,3 +5956,377 @@ int main() //corrected from void main() to int main() as per C++ standards
 		}
 	}
 }
+//Arrays - variable that can store a list of items instead of only one item
+//arrays have only one name but store lots of data items each being direclty accessible
+//individual array items are called elements
+//some languages have a similar construct called a Vector
+//items accessed by their index - i.e. myVector[0]
+//Key feature of an array is that the index enables direct access to any element 
+//off by one error - arrays use a staring index of 0, avoid off by one errors
+// 500 items in array - last index is 499, first is 0
+myArray[0] = 3;
+
+//Vecors are ordered lists of items of a given data type
+//each Vector item is an Element
+#include <vector> //needed to be able to use them
+//Declaring an Empty Vector that can store an unspecified amount of elements:
+vector<dataType> vectorName;
+//data type specified in the angle brackets
+vector<double> doubleVector;
+vector<int> intVector;
+.push_back() //appends a new element to end of existing vector
+.at() //access a vector element by it's index
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+  vector<int> itemCounts;
+
+  itemCounts.push_back(76); //0
+  itemCounts.push_back(121); //1
+
+  cout << itemCounts.at(0) << endl; //76
+  cout << itemCounts.at(1) << endl; //121
+
+  return 0;
+}
+
+//including a number in parentheses after the vector name specifies the number of elements in it
+vector<int> itemList(4); //int vector with 4x elements
+//vectors can also be initialized with set values using braces and assignment operator
+//comma separate the elements in the braces
+vector<int> carSales = {5, 7, 11}; //int vector with 3 elements - 5 7 and 11
+//doing this ^ doesn't require size specification as it's automatically set usign the # of elements 
+//in the braces
+#include <iostream>
+#include <vector>
+using namespace std;
+int main() {
+  vector<int> myItems = {3, 5, 6, 7};
+  vector<int> myOtherItems(3);
+  myOtherItems.at(0) = 1;
+  myOtherItems.push_back(14);
+  myOtherItems.push_back(67);
+
+  cout << myItems.at(0) << endl; //3
+  cout << myItems.at(1) << endl; //5
+  cout << myItems.at(2) << endl; //6
+  cout << myItems.at(3) << endl; //7
+
+  cout << myOtherItems.at(0) << endl; //1
+  cout << myOtherItems.at(1) << endl; //14
+  cout << myOtherItems.at(2) << endl; //67
+  
+}
+//common error - forgetting to #include <vector>
+//powerful vector aspect is that the index is an expression
+//userNums.at(i) uses the value held in the int variable i as the index
+//vectors are useful to lookup the nth list item
+//vector's index must be an unsigned int, can't be a float
+
+
+//ex - using Vector ith element with .at(i-1)
+//oldest person example
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+   vector<int> oldestPeople(5);  //int vector containing 5x elements
+   int nthPerson;               // User input, Nth oldest person
+
+   //current list of oldest people and age
+   oldestPeople.at(0) = 122; // Died 1997 in France
+   oldestPeople.at(1) = 119; // Died 1999 in U.S.
+   oldestPeople.at(2) = 117; // Died 1993 in U.S. 
+   oldestPeople.at(3) = 117; // Died 1998 in Canada
+   oldestPeople.at(4) = 116; // Died 2006 in Ecuador
+
+   cout << "Enter N (1..5): ";
+   cin  >> nthPerson;
+
+   if ((nthPerson >= 1) && (nthPerson <= 5)) { //as long as user input is more than 1 but less than / equal 5
+      cout << "The #" << nthPerson << " oldest person lived ";
+      cout << oldestPeople.at(nthPerson - 1) << " years." << endl; //nthPerson - 1 to avoid off by one error
+      //if user input was 2 they'd get index 2 (3rd list item), when they wanted the 2nd item in the list, 
+   }
+   return 0;
+}
+
+//using .size() you can iterate through all the elements of a vector, super useful for 
+//iterating using loops
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+   const int NUM_VALS = 8;         // Number of elements in vector
+   vector<int> userVals(NUM_VALS); // User values
+   unsigned int i;                 // Loop index
+   
+   cout << "Enter " << NUM_VALS << " integer values..." << endl;
+   for (i = 0; i < userVals.size(); ++i) { //iterates through all elements of the vector
+      cout << "Value: ";
+      cin >> userVals.at(i); //takes user integer input and assigns it to the element at i's index
+   }
+   
+   cout << "You entered: ";
+   for (i = 0; i < userVals.size(); ++i) { //prints out the vector elements in order of entry
+      cout << userVals.at(i) << " ";
+   }
+   cout << endl;
+   
+   return 0;
+}
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+   vector<int> userVals;
+   unsigned int i;
+
+   userVals.push_back(4);
+   userVals.push_back(6);
+   userVals.push_back(7);
+
+   userVals.at(2) = userVals.at(1) + 4;
+   userVals.at(1) = userVals.at(2) + 7;
+
+   for (i = 0; i < userVals.size(); ++i) {
+      cout << userVals.at(i) << endl; //4, 17, 10
+   }
+
+   return 0;
+}
+
+/*Five doubles are read from input as variables distance1 to distance5.
+Use push_back() to add the variables distance1 to distance5 to vector swimmingDistance with the variables distance1 to distance5 in the order the input doubles are read.
+
+Ex: If the input is 20.74 18.58 6.82 15.1 13.9, then the output is:
+
+20.74 18.58 6.82 15.1 13.9 
+ */
+
+#include "codetest.h"
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+   vector<double> swimmingDistance;
+   double distance1;
+	double distance2;
+	double distance3;
+	double distance4;
+	double distance5;
+	unsigned int i;
+
+	cin >> distance1;
+	cin >> distance2;
+	cin >> distance3;
+	cin >> distance4;
+	cin >> distance5;
+
+   swimmingDistance.push_back(distance1);
+   swimmingDistance.push_back(distance2);
+   swimmingDistance.push_back(distance3);
+   swimmingDistance.push_back(distance4);
+   swimmingDistance.push_back(distance5);
+
+   for (i = 0; i < swimmingDistance.size(); ++i) {
+      cout << swimmingDistance.at(i) << " ";
+   }
+   cout << endl;
+
+   codetest(); // For code testing only
+
+   return 0;
+}
+
+/*Five doubles are read from input as variables time1 to time5.
+Declare a vector of ten doubles named swimmingTime.
+Initialize the elements at the odd indices with the value 0 and the even indices with the variables time1 to time5 in the order the input doubles are read.
+
+Ex: If the input is 13.16 8.15 14.9 15.07 5.16, then the output is:
+
+13.16 0 8.15 0 14.9 0 15.07 0 5.16 0 
+ */
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+   double time1;
+	double time2;
+	double time3;
+	double time4;
+	double time5;
+	unsigned int i;
+
+	cin >> time1;
+	cin >> time2;
+	cin >> time3;
+	cin >> time4;
+	cin >> time5;
+
+   vector<double> swimmingTime = {time1, 0,  time2, 0, time3, 0, time4, 0, time5, 0};
+
+   for (i = 0; i < swimmingTime.size(); ++i) {
+      cout << swimmingTime.at(i) << " ";
+   }
+   cout << endl;
+
+   return 0;
+}
+
+/*Integers numEmployees, firstEmployee, middleEmployee, and lastEmployee are read from input.
+First, declare a vector of integers named walkingLogs with a size of numEmployees.
+Then, initialize the first, middle, and last element in walkingLogs to
+firstEmployee, middleEmployee, and lastEmployee, respectively.
+
+Ex: If the input is 9 83 107 125, then the output is:
+
+83 0 0 0 107 0 0 0 125 
+ */
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+   int numEmployees;
+   int firstEmployee;
+	int middleEmployee;
+   int lastEmployee;
+   unsigned int i;
+
+   cin >> numEmployees;
+   cin >> firstEmployee;
+	cin >> middleEmployee;
+   cin >> lastEmployee;
+
+   vector<int> walkingLogs(numEmployees);
+   walkingLogs.at(0) = firstEmployee;
+   walkingLogs.at((numEmployees / 2)) = middleEmployee;
+   walkingLogs.at((numEmployees - 1)) = lastEmployee;
+   
+   
+   for (i = 0; i < walkingLogs.size(); ++i) {
+      cout << walkingLogs.at(i) << " ";
+   }
+   cout << endl;
+
+   return 0;
+}
+
+/*Integer numMembers is read from input as the number of elements in the vector that follows.
+Then, numMembers elements are read from input into the vector swimmingRoster. Use a loop to access each element in the vector and if the element is greater than averageMembers, output the element followed by a space.
+
+Ex: If the input is
+
+7
+112 51 94 28 130 191 55
+
+then the output is:
+
+Average: 94
+Numbers greater than average: 112 130 191 
+ */
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+   vector<int> swimmingRoster;
+   int numMembers;
+   int inputVal;
+   unsigned int i;
+	double averageMembers;
+	int sumElementData = 0;
+
+   cin >> numMembers;
+
+   for (i = 0; i < numMembers; ++i) {
+      cin >> inputVal;
+      swimmingRoster.push_back(inputVal);
+		sumElementData += swimmingRoster.at(i);
+   }
+
+	averageMembers = sumElementData / swimmingRoster.size();
+
+	cout << "Average: " << averageMembers << endl;
+	cout << "Numbers greater than average: ";
+//this for block is what i wrote, somehow did it first try lets gooooooo
+   for (i = 0; i < numMembers; ++i) {
+      if (swimmingRoster.at(i) > averageMembers) {
+         cout << swimmingRoster.at(i) << " ";
+      }
+   }
+
+	cout << endl;
+
+   return 0;
+}
+
+
+/*Integer numPeople is read from input as the number of elements in the vector that follows. Perform the following tasks:
+
+    Output "Even: ".
+    Use a for loop to output all the elements in vector swimmingListings that are at even indices.
+    Output "Odd: ".
+    Use a for loop to output all the elements in vector swimmingListings that are at odd indices.
+
+In both loops, output a "-" after each element, including the last element, and end with a newline.
+
+Ex: If the input is
+
+6
+138 78 131 156 5 128
+
+then the output is:
+
+Even: 138-131-5-
+Odd: 78-156-128-
+
+Note: x % 2 == 0 is true if x is even and false otherwise. */
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+   vector<int> swimmingListings;
+   int numPeople;
+   int inputVal;
+   int i;
+
+   cin >> numPeople;
+
+   for (i = 0; i < numPeople; ++i) {
+      cin >> inputVal;
+      swimmingListings.push_back(inputVal);
+   }
+
+   cout << "Even: ";
+   
+   for (i = 0; i < numPeople; ++i) {
+      if (i % 2 == 0) {    //originally tried swimmingListings.at(i) % 2 == 0 but didn't work
+         cout << swimmingListings.at(i) << "-";
+      }
+   }
+   cout << endl;
+   
+      cout << "Odd: ";
+   
+   for (i = 0; i < numPeople; ++i) {
+      if (i % 2 != 0) {
+         cout << swimmingListings.at(i) << "-";
+      }
+   }
+   cout << endl;
+
+   return 0;
+}
