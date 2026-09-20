@@ -1060,16 +1060,16 @@ int main() {
    double secondsBetween;
    double timeInHours;
    double distInMiles;
-   
+
    cout << "Enter seconds between lightning and thunder: ";
    cin  >> secondsBetween;
-   
+
    timeInHours = secondsBetween / SECONDS_PER_HOUR;
    distInMiles = SPEED_OF_SOUND * timeInHours;
-   
+
    cout << "Lightning strike was approximately" << endl;
    cout << distInMiles << " miles away." << endl;
-   
+
    return 0;
 }
 
@@ -1139,10 +1139,10 @@ int main() {
 }
 
 //Math Standart Libarary -> ~20 math functions
-// needs included to use them 
+// needs included to use them
 // inlcuded as functions
 //Function -> list of statements executed by using the functiosn name (function call)
-// arguments are the input values to the function, parameters are their actual values 
+// arguments are the input values to the function, parameters are their actual values
 // myFunc(argument1, argument2) -> comma separated arguments for the function
 // argument1 -> argument, if argument1 = 3, 3 -> parameter
 
@@ -1151,11 +1151,11 @@ int main() {
 #include <iostream>
 #include <cmath> //math library
 using namespace std;
- 
+
 int main() {
    double sideSquare;
    double areaSquare = 49.0;
- 
+
    sideSquare = sqrt(areaSquare); //square root function from math library
 
    cout << "Square root of " << areaSquare
@@ -1198,7 +1198,7 @@ int main() {
 
 //Function call arguments can be funcion calls themselves
 // saves LOC and increases readability & concision
-z = pow(2.0,pow(2.0,3.0)); 
+z = pow(2.0,pow(2.0,3.0));
 x = -9.0; -> z = sqrt(fabs(x)); // square root of absolute value of x
 
 #include <cmath> //lets you use math operations & functions
@@ -1279,7 +1279,7 @@ int main() {
 // if at least one operand is a float/double, it does float division
 // int w = 10;
 // double x = 4.0;
-// y = w/x -> 2.5 | does float division 
+// y = w/x -> 2.5 | does float division
 // (5 +  10 + 15) * (1 / 3)  = 0, because (1/3) = 0.333, int division results in only the whole so 0 |KEEP THIS IN MIND FOR LOGIC ERRORS THAT YOU WILL END UP DOING LOL
 
 
@@ -1297,7 +1297,7 @@ int main() {
 
    cout << "Enter yearly salary: ";
    cin  >> salaryPerYear;
-   
+
    cout << "Enter days worked per year: ";
    cin  >> daysPerYear;
 
@@ -1312,7 +1312,7 @@ int main() {
 // The modulo operator (%) evaluates the remainder of the division of two integer operands. Ex: 23 % 10 is 3.
 // 9 % 5 = 4, 5 goes into 9 once, 4 remains
 // 10 % 4.0 not valid, only usable with INTS
-// 
+//
 
 #include <iostream>
 using namespace std;
@@ -1334,7 +1334,7 @@ int main() {
 
    return 0;
 }
-//Using only the variable totalFlowers, complete the statement to assign remainingFlowers with the number of remaining flowers after creating as many bunches of 12 as possible. 
+//Using only the variable totalFlowers, complete the statement to assign remainingFlowers with the number of remaining flowers after creating as many bunches of 12 as possible.
 remainingFlowers = totalFlowers % 12;
 
 
@@ -1344,7 +1344,7 @@ randNum % 51 -> yields 0-50, doing % 50 would yield 0-49
 (randNum % 11) + 20 -> yields 20-30, the %11 yields 0-10 and the + 20 adds 20 so we get 20-30
 
 //Given a number % & / can bue used for each digit, having a 3 digit like userVal = 927:
-onesDigit     = userVal % 10;    // Ex: 927 % 10 is 7. 
+onesDigit     = userVal % 10;    // Ex: 927 % 10 is 7.
 tmpVal        = userVal / 10;
 
 tensDigit     = tmpVal % 10;     // Ex: tmpVal = 927 / 10 is 92. Then 92 % 10 is 2.
@@ -1353,10 +1353,10 @@ tmpVal        = tmpVal / 10;
 hundredsDigit = tmpVal % 10;     // Ex: tmpVal = 92 / 10 = 9. Then 9 % 10 is 9.
 
 /* Given a 10-digit phone number stored as an integer, % and / can be used to get any part, such as the prefix.
- 
+
 For phoneNum = 1365551212 (whose prefix is 555):
 
-tmpVal = phoneNum / 10000; // / 10000 shifts right by 4, so 136555. 
+tmpVal = phoneNum / 10000; // / 10000 shifts right by 4, so 136555.
 prefixNum = tmpVal % 1000; // % 1000 gets the right 3 digits, so 555.
 
 Dividing by a power of 10 shifts a value right. 321 / 10 is 32. 321 / 100 is 3.
@@ -1410,13 +1410,13 @@ int main() {
 
 /*
   Convert totalOunces to pints, cups, and ounces, finding the maximum number of pints, then cups, then ounces.
-  
+
   Ex: If the input is 44, then the output is:
-  
+
   Pints: 2
   Cups: 1
   Ounces: 4
-  
+
   Note: A pint is 16 ounces. A cup is 8 ounces. */
 
 #include <iostream>
@@ -1469,19 +1469,19 @@ using namespace std;
 int main() {
    int kidsInFamily1;       // Should be int, not double
    int kidsInFamily2;       // (know anyone with 2.3 kids?)
-   int numFamilies; 
-   
+   int numFamilies;
+
    double avgKidsPerFamily; // Expect fraction, so double
 
    kidsInFamily1 = 3;
    kidsInFamily2 = 4;
-   numFamilies = 2; 
-   
+   numFamilies = 2;
+
    avgKidsPerFamily = static_cast<double>(kidsInFamily1 + kidsInFamily2) / static_cast<double>(numFamilies);
    //first static_cast changes datatype of kidsInFamily1 and kidsInFamily2's addition to a double, along with numFamilies division, resulting in a double
-   
+
    cout << "Average kids per family: " << avgKidsPerFamily << endl;
-   
+
    return 0;
 }
 
@@ -1494,17 +1494,17 @@ int main() {
    int numClasses;
    double kidsAvgMethod1;
    double kidsAvgMethod2;
-   
+
    kidsInClass1 = 7;
    kidsInClass2 = 2;
    numClasses = 2;
-   
+
    kidsAvgMethod1 = static_cast<double>(kidsInClass1 + kidsInClass2) / static_cast<double>(numClasses); //done correctly. results in float division
    kidsAvgMethod2 = (kidsInClass1 + kidsInClass2) / numClasses; //no casting, rsults in incorrect int division
-   
+
    cout << kidsAvgMethod1 << endl;
    cout << kidsAvgMethod2 << endl;
-   
+
    return 0;
 }
 
@@ -1527,7 +1527,7 @@ int main() {
    cin >> numUnits;
 
    cout << fixed << setprecision(2) << static_cast<double>(numUnits) << endl;
-   
+
    return 0;
 }
 
@@ -1651,7 +1651,7 @@ int main() {
 // \n - new line
 // \' - single quote
 // \\ - \
-// 
+//
 // cout << "Say \"Hello\""; -> Say "Hello"
 
 
@@ -1681,7 +1681,7 @@ int main() {
 #include <iostream>
 #include <string> //allows use of strings
 using namespace std;
- 
+
 int main() {
    string sentenceSubject;
    string sentenceVerb;
@@ -1694,7 +1694,7 @@ int main() {
    cout << sentenceSubject << " ";
    cout << sentenceVerb << " ";
    cout << sentenceObject << "." << endl;
- 
+
    return 0;
 }
 
@@ -1781,14 +1781,14 @@ cin >> str1; -> kindess
 getline(cin, str2); blank
 
 cin >> str1; -> kindess
-getline(cin, tempStr); -> blank 
+getline(cin, tempStr); -> blank
 //tempStr stores the newline chars
 getline(cin,str2); ->   is contagious
 
   /*String variables userName and countryName are read from input. Use variables userName and countryName to output the following. End with a newline.
-  
+
   Ex: If the input is Gus Norway, then the output is:
-  
+
   Gus lives in Norway. */
 
 #include <iostream>
@@ -1844,7 +1844,7 @@ int main() {
 
    cout << studentName << endl;
 	cout << courseName << endl;
-	
+
    return 0;
 }
 
@@ -1913,11 +1913,11 @@ int main() {
 
    cin >> intStr;
 	priceChange = stoi(intStr); // For conversion purposes
-   
+
    cout << "Stock's price change: " << priceChange << endl;
-   
+
    Runtests(); // Testing code
-   
+
    return 0;
 }
 
@@ -1943,13 +1943,13 @@ int main() {
 
    cin >> medicationQuantity;
    cin >> durationApplied;
-   
+
    medicationStrength = static_cast<float>(medicationQuantity) / durationApplied;
-   
+
    cout << setprecision(5) << "Result: " << medicationStrength << endl;
-   
+
    Runtests(); // Testing code
-   
+
    return 0;
 }
 
@@ -1972,18 +1972,18 @@ int main() {
    unsigned long memSizeGiB;
    unsigned long long memSizeBytes;
    unsigned long long memSizeBits;
-   
+
    cout << "Enter memory size in GiBs: ";
    cin >> memSizeGiB;
-   
+
    // 1 GiB = 1024 MiB, 1 MiB = 1024 KiB, 1 KiB = 1024 bytes
    memSizeBytes = memSizeGiB * (1024 * 1024 * 1024);
    // 1 byte = 8 bits
    memSizeBits = memSizeBytes * 8;
-   
+
    cout << "Memory size in bytes: " << memSizeBytes << endl;
    cout << "Memory size in bits: " << memSizeBits << endl;
-   
+
    return 0;
 }
 /*Output:
@@ -2049,7 +2049,7 @@ int main() {
 //specific ranges are often needed, like starting at 10
 // use teh rand() % value, then add your desired range start to it
 // ex: need a num from 10-15, possible values in range is 15-10+1 (DON'T EVER FORGET +1)
-// rand() % 6 gives us 6 values as needed 0 1 2 3 4 5 
+// rand() % 6 gives us 6 values as needed 0 1 2 3 4 5
 // add start point (10) to it
 // (rand() % 6) + 10 -> 10 11 12 13 14 15
 
@@ -2093,7 +2093,7 @@ int main() {
 // great way to change seed is to use time - srand(time(0)) - time() give sseconds since 01/01/1970
 // time() needs to have 0 or NULL in it's arguments to tell it to return current system time without usign a variable
 
-//ex - usinga new seed for each program run 
+//ex - usinga new seed for each program run
 #include <iostream>
 #include <cstdlib>
 #include <ctime>    // Enables use of time() function
@@ -2227,7 +2227,7 @@ int main() {
    return 0;
 }
 
-//Auto Keyword -> C++11 and newer 
+//Auto Keyword -> C++11 and newer
 // the auto keyword will tell the compiler to automatically determine the variable's type based on the initial given value
 
 /*
@@ -2236,13 +2236,13 @@ auto                      v = 2;         	v	int
 auto                      w = 0.5;      	w	double
 const auto x = 7;	        x	              const int
 auto y = 'h';           	y	              char
-auto z = "apple";       	z             	const char 
+auto z = "apple";       	z             	const char
 */
 
 //typeid operator reports a variable's type
 //name() function returns a string describing the variable's datatype
 // description is imlementation dependent, g++ uses d for double c for char and i for int
-typeid(x).name() 
+typeid(x).name()
 
 #include <iostream>
 using namespace std;
@@ -2291,7 +2291,7 @@ int main() {
    cin >> gasMileage;
    cout << "Enter the current price per gallon for gas in your area: \n";
    cin >> gasPrice;
-   
+
    cout << fixed << setprecision(2);   // All later cout's will print floating-point values to exactly 2 decimal places.
                                        // Ex: 3.60
    // Type your cout code here
@@ -2360,7 +2360,7 @@ int main() {
 }
 
 //inequality - ! = -> Doesn't equal
-// Boolean - T/F 
+// Boolean - T/F
 //equality & inequality expressions evaluate to a boolean value
 //chars are used often with equality expressions
 x == 'c';
@@ -2394,7 +2394,7 @@ int main() {
 
 bonusVal = 12;
 if (bonusVal == 12) {
-   bonusVal = bonusVal + 2; 
+   bonusVal = bonusVal + 2;
    bonusVal = 3 * bonusVal;
 }
 else {
@@ -2402,7 +2402,7 @@ else {
 }
 //bonusval will equal 42, since bonusVal is equal to 12, the if block executes so bonusVal is then 12 + 2, and then 14 * 3
 
-//If numPeople equals 10, execute groupSize = 2 * groupSize. Otherwise, execute groupSize = 3 * groupSize and numPeople = numPeople - 1. 
+//If numPeople equals 10, execute groupSize = 2 * groupSize. Otherwise, execute groupSize = 3 * groupSize and numPeople = numPeople - 1.
 if (numPeople == 10) {
     groupSize = 2 *groupSize;
 }
@@ -2562,13 +2562,13 @@ int main() {
 }
 
 /*
-  
+
   If integer numLegs is:
-  
+
       1, output "Uniped".
       4, output "Quadruped".
       6, output "Hexapod".
-  
+
   Otherwise, output "Leg count not found". End with a newline. */
 #include <iostream>
 using namespace std;
@@ -2619,7 +2619,7 @@ if x < 13
   asdf
 else if x < 18 //if this branch is reached, than x is a number from 13 to 17
   asdf
-else 
+else
 //relations without = are noninclusive
 // if it was <= 18 than it'd be 13,14,15,16,17,18
 
@@ -2636,10 +2636,10 @@ using namespace std;
 int main() {
    int userInput;
 
-   cin >> userInput; 
+   cin >> userInput;
 
    if (userInput >= -80) { // using > = ensures it catches the -80 and all lower numbers
-      cout << "-80 or more" << endl;       
+      cout << "-80 or more" << endl;
    }
    else {
       cout << "Fewer than -80" << endl;
@@ -2655,7 +2655,7 @@ using namespace std;
 int main() {
    int userVal;
 
-   cin >> userVal; 
+   cin >> userVal;
 
    if (userVal >= 90) {
       cout << "90 or more" << endl;
@@ -2813,9 +2813,9 @@ using namespace std;
 int main() {
    int userChannel;
    char channelType;
-   
+
    cin >> userChannel;
-   
+
    if ((userChannel >= 2) && (userChannel <= 499)) {
       channelType = 's'; //normal chanels (standard)
    }
@@ -2827,7 +2827,7 @@ int main() {
    }
 
    cout << "Channel type: " << channelType << endl;
-   
+
    return 0;
 }
 
@@ -2901,7 +2901,7 @@ int main() {
    cin >> ethanolTemp;
    if (ethanolTemp < -172) {
       cout << "Ethanol: solid state" << endl;
-   }   
+   }
    else if ((ethanolTemp >= -172) && (ethanolTemp < 174)) {
       cout << "Ethanol: liquid state" << endl;
    }
@@ -2961,7 +2961,7 @@ int main() {
 if (num >= 100 && num <= 150) - num is 100-150
 else if (num >=200 && num <= 250) - num is 200-250
 //Combined:
-if ((num >= 100 && num <= 150) || (num >= 200 && num <= 250)) 
+if ((num >= 100 && num <= 150) || (num >= 200 && num <= 250))
 
 
 #include <iostream>
@@ -2978,7 +2978,7 @@ int main() {
       cout << "b" << endl;
    }
    cout << "c" << endl;
-   
+
    return 0;
 } //output: a \n c \n -> a is less than 7, but not lessthan or equal to 2 so firstbranch is true
 
@@ -2993,7 +2993,7 @@ using namespace std;
 int main() {
    int grapesOrdered;
 
-   cin >> grapesOrdered;  
+   cin >> grapesOrdered;
 
    if ((grapesOrdered >=30) && (grapesOrdered <= 70)) {
       cout << "Large carton" << endl;
@@ -3018,7 +3018,7 @@ using namespace std;
 int main() {
    int forksRequested;
 
-   cin >> forksRequested;  
+   cin >> forksRequested;
 
    if ((forksRequested >= 40) && (forksRequested < 80)) {
       cout << "Standard package" << endl;
@@ -3042,31 +3042,31 @@ using namespace std;
 
 int main() {
    int userAge;
-   
+
    cout << "Enter age: ";
    cin  >> userAge;
-   
+
    // Note that more than one "if" statement can execute - if userAge is 35 then ALL branches execute except the first
    if (userAge < 16) {
       cout << "Enjoy your early years." << endl;
    }
-   
+
    if (userAge > 15) {
       cout << "You are old enough to drive." << endl;
    }
-   
+
    if (userAge > 17) {
       cout << "You are old enough to vote." << endl;
    }
-   
+
    if (userAge > 24) {
       cout << "Most car rental companies will rent to you." << endl;
    }
-   
+
    if (userAge > 34) {
       cout << "You can run for president." << endl;
    }
-   
+
    return 0;
 }
 
@@ -3075,14 +3075,14 @@ int main() {
 
 
 numBoxes  = 0;
-numApples = 9; 
+numApples = 9;
 
 if (numApples < 10) { //9<10 so this branch executes
    if (numApples < 5) { //not true, doesn't execute
       numBoxes = 1;
    }
    else { //this branch executes
-      numBoxes = 2; 
+      numBoxes = 2;
    }
 }
 else if (numApples < 20) { //if that was only an if than we would have our 2 + 1 numBoxes
@@ -3095,7 +3095,7 @@ using namespace std;
 
 int main() {
    int numPuppies;
-   
+
    numPuppies = 4;
 
    if (numPuppies > 2) {
@@ -3109,7 +3109,7 @@ int main() {
    if (numPuppies < 9) {
       cout << "h" << endl;
    }
-   
+
    cout << "m" << endl;
 
    return 0;
@@ -3117,7 +3117,7 @@ int main() {
 
 //Nested if-else - if statements within if statements
 //useful for making decisions based on multiple things - discounts based on price and items purchased
-if (numItems > 3) {     
+if (numItems > 3) {
    if (totalCost > 100) {       // numItems > 3 and totalCost > 100
       saleDiscount = 20;
    }
@@ -3209,7 +3209,7 @@ int main() {
 
    cin >> numLemons;
    cin >> moneyOnHand;
- 
+
    if (numLemons >= 5) {
       totalCost = numLemons * 3;
       if (totalCost <= moneyOnHand) {
@@ -3230,14 +3230,14 @@ int main() {
 if (numSales < 20)
    salesBonus = 0;
 else
-   totBonus = totBonus + 1; 
+   totBonus = totBonus + 1;
    salesBonus = 20; //technically the indentation doesn't matter, so without the braces this just executes after the else in the code
 
    if (numSales < 20) {
       salesBonus = 0;
    }
    else {
-      totBonus = totBonus + 1; 
+      totBonus = totBonus + 1;
       salesBonus = 20;
    } // executes the way it should
 
@@ -3245,8 +3245,8 @@ else
    bonusVal = 5;
    if (bonusVal > 10)
       // Update bonusVal
-      bonusVal = bonusVal - 1; 
-      numItems = bonusVal;  
+      bonusVal = bonusVal - 1;
+      numItems = bonusVal;
    numItems = numItems + 1;
    //numItems = 6 afterward, numItems = bonusVal isn't part of the branch despite apperances due to missing braces
 
@@ -3257,7 +3257,7 @@ else
    else
       cout << "Not positive, converting to 1." << endl;
       userNum = 1;
-    
+
    cout << "Final: " << userNum << endl;
  */
 #include <iostream>
@@ -3283,7 +3283,7 @@ int main() {
 
 //using = in an if over == will run even though it's wrong, it will assign he left side with the right and then the branch executes
 //as the value is not 0 so it's true
-numItems = 3; 
+numItems = 3;
 if (numItems = 10) {
    numItems = numItems + 1; //numItems will be 11
 }
@@ -3297,12 +3297,12 @@ int main() {
    int timeMinute;    // Time of travel minute
    char inputColon;   // Used to read time format
    double tollAmount;
-   
+
    cout << "Enter time of travel (HH:MM in 24 hour format): ";
-   
+
    // Read an integer (hour), colon (char), and integer (minute)
    cin  >> timeHour >> inputColon >> timeMinute;
-   
+
    // Determine toll based on hour of travel
    if (timeHour < 6) {         // Before 6:00 am
       tollAmount = 1.55;
@@ -3316,15 +3316,15 @@ int main() {
    else {                      // 6 pm and after
       tollAmount = 1.55;
    }
-   
+
    // Output time and toll amount
    cout << "Toll at " << timeHour << ":";
-   
+
    // Output minute with formatting (discussed elsewhere) to
    // print two digits for minutes.
    cout << setw(2) << setfill('0') << timeMinute;
    cout << " is " << tollAmount << endl;
-   
+
    return 0;
 }
 
@@ -3339,15 +3339,15 @@ int main() {
    int typeOfDay;     // 0 - weekday, 1 - weekend/holiday
    char inputColon;   // Used to read time format
    double tollAmount;
-   
+
    cout << "Enter time of travel (HH:MM in 24 hour format): ";
-   
+
    // Read an integer (hour), colon (char), and integer (minute)
    cin  >> timeHour >> inputColon >> timeMinute;
-   
+
    cout << "Enter type of day (0 - weekday, 1 - weekend/holiday): ";
    cin >> typeOfDay;
-   
+
    if (typeOfDay == 0) { // Weekday time and rates
                          // Determine toll based on hour of travel
       if (timeHour < 6) {         // Before 6:00 am
@@ -3384,10 +3384,10 @@ int main() {
          tollAmount = 1.55;
       }
    }
-   
+
    // Output toll using am/pm format
    cout << "Toll at ";
-   
+
    // Output hour adjusting for am/pm format
    if (timeHour == 0) {
       cout << "12:";
@@ -3398,7 +3398,7 @@ int main() {
    else {
       cout << timeHour - 12 << ":";
    }
-   
+
    // Output minute with formatting (discussed elsewhere) to
    // print two digits for minutes.
    cout << setw(2) << setfill('0') << timeMinute;
@@ -3410,9 +3410,9 @@ int main() {
    else {
       cout << " pm";
    }
-   
+
    cout << " is " << tollAmount << endl;
-   
+
    return 0;
 }
 
@@ -3428,18 +3428,18 @@ int main() {
    int numPeople;    // People in vehicle
    char inputColon;   // Used to read time format
    double tollAmount;
-   
+
    cout << "Enter time of travel (HH:MM in 24 hour format): ";
-   
+
    // Read an integer (hour), colon (char), and integer (minute)
    cin  >> timeHour >> inputColon >> timeMinute;
-   
+
    cout << "Enter type of day (0 - weekday, 1 - weekend/holiday): ";
    cin >> typeOfDay;
-   
+
    cout << "Enter number of people in vehicle: ";
    cin >> numPeople;
-   
+
    if (typeOfDay == 0) { // Weekday time and rates
                          // Determine toll based on hour of travel
       if (timeHour < 6) {         // Before 6:00 am
@@ -3456,7 +3456,7 @@ int main() {
       }
    }
 
-   
+
    else { // Weekend/holiday time and rates
           // Determine toll based on hour of travel
       if (timeHour < 8) {         // Before 8:00 am
@@ -3479,7 +3479,7 @@ int main() {
       }
    }
 
-   
+
    // Check for carpool rate (3 or more people) and update toll
    if (numPeople >= 3) {
       // If on a weekday between 6:00 am and 9:59 am, toll is half off
@@ -3491,10 +3491,10 @@ int main() {
          tollAmount = 0.0;
       }
    }
-   
+
    // Output toll using am/pm format
    cout << "Toll at ";
-   
+
    // Output hour adjusting for am/pm format
    if (timeHour == 0) {
       cout << "12:";
@@ -3506,7 +3506,7 @@ int main() {
       cout << timeHour - 12 << ":";
    }
 
-   
+
    // Output minute with formatting (discussed elsewhere) to
    // print two digits for minutes.
    cout << setw(2) << setfill('0') << timeMinute;
@@ -3522,7 +3522,7 @@ int main() {
 }
 
 //Bitwise operators -> & and |, not the same as && or ||
-//Precedence rules - https://en.cppreference.com/cpp/language/operator_precedence 
+//Precedence rules - https://en.cppreference.com/cpp/language/operator_precedence
 //Order of operations for expression evaluation, use parentheses to avoid mistakes
 
 /*The following code contains a precedence error. Find and fix the precedence error by adding parentheses so the program outputs "Need to order more desserts" if both of the following are true:
@@ -3548,7 +3548,7 @@ int main() {
       cout << "Need to order more desserts" << endl;
    }
    else {
-      cout << "Enough desserts in stock" << endl; 
+      cout << "Enough desserts in stock" << endl;
    }
 
    return 0;
@@ -3570,7 +3570,7 @@ int main() {
       cout << "The person is school age." << endl;
    }
    else {
-      cout << "The person is not school age." << endl; 
+      cout << "The person is not school age." << endl;
    }
 
    return 0;
@@ -3594,7 +3594,7 @@ int main() {
       cout << "Desserts can be divided equally." << endl;
    }
    else {
-      cout << "Desserts cannot be divided equally." << endl; 
+      cout << "Desserts cannot be divided equally." << endl;
    }
 
    return 0;
@@ -3610,11 +3610,11 @@ int main() {
 //Case number is often the value you want the expression to meet
 switch (userVal) {
    case 1:
-      numItems = 5; 
+      numItems = 5;
       break;
 
    case 3:
-      numItems = 12; 
+      numItems = 12;
       break;
 
    case 4:
@@ -3631,16 +3631,16 @@ switch (userVal) {
 //case order doesn't matter as long as they include breaks
 //always have a default case
 switch (expression) {
-   case constantExpr1: 
+   case constantExpr1:
       // Statements
       break;
 
    case constantExpr2:
       // Statements
       break;
-   
+
    ...
-   
+
    default: // If no other case matches
       // Statements
       break;
@@ -3702,7 +3702,7 @@ switch (dogAgeMonths) {
 //BOOLEAN data types - T/F, in C++ is represented by bool
 //the bool variables can be set using eiher true / false keywords or by assigning it the result of a logical expression
 bool isWeekend = true;
-bool isLargeParty = (partySize>6); 
+bool isLargeParty = (partySize>6);
 
 //Example - Restaraunt wait times
 #include <iostream>
@@ -3714,7 +3714,7 @@ int main() {
    char day;
    bool isLargeParty;
    bool isWeekend;
-   
+
    // Get day of reservation
    cout << "Day of reservation (T/W/R/F/S/U): ";
    cin >> day;
@@ -3724,12 +3724,12 @@ int main() {
    else {
       isWeekend = false;
    }
-   
+
    // Get party size
    cout << "Enter party size: ";
    cin  >> partySize;
    isLargeParty = (partySize > 6); //sets this bool to true if partySize is over 6, false otherwise
-   
+
    // Determine wait time based on day of week and party size
    if (isWeekend && !isLargeParty) { //if it's the weekend and largeParty is false
       waitTime = 30;
@@ -3743,19 +3743,19 @@ int main() {
    else {
       waitTime = 15;
    }
-   
+
    cout << "Restaurant wait time is " << waitTime << " minutes." << endl;
-   
+
    return 0;
 }
-//complex programs tha combine logical and relational operators and expressions can be simplified using 
+//complex programs tha combine logical and relational operators and expressions can be simplified using
 //boolean variables, set the bool variables with the result of the expressions using relational operators
 //then, the if-else only needs to use logical operations using the bools
 isHot = (currentTemp > desiredTemp); //setting bool variables with the values of the relaionals
 isReallyHot = (currentTemp > (desiredTemp + 5.0));
 isHumid = (currentHumidity > 0.50);
-   
-if (isReallyHot) { //if else can use only true / false bool values 
+
+if (isReallyHot) { //if else can use only true / false bool values
    // Use A/C and evaporative cooler
    acOn = true;
    evapCoolerOn = true;
@@ -3775,7 +3775,7 @@ else {
    evapCoolerOn = false;
 }
 
-//Assign isTeenager with true if kidAge is 13 to 19 inclusive. Otherwise, assign isTeenager with false. 
+//Assign isTeenager with true if kidAge is 13 to 19 inclusive. Otherwise, assign isTeenager with false.
 #include <iostream>
 using namespace std;
 
@@ -3797,7 +3797,7 @@ int main() {
    return 0;
 }
 
-//String Comparison can be done with == and != 
+//String Comparison can be done with == and !=
 //Strings are equal if they have the same number of and identical characters
 //apple is not equal to Apple
 
@@ -3855,7 +3855,7 @@ int main() {
 //Strings are character sequences in memory, each string char has a position number -> the Index, starting at 0
 //String - Alex | Index 0 - A, 1-l, 2-e,3-x
 //accessing string chars by index value - use at()
-//at(): The notation someString.at(x) accesses the character at index x of a string. 
+//at(): The notation someString.at(x) accesses the character at index x of a string.
 string myString = "Alex";
 myString.at(0) //A
   //example - Word Scramble
@@ -3893,7 +3893,7 @@ using namespace std;
 int main() {
    string userWord ="Caterpillar";
    int replaceIndex;
-   
+
    cout << "Enter an index (0-10): ";
    cin  >> replaceIndex;
 
@@ -4026,7 +4026,7 @@ int main() {
    if (userString.at(3) == inputChar) {
       cout << "Found match" << endl;
    }
-   else { 
+   else {
       cout << "No match" << endl;
    }
 
@@ -4049,7 +4049,7 @@ using namespace std;
 
 int main() {
    string strInput;
-   
+
    getline(cin, strInput);
 
    if (strInput.at(strInput.size()-1) == '?') {
@@ -4262,9 +4262,9 @@ yourNumber = (myNumber >= 4) ? myNumber : 9; //if true, myNumber doesn't change
 
 //Float Comparison - don't use ==, like float1==float2 -> some floating-point numbers can't be represented exactly in the limited avialable memory bits like 64 bits
 //floats that should be the exact same may only be close when compared
-numMeters = 0.7;  
+numMeters = 0.7;
 numMeters = numMeters - 0.4;
-numMeters = numMeters - 0.3;// numMeters expected to be 0, but is actually -0.0000000000000000555112 
+numMeters = numMeters - 0.3;// numMeters expected to be 0, but is actually -0.0000000000000000555112
 if (fabs(numMeters - 0.0) < 0.001) {
    // Equals 0.
 }
@@ -4277,7 +4277,7 @@ else {
 //use fabs(x-y)<0.0001; for comparison, use fabs as the difference between x & y may be negative
 //fabs from the math library #include <cmath>
 //the difference threshold indicating that floats are equal when compared with fabs is called the Epsilon
-//epsilon value depends on the expected values for the program but 0.0001 is common 
+//epsilon value depends on the expected values for the program but 0.0001 is common
 fabs(x-1.0) < 0.0001 // checks if x = 1.0
 //example comparing temps
 #include <iostream>
@@ -4314,9 +4314,9 @@ int main() {
    double sampleValue3 = 0.7;
    double sampleValue4 = 0.0;
    double sampleValue5 = 0.25;
-   
-   
-   cout << "sampleValue1 using just cout: " 
+
+
+   cout << "sampleValue1 using just cout: "
         << sampleValue1 << endl;
 
    cout << setprecision(25) //shows the float at 25 chars past decimal
@@ -4325,7 +4325,7 @@ int main() {
         << "sampleValue3 is " << sampleValue3 << endl
         << "sampleValue4 is " << sampleValue4 << endl
         << "sampleValue5 is " << sampleValue5 << endl;
-   
+
    return 0;
 }
 
@@ -4345,7 +4345,7 @@ int main() {
 #include <iostream>
 #include <string>
 #include <cctype>
-using namespace std;                       
+using namespace std;
 
 int main() {
    string inputName;
@@ -4370,7 +4370,7 @@ int main() {
    if (searchName.at(0) == '.') {
      searchName = searchName.erase(0,1); //.erase(x,y) -> erases a char at index(x) and removes the amount of chars at (y) - this removes only 1 char, at index 0
    }
-   
+
    // Determine whether the user-entered name is a gTLD
    if (searchName == coreGtld1) {
       isCoreGtld = true;
@@ -4406,7 +4406,7 @@ int main() {
 //need to set a break or escpae or it will run indefinitely
 //even if expression is found fale during loop, until that body executes and expression is checked again th loop continues
 while (expression) { // Loop expression
-    // Loop body: Executes if expression evaluated to true 
+    // Loop body: Executes if expression evaluated to true
     // After body, execution jumps back to the "while"
 }
 // Statements that execute after the expression evaluates to false
@@ -4417,18 +4417,18 @@ using namespace std;
 int main() {
   int currPower;
   char userChar;
- 
+
   currPower = 2;
   userChar = 'y';
- 
+
   while (userChar == 'y') { //as long as userChar is 'y' this loop executes
      cout << currPower << endl;
      currPower = currPower * 2;
      cin >> userChar; //forgetting this or a break will cause infinite loop
   }
- 
+
   cout << "Done" << endl;
- 
+
   return 0;
 }
 
@@ -4457,7 +4457,7 @@ int main() {
       fahrenheitValue = (celsiusValue * 9.0 / 5.0) + 32.0;
 
       cout << celsiusValue << " C is ";
-      cout << fahrenheitValue << " F" << endl; 
+      cout << fahrenheitValue << " F" << endl;
 
       cout << "Type y to continue, any other to quit: ";
       cin >> userChar;
@@ -4489,14 +4489,14 @@ using namespace std;
 
 int main() {
   int userNum;
- 
+
   cin >> userNum;
- 
+
   while (userNum > 0) {
      cout << userNum % 10 << endl;
      userNum = userNum / 10;
   }
- 
+
   return 0;
 }
 
@@ -4509,20 +4509,20 @@ int main() {
    int userYear;                 // User input
    int consYear;                 // Year being considered
    int numAnc;                   // Approx. ancestors in considered year
-   
+
    consYear = 2020;
    numAnc = 2;
 
    cout << "Enter a past year (neg. for B.C.): ";
    cin >> userYear;
-      
+
    while (consYear >= userYear) { // as long as consYears more than userYear, loop executes
       cout << "Ancestors in " << consYear << ": " << numAnc << endl;
-      
+
       numAnc = 2 * numAnc;                 // Each ancestor had two parents //doubles amount of ancestors to output (x2, one for each parent)
       consYear = consYear - YEARS_PER_GEN; // Go back 1 generation //decreases consYear by 20, lowering iteration count
    }
-   
+
    return 0;
 }
  /*Enter a past year (neg. for B.C.): 1900
@@ -4540,15 +4540,15 @@ int main() {
  //using = instead of == will not cause the loop expression to recognize change in variable value thus giving infinite loop
  z = 0;
  c = 'y';
- 
+
  while (c = 'y') {
     cout << z << " ";
     cin >> c; //no matter what the user inputs here, c ='y' will not be changed due to previous assignment and will loop infinitely
     z = z + 1;
  }
- 
+
  x = 10;
- 
+
  while (x != 3) { //x will NEVER be equal to 3 here, infinite loop
     cout << x << " ";
     x = x / 2;
@@ -4556,82 +4556,82 @@ int main() {
 
  #include <iostream>
  using namespace std;
- 
+
  int main() {
     int g;
- 
+
     g = 0;
- 
+
     while (g <= 3) {
        cout << g << endl;
        g = g + 1;
     }
- 
+
     return 0;
  } //output - 0 1 2 3 all separated by endl
 
  /*A while loop reads characters from input into variable valueIn. Write an expression that executes the while loop while character 's' is not read into valueIn. */
  #include <iostream>
  using namespace std;
- 
+
  int main() {
     char valueIn;
- 
+
     cin >> valueIn;
     while (valueIn != 's') {
        cout << "User entered " << valueIn << endl;
        cin >> valueIn;
     }
- 
+
     cout << "Loop terminated" << endl;
- 
+
     return 0;
  }
  /*Character userIn is read from input. Write a while loop that reads characters from input while character 'e' is not read. In each iteration:
- 
+
      Update charSum with the sum of charSum and 1.
      Then, read the next character from input into variable userIn.
- 
+
  Character 'e' should not be included in the count. */
 
  #include <iostream>
  using namespace std;
-  
+
  int main() {
     char userIn;
 	int charSum;
- 
+
 	charSum = 0;
 	cin >> userIn;
- 
+
     while (userIn != 'e') {
        charSum += 1;
        cin >> userIn;
     }
- 
+
     cout << charSum << endl;
- 
+
 	return 0;
  }
 
  /*Integer valueIn is read from input. Write a while loop that iterates while valueIn is non-negative. In each iteration:
- 
+
      Update integer finalVal as follows:
          If valueIn is even, add valueIn to finalVal.
          Otherwise, subtract valueIn from finalVal.
      Then, read the next integer from input into variable valueIn.
- 
+
  */
  #include <iostream>
  using namespace std;
- 
+
  int main() {
     int valueIn;
     int finalVal;
- 
+
     finalVal = 0;
     cin >> valueIn;
- 
+
     while (valueIn >= 0) {
        if (valueIn % 2 == 0) {
           finalVal = finalVal + valueIn;
@@ -4641,9 +4641,9 @@ int main() {
        }
        cin >> valueIn;
     }
- 
+
     cout << "Final value is " << finalVal << endl;
- 
+
     return 0;
  }
 
@@ -4652,19 +4652,19 @@ int main() {
 
  #include <iostream>
  using namespace std;
- 
+
  // Output GCD of user-input numA and numB
- 
+
  int main() {
     int numA;  // User input
     int numB;  // User input
-    
+
     cout << "Enter first positive integer: ";
     cin  >> numA;
-    
+
     cout << "Enter second positive integer: ";
     cin  >> numB;
-    
+
     while (numA != numB) { // Euclid's algorithm
        if (numB > numA) {
           numB = numB - numA;
@@ -4673,9 +4673,9 @@ int main() {
           numA = numA - numB;
        }
     }
-    
+
     cout << "GCD is: " << numA << endl;
-    
+
     return 0;
  }
 /*Enter first positive integer: 9
@@ -4706,49 +4706,49 @@ GCD is: 500 */
 #include <string>
 using namespace std;
 
-/* Program that has a conversation with the user. 
-   Uses a if-else statements and a random number (sort of) 
+/* Program that has a conversation with the user.
+   Uses a if-else statements and a random number (sort of)
    to mix up the program's responses. */
 
 int main() {
    int randNum0_3;         // Random number 0 to 3
    string userText;        // User input
-   
+
    cout << "Tell me something about yourself." << endl;
-   cout << "You can type \"Goodbye\" at anytime to quit." 
+   cout << "You can type \"Goodbye\" at anytime to quit."
         << endl << endl << "> ";
-   
+
    getline(cin, userText);
-   
+
    while (userText != "Goodbye") {
       randNum0_3 = userText.size() % 4; // "Random" num. %4 ensures 0-3
 
       if (randNum0_3 == 0) {
-         cout << endl << "Please explain further." 
+         cout << endl << "Please explain further."
               << endl << endl << "> ";
       }
       else if (randNum0_3 == 1) {
-         cout << endl << "Why do you say: \"" << userText << "\"?" 
+         cout << endl << "Why do you say: \"" << userText << "\"?"
               << endl << endl << "> ";
-      }     
+      }
       else if (randNum0_3 == 2) {
-         cout << endl << "I don't think that's right." 
+         cout << endl << "I don't think that's right."
               << endl << endl << "> ";
-      }     
+      }
       else if (randNum0_3 == 3) {
-         cout << endl << "What else can you share?" 
+         cout << endl << "What else can you share?"
               << endl << endl << "> ";
       }
       else {
-         cout << endl << "Uh-oh, something went wrong. Try again." 
+         cout << endl << "Uh-oh, something went wrong. Try again."
               << endl << endl;
       }
-      
+
       getline(cin, userText);
    }
-   
+
    cout << endl << "It was nice talking with you. Goodbye." << endl;
-   
+
    return 0;
 }
 /*Tell me something about yourself.
@@ -4817,7 +4817,7 @@ using namespace std;
 int main() {
 	int inputNumber;
 	int productOfSelected;
-	
+
 	productOfSelected = 1;
 
    cin >> inputNumber;  // The first integer is read
@@ -4845,7 +4845,7 @@ int main() {
 
    cin >> inVal;  // The first integer is read
 
-   while (inVal > -10 && inVal < 45) { 
+   while (inVal > -10 && inVal < 45) {
          cout << inVal << " is good" << endl;
          cin >> inVal;
       }
@@ -4922,7 +4922,7 @@ using namespace std;
 int main() {
    int currentIn;
    int previousIn;
-   
+
    cin >> previousIn;
    cin >> currentIn;
    cout << "Sequence starts at " << previousIn << "." << endl;
@@ -5016,7 +5016,7 @@ using namespace std;
 
    valuesSum = 0;
 
-   for (i = 0; i < numValues; ++i) { //iterates until i = numValue 
+   for (i = 0; i < numValues; ++i) { //iterates until i = numValue
       cin >> currValue; // Gets next value in list
       valuesSum += currValue;
    }
@@ -5031,7 +5031,7 @@ using namespace std;
 
 int main() {
    int i;
-   
+
    for (i = 0; i < 5; ++i) {
       cout << i;
    }
@@ -5126,12 +5126,12 @@ int main() {
    int currValue;
    int numValues;
    int i;
-   
+
    cin >> numValues;
-   
+
    for (i = 0; i < numValues; ++i) {
       cin >> currValue;
-      
+
       if (i == 0) { // First iteration
          maxSoFar = currValue;
       }
@@ -5139,11 +5139,11 @@ int main() {
          maxSoFar = currValue;
       }
    }
-   
+
    if (numValues > 0) {
       cout << "Max: " << maxSoFar << endl;
    }
-   
+
    return 0;
 }
 //ex - generate a data table C - F
@@ -5155,7 +5155,7 @@ using namespace std;
 int main() {
    int currC;
    double equivalentF;
-   
+
    for (currC = -10; currC <= 40; currC += 5) { //set current celcius to -10, as long as it's not 40 it adds 5 for each iteration
       equivalentF =  (currC * 9.0 / 5.0) + 32.0; // conversion from C to F
 
@@ -5163,7 +5163,7 @@ int main() {
       cout << equivalentF << " F";
       cout << endl;
    }
-   
+
    return 0;
 }
 /*Write a for loop that prints: 1 2 ... lastNumber
@@ -5192,7 +5192,7 @@ int main() {
 }
 
 /*Write code that prints: countNum ... 2 1
-Print a newline after each number. 
+Print a newline after each number.
 
 Ex: If the input is:
 
@@ -5220,7 +5220,7 @@ int main() {
    return 0;
 }
 /*Write code that prints: Ready! numVal ... 2 1 Go!
-Your code should contain a for loop. Print a newline after each number and after each line of text. 
+Your code should contain a for loop. Print a newline after each number and after each line of text.
 
 Ex: If the input is:
 
@@ -5299,7 +5299,7 @@ int main() {
    for (i = 0; i < valCount; ++i) {
       cin >> inValue;
       cout << "Value read: " << inValue << endl;
-      
+
       if (i == 0 || inValue > largestVal) {
          largestVal = inValue;
       }
@@ -5333,7 +5333,7 @@ int main() {
    bool allEven;
    int i;
    int val;
-   
+
    allEven = true;
    cin >> inputCount;
 
@@ -5375,13 +5375,13 @@ int main() {
    bool allValid;
    int i;
    int val;
-   
+
    allValid = true;
    cin >> valCount;
 
    for (i = 0; i < valCount; ++i) {
       cin >> val;
-      
+
       if (val >= 10 && val <= 100) {
          allValid = false;
       }
@@ -5391,7 +5391,7 @@ int main() {
       cout << "Only valid value(s)" << endl;
    }
    else {
-      cout << "Invalid value(s)" << endl;  
+      cout << "Invalid value(s)" << endl;
    }
 
    return 0;
@@ -5464,7 +5464,7 @@ using namespace std;
 int main() {
    string checkStr;
    unsigned int i;
-   
+
    getline(cin, checkStr);
 
    for (i = 0; i < checkStr.size(); ++i) {
@@ -5474,7 +5474,7 @@ int main() {
    }
 
    cout << "Adjusted password: " << checkStr << endl;
-   
+
    return 0;
 }
 
@@ -5490,10 +5490,10 @@ int main() {
    string password;
    int i;
    int count;
-   
+
    getline(cin, password);
    count = 0;
-   
+
    for (i = 0; i < password.size(); ++i) {
       if (isdigit(password.at(i))) {
          count +=1;
@@ -5505,13 +5505,13 @@ int main() {
    else {
       cout << "Invalid" << endl;
    }
-   
+
    return 0;
 }
 
 /*
 "abc" is a string commonly found in weak passwords.
-Use a while loop to count the number of occurrences of "abc" in passwordStr, and replace each occurrence of "abc" in passwordStr with an empty string("").  
+Use a while loop to count the number of occurrences of "abc" in passwordStr, and replace each occurrence of "abc" in passwordStr with an empty string("").
 
 
 string.find(item) returns the index of the first occurrence of item in string. If no occurrence is found, then the function returns string::npos.
@@ -5525,7 +5525,7 @@ int main() {
    string passwordStr;
    int count;
 	int strIndex;
-   
+
    cin >> passwordStr;
 
    count = 0;
@@ -5540,7 +5540,7 @@ int main() {
 
    cout << "Number of occurrences: " << count << endl;
 	cout << "Remaining string: " << passwordStr << endl;
-   
+
    return 0;
 }
 
@@ -5558,9 +5558,9 @@ using namespace std;
 int main() {
    char letter1;
    char letter2;
-   
+
    cout << "Two-letter domain names:" << endl;
-   
+
    letter1 = 'a';
    while (letter1 <= 'z') { //main loop
       letter2 = 'a';
@@ -5570,7 +5570,7 @@ int main() {
       }
       ++letter1;
    }
-   
+
    return 0;
 }
 
@@ -5581,13 +5581,13 @@ using namespace std;
 int main() {
    int numAsterisk;  // Number of asterisks to print
    int i;            // Loop counter
-   
+
    numAsterisk = 0;
 
    while (numAsterisk >= 0) {
       cout << "Enter an integer (negative to quit): ";
       cin >> numAsterisk;
-      
+
       if (numAsterisk >= 0) {
          cout << "Depicted graphically:" << endl;
          for (i = 1; i <= numAsterisk; ++i) {
@@ -5596,7 +5596,7 @@ int main() {
          cout << endl << endl;
       }
    }
-   
+
    cout << "Goodbye." << endl;
 
    return 0;
@@ -5654,7 +5654,7 @@ int main() {
    int j;
 
    cin >> userNum;
-   
+
    for (i = 1; i <= userNum; ++i) {
       for ( j = 1; j <= i; ++j) {
          cout << "%";
@@ -5678,7 +5678,7 @@ int main() {
    char currentRowLetter;
    int currentColumn;
    int currentColumnInteger;
-   
+
    cin >> numRows;
    cin >> numColumns;
 
@@ -5707,10 +5707,10 @@ int main() {
    string phoneStr;   // User input: Phone number string
    unsigned int i;    // Current element in phone number string
    char currChar;     // Current char in phone number string
-   
+
    cout << "Enter phone number: ";
    cin >> phoneStr;
-   
+
    cout << "Numbers only: ";
    for (i = 0; i < phoneStr.size(); ++i) { // For each element
       currChar = phoneStr.at(i);
@@ -5722,9 +5722,9 @@ int main() {
          cout << '?';
       }
    }
-   
+
    cout << endl;
-   
+
    return 0;
 }
 //Break statements - end a loop immediately
@@ -5737,7 +5737,7 @@ using namespace std;
 int main() {
    const int EMPANADA_COST = 3;
    const int TACO_COST     = 4;
-   
+
    int userMoney;
    int numTacos;
    int numEmpanadas;
@@ -5749,41 +5749,41 @@ int main() {
 
    mealCost = 0;
    numOptions = 0;
-   
+
    cout << "Enter money for meal: ";
    cin >> userMoney;
-   
+
    cout << "How many people are eating: ";
    cin >> numDiners;
-   
+
    maxEmpanadas = userMoney / EMPANADA_COST;
    maxTacos     = userMoney / TACO_COST;
-   
+
    for (numTacos = 0; numTacos <= maxTacos; ++numTacos) {
       for (numEmpanadas = 0; numEmpanadas <= maxEmpanadas; ++numEmpanadas) {
-         
-         // Total items purchased must be equally 
+
+         // Total items purchased must be equally
          // divisible by number of diners
          if ( ((numTacos + numEmpanadas) % numDiners) != 0) {
             continue; //CONTINUE STATEMENT -> skips the rest of the loop body, jumps back to the start of our For loop
          }
-         
+
          mealCost = (numEmpanadas * EMPANADA_COST) + (numTacos * TACO_COST);
-         
+
          if (mealCost == userMoney) {
             cout << "$" << mealCost << " buys " << numEmpanadas
-                 << " empanadas and " << numTacos 
+                 << " empanadas and " << numTacos
                  << " tacos without change." << endl;
             numOptions = numOptions + 1;
          }
       }
    }
-   
+
    if (numOptions == 0) {
-      cout << "You cannot buy a meal without " 
+      cout << "You cannot buy a meal without "
            << "having change left over." << endl;
    }
-   
+
    return 0;
 }
 
@@ -5806,7 +5806,7 @@ int main() {
    }
 
    return 0;
-} //input - 4, output - 3 4 5 stop  all with newlines 
+} //input - 4, output - 3 4 5 stop  all with newlines
 
 #include <iostream>
 using namespace std;
@@ -5823,7 +5823,7 @@ int main() {
    while (a < b) {
       cout << a;
       cout << endl;
-      
+
       if (a > c) {
          break;
       }
@@ -5835,7 +5835,7 @@ int main() {
 }
 /*
   The loop iterates while a < b. In every iteration, the value of a is output, followed by a newline.
-  
+
       If a > 9, the break statement executes, and the loop exits.
       Otherwise, a is incremented by 3 and the loop continues to execute.
  */
@@ -5853,7 +5853,7 @@ using namespace std;
 int main() {
 
    // int val1  = userNum;    // ERROR
-  int userNum = 2;           // Name valid to main's "}"  
+  int userNum = 2;           // Name valid to main's "}"
   int newNum  = userNum + 1;
   int i;
 
@@ -5900,12 +5900,12 @@ using namespace std;
 int main() {
    string word;
    int amount;
-   
+
    cin >> word;
    cin >> amount;
 
    while (word != "quit") {
-      cout << "Eating " << amount<< " " << word << " a day keeps you happy and healthy." << endl; 
+      cout << "Eating " << amount<< " " << word << " a day keeps you happy and healthy." << endl;
       cin >> word;
       cin >> amount;
    }
@@ -5951,7 +5951,7 @@ int main() //corrected from void main() to int main() as per C++ standards
 		} //added open and close braces
 		cout << "Do you wish to evaluate another expression? " << endl;
 		cin >> answer;
-		if (answer == 'N' || answer == 'n') { //added exit conditions and message 
+		if (answer == 'N' || answer == 'n') { //added exit conditions and message
 			cout << "Program Finished." << endl;
 		}
 	}
@@ -5961,7 +5961,7 @@ int main() //corrected from void main() to int main() as per C++ standards
 //individual array items are called elements
 //some languages have a similar construct called a Vector
 //items accessed by their index - i.e. myVector[0]
-//Key feature of an array is that the index enables direct access to any element 
+//Key feature of an array is that the index enables direct access to any element
 //off by one error - arrays use a staring index of 0, avoid off by one errors
 // 500 items in array - last index is 499, first is 0
 myArray[0] = 3;
@@ -5998,7 +5998,7 @@ vector<int> itemList(4); //int vector with 4x elements
 //vectors can also be initialized with set values using braces and assignment operator
 //comma separate the elements in the braces
 vector<int> carSales = {5, 7, 11}; //int vector with 3 elements - 5 7 and 11
-//doing this ^ doesn't require size specification as it's automatically set usign the # of elements 
+//doing this ^ doesn't require size specification as it's automatically set usign the # of elements
 //in the braces
 #include <iostream>
 #include <vector>
@@ -6018,7 +6018,7 @@ int main() {
   cout << myOtherItems.at(0) << endl; //1
   cout << myOtherItems.at(1) << endl; //14
   cout << myOtherItems.at(2) << endl; //67
-  
+
 }
 //common error - forgetting to #include <vector>
 //powerful vector aspect is that the index is an expression
@@ -6040,7 +6040,7 @@ int main() {
    //current list of oldest people and age
    oldestPeople.at(0) = 122; // Died 1997 in France
    oldestPeople.at(1) = 119; // Died 1999 in U.S.
-   oldestPeople.at(2) = 117; // Died 1993 in U.S. 
+   oldestPeople.at(2) = 117; // Died 1993 in U.S.
    oldestPeople.at(3) = 117; // Died 1998 in Canada
    oldestPeople.at(4) = 116; // Died 2006 in Ecuador
 
@@ -6050,12 +6050,12 @@ int main() {
    if ((nthPerson >= 1) && (nthPerson <= 5)) { //as long as user input is more than 1 but less than / equal 5
       cout << "The #" << nthPerson << " oldest person lived ";
       cout << oldestPeople.at(nthPerson - 1) << " years." << endl; //nthPerson - 1 to avoid off by one error
-      //if user input was 2 they'd get index 2 (3rd list item), when they wanted the 2nd item in the list, 
+      //if user input was 2 they'd get index 2 (3rd list item), when they wanted the 2nd item in the list,
    }
    return 0;
 }
 
-//using .size() you can iterate through all the elements of a vector, super useful for 
+//using .size() you can iterate through all the elements of a vector, super useful for
 //iterating using loops
 
 #include <iostream>
@@ -6066,19 +6066,19 @@ int main() {
    const int NUM_VALS = 8;         // Number of elements in vector
    vector<int> userVals(NUM_VALS); // User values
    unsigned int i;                 // Loop index
-   
+
    cout << "Enter " << NUM_VALS << " integer values..." << endl;
    for (i = 0; i < userVals.size(); ++i) { //iterates through all elements of the vector
       cout << "Value: ";
       cin >> userVals.at(i); //takes user integer input and assigns it to the element at i's index
    }
-   
+
    cout << "You entered: ";
    for (i = 0; i < userVals.size(); ++i) { //prints out the vector elements in order of entry
       cout << userVals.at(i) << " ";
    }
    cout << endl;
-   
+
    return 0;
 }
 
@@ -6109,7 +6109,7 @@ Use push_back() to add the variables distance1 to distance5 to vector swimmingDi
 
 Ex: If the input is 20.74 18.58 6.82 15.1 13.9, then the output is:
 
-20.74 18.58 6.82 15.1 13.9 
+20.74 18.58 6.82 15.1 13.9
  */
 
 #include "codetest.h"
@@ -6154,7 +6154,7 @@ Initialize the elements at the odd indices with the value 0 and the even indices
 
 Ex: If the input is 13.16 8.15 14.9 15.07 5.16, then the output is:
 
-13.16 0 8.15 0 14.9 0 15.07 0 5.16 0 
+13.16 0 8.15 0 14.9 0 15.07 0 5.16 0
  */
 #include <iostream>
 #include <vector>
@@ -6191,7 +6191,7 @@ firstEmployee, middleEmployee, and lastEmployee, respectively.
 
 Ex: If the input is 9 83 107 125, then the output is:
 
-83 0 0 0 107 0 0 0 125 
+83 0 0 0 107 0 0 0 125
  */
 #include <iostream>
 #include <vector>
@@ -6213,8 +6213,8 @@ int main() {
    walkingLogs.at(0) = firstEmployee;
    walkingLogs.at((numEmployees / 2)) = middleEmployee;
    walkingLogs.at((numEmployees - 1)) = lastEmployee;
-   
-   
+
+
    for (i = 0; i < walkingLogs.size(); ++i) {
       cout << walkingLogs.at(i) << " ";
    }
@@ -6234,7 +6234,7 @@ Ex: If the input is
 then the output is:
 
 Average: 94
-Numbers greater than average: 112 130 191 
+Numbers greater than average: 112 130 191
  */
 #include <iostream>
 #include <vector>
@@ -6311,16 +6311,16 @@ int main() {
    }
 
    cout << "Even: ";
-   
+
    for (i = 0; i < numPeople; ++i) {
       if (i % 2 == 0) {    //originally tried swimmingListings.at(i) % 2 == 0 but didn't work
          cout << swimmingListings.at(i) << "-";
       }
    }
    cout << endl;
-   
+
       cout << "Odd: ";
-   
+
    for (i = 0; i < numPeople; ++i) {
       if (i % 2 != 0) {
          cout << swimmingListings.at(i) << "-";
@@ -6330,3 +6330,1683 @@ int main() {
 
    return 0;
 }
+
+//Iterating through vectors is super common and needs mastered
+// Vector indices are 0 -> N-1, not 1 -> N so this is a very common loop structure
+for (i = 0; i < myVector.size(); ++i) {
+    //loop body
+}
+
+//Iterating through vectors is important for a lot of various reasons, for instance most programmers will need to iterate through a vector
+// to determine some kind of quantity about the elements in the vector
+
+//Example - Iterating through a vector to get a sum of it's elements
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+   const int NUM_ELEMENTS = 8;      // Number of elements to add
+   vector<int> userVals;            // Empty vector for user values
+   unsigned int i;                  // Loop index
+   int val;                         // Element value
+   int sumVal;                      // Sum of elements
+
+   cout << "Enter " << NUM_ELEMENTS << " integer values..." << endl;
+   for (i = 0; i < NUM_ELEMENTS; ++i) {
+      cout << "Enter value: ";
+      cin >> val;
+      userVals.push_back(val);
+   }
+
+   sumVal = 0;
+   for (i = 0; i < userVals.size(); ++i) {
+      sumVal = sumVal + userVals.at(i);
+   }
+   cout << "Sum of elements: " << sumVal << endl;
+
+   return 0;
+}
+//another common usecase is to get the min or max of vector elements
+// create a variable to stroe the mex, use a for loop to go through each element, use an if statement in the for loop
+// if i > maxVar then maxVar = i
+// do this for all elements
+// must initialize maxVar before the loop so it can be compared, don't use 0 but instead use the firstelement of the vector
+//
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+   const int NUM_ELEMENTS = 8;      // Number of elements to add
+   vector<int> userVals;            // Empty vector for user values
+   unsigned int i;                  // Loop index
+   int val;                         // Element value
+   int maxVal;                      // Max of elements
+
+   cout << "Enter " << NUM_ELEMENTS << " integer values..." << endl;
+   for (i = 0; i < NUM_ELEMENTS; ++i) { //iteration to fill vector
+      cout << "Enter value: ";
+      cin >> val;
+      userVals.push_back(val);
+   }
+
+   maxVal = userVals.at(0); //if we assigned this zero it wouldn't behave correctly, especially if our vector has negatives
+   for (i = 0; i < userVals.size(); ++i) {
+      if (userVals.at(i) > maxVal) {
+         maxVal = userVals.at(i);
+      }
+    }
+   cout << "Max of elements: " << maxVal << endl;
+
+   return 0;
+}
+
+
+//Complete the code to compute the average of the vector's element values. The result should be 16.
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+   vector<int> valsVctr;     // Empty vector for values
+   unsigned int i;           // Loop index
+   int sumVal;               // Sum of values
+   int avgVal;               // Average of values
+
+   valsVctr.push_back(30);
+   valsVctr.push_back(20);
+   valsVctr.push_back(20);
+   valsVctr.push_back(15);
+   valsVctr.push_back(5);
+   valsVctr.push_back(10);
+
+   sumVal = 0;
+   avgVal = 0;
+//code goes here
+   for (i = 0; i < valsVctr.size(); ++i) {
+      sumVal = sumVal + valsVctr.at(i);
+   }
+//end of my code
+   avgVal = sumVal / valsVctr.size();
+   cout << "Average value: " << avgVal << endl;
+
+   return 0;
+}
+
+
+//Off by one & out of range is supe common, you can't iterate past the amount of elements in the vector
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+   vector<int> valsVctr;     // Empty vector for values
+   unsigned int i;           // Loop index
+
+   valsVctr.push_back(30);
+   valsVctr.push_back(20);
+   valsVctr.push_back(20);
+   valsVctr.push_back(15);
+   valsVctr.push_back(5);
+   valsVctr.push_back(10);
+
+   for( i = 0; i < valsVctr.size(); ++i){ //if this was <=, then it would terminate the program as it'd try to iterate past the amount of existing elements
+      cout << "valsVctr.at(" << i << ") = " << valsVctr.at(i) << endl;
+   }
+
+   return 0;
+}
+//iterate backwards through a vector:
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+   vector<int> userVals;
+   int i;
+
+   userVals.push_back(1);
+   userVals.push_back(5);
+   userVals.push_back(9);
+
+   for (i = userVals.size() - 1; i >= 0; --i) { //starting with vector.size()-1 starts at the last element, then you decrement to go backwards
+      cout << userVals.at(i) << endl;
+   }
+
+   return 0;
+}
+/*Integer numInputs is read from input as the number of elements in vector hourlyPrices. Given the integer vector hourlyPrices
+ write a for loop to output the integers in the second half of hourlyPrices.
+Output each integer followed by an asterisk surrounded by spaces (" * "). */
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+   vector<int> hourlyPrices;
+   int numInputs;
+   unsigned int i;
+   int price;
+
+   cin >> numInputs;
+
+   for (i = 0; i < numInputs; ++i) {
+      cin >> price;
+      hourlyPrices.push_back(price);
+   }
+
+   for (i = 0; i < numInputs; ++i) {
+      if (i >= numInputs / 2) {
+         cout << hourlyPrices.at(i) << " * ";
+      }
+   }
+
+   cout << endl;
+
+   return 0;
+}
+/*Integer numIn is read from input as the number of elements in vector dailySalary
+Given the integer vector dailySalary, write a for loop to output all the integers in dailySalary in reverse order.
+Output a comma followed by a space (", ") after each integer except the last. */
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+   vector<int> dailySalary;
+   int numIn;
+   int i;
+   int salary;
+
+   cin >> numIn;
+
+   for (i = 0; i < numIn; ++i) {
+      cin >> salary;
+      dailySalary.push_back(salary);
+   }
+
+   for (i = dailySalary.size() - 1; i >=0; --i) {
+         cout << dailySalary.at(i);
+      if (i > 0) {
+         cout << ", ";
+      }
+   }
+
+   cout << endl;
+
+   return 0;
+}
+
+
+/*Integer numValues is read from input as the number of elements in vector yearlySalary.
+Given the integer vector yearlySalary, write a for loop that assigns valueSum with the sum all the integers in yearlySalary that are less than 151 */
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+   vector<int> yearlySalary;
+   int numValues;
+   int valueSum;
+   unsigned int i;
+   int salary;
+
+   cin >> numValues;
+
+   for (i = 0; i < numValues; ++i) {
+      cin >> salary;
+      yearlySalary.push_back(salary);
+   }
+
+   valueSum = 0;
+
+   for (i = 0; i < numValues; ++i) {
+      if (yearlySalary.at(i) < 151) {
+         valueSum = valueSum + yearlySalary.at(i);
+      }
+   }
+
+   cout << "Sum of values below 151: " << valueSum << endl;
+
+   return 0;
+}
+
+
+//Vectors can be resized as needed using resize(N)
+myVector.resize(10) //changes the vector size to 10
+// resize() can be used multiple times, if it increases the vector size then it's added at the end, decreasing deletes from the end
+vector<int> myVector = {1,2,3,4,5,6,7,8,9,0};
+myVector.resize(11); //adds an element to end
+myVector.resize(9); //removes element from end
+
+//if the size you need for the vector is unknown, initiate it without a size or elements
+// get amount needed from input
+// use myVector.resize(userVal) to set it's sizxe to the needed amount of elements
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+   vector<int> userVals; // No elements yet
+   int numVals;
+   unsigned int i;
+
+   cout << "Enter number of integer values: ";
+   cin >> numVals;
+
+   userVals.resize(numVals); // Allocate elements
+
+   cout << "Enter " << numVals << " integer values..." << endl;
+   for (i = 0; i < userVals.size(); ++i) {
+      cout << "Value: ";
+      cin >> userVals.at(i);
+   }
+
+   cout << "You entered: ";
+   for (i = 0; i < userVals.size(); ++i) {
+      cout << userVals.at(i) << " ";
+   }
+   cout << endl;
+
+   return 0;
+}
+
+//swapping variables is often needed during programs, without using a temporary varaiable one of the var's values will get lost
+x = 5
+y = 98
+temp = 0
+temp = x
+x = y
+y = temp
+
+//swapping values can be used to reverse a vector
+// vector of size N -> swap 1 and N | 2 and N-1 ...
+//the middle never changes
+for (i = 0; i < revVector.size() / 2; ++i) { // /2 ensures we stop halfway
+   tempValue = revVector.at(i); //needed to store the value for the swap
+   revVector.at(i) = revVector.at(revVector.size() - 1 - i); //-1 addresses OBO error, - i goes that amount in from the right to grab the right values
+   revVector.at(revVector.size() - 1 - i) = tempValue;
+}
+
+
+//EX - Reversing a vector
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+   const int NUM_ELEMENTS = 8;
+   vector<int> revVector;
+   unsigned int i;
+   int userInput;
+   int tempValue;
+
+   cout << "Enter integer values..." << endl;
+   for (i = 0; i < NUM_ELEMENTS; ++i) {
+      cout << "Enter value: ";
+      cin >> userInput;
+      revVector.push_back(userInput);
+   }
+
+   // Reverse
+   for (i = 0; i < revVector.size() / 2; ++i) {
+      tempValue = revVector.at(i); // These 3 statements swap
+      revVector.at(i) = revVector.at(revVector.size() - 1 - i);
+      revVector.at(revVector.size() - 1 - i) = tempValue;
+   }
+
+   cout << "Updated vector:";
+   for (i = 0; i < revVector.size(); ++i) {
+      cout << " " << revVector.at(i);
+   }
+   cout << endl;
+
+   return 0;
+}
+
+//arrays vs vectors
+// C++ supports both vectors and arrays for ordered lists
+//array:
+int myArray[10]; // an integer array with 10 items
+myArray[i]; //accesses the ith element in the array
+//Vector:
+vector<int> myVector(10); //integer vector with 10 items
+myVector.at(i); // access ith element in vector
+//arrays have simpler syntax, vectors are safer to use -> best practice is to use vectors
+//vector.at(i) checks that the index is within range, array[i] doesn't do this check, VERY HARD BUG TO FIND
+int userWeights[3];
+int userAge;
+
+userAge = 44;
+
+userWeights[0] = 122;
+userWeights[1] = 119;
+userWeights[2] = 117;
+userWeights[3] = 199; // (Problematic) -> out of range
+
+// Print userAge -> 199
+// since userWeights[3] is out of range, it overwrites a value in memory, in this case the variable userAge, can be very hard to debug
+
+//2D Arrays
+// arrays can be declared with 2 dimesions -> int myArray[R][C] declares an int array with R rows and C columns with R*C total elements
+// int myArray[2][3] creats a table with 2 rows and 3 columns - 6 int variables total
+// accessing:
+myArray[0][0] = 33; sets first element in row 0 and column 0 to be 33
+num = myArray[1][2]; sets variable num with the value of row 1 column 2
+
+// Define array with size [2][3]
+int myArray[2][3];
+// Write to some elements
+myArray[0][0] = 55;
+myArray[1][1] = 77;
+myArray[1][2] = 99;
+
+//2D array is a table with rows and columns conceptually
+// compiler maps 2d array elements to 1d memory, each row following the previous row -> Row-Major Order
+// flattening a 2D matrix into a 1D vecor requires manually mapping the row (i) and column (j) index to a 1d index
+// 1D Offset = (i * COLUMNS) + j
+// i = current row index
+// columns = total # of clumns per row
+// j = current column index
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    constexpr int ROWS = 2;
+    constexpr int COLS = 3;
+
+    // 1. Native C++ 2D arrays are strictly row-major in memory
+    int nativeArr[ROWS][COLS] = {
+        {1, 2, 3}, // Row 0
+        {4, 5, 6}  // Row 1
+    };
+
+    // 2. Best Practice: Simulating a 2D array using a flat 1D vector
+    vector<int> flatMatrix = {1, 2, 3, 4, 5, 6};
+
+    // Accessing element at Row 1, Column 1 (Value: 5)
+    int r = 1;
+    int c = 1;
+
+    // Using the row-major formula: (r * COLS) + c
+    int value = flatMatrix[(r * COLS) + c];
+
+    cout << "Element at (" << r << "," << c << ") is: " << value << endl;
+
+    return 0;
+}
+
+//ex - 2D array for distance between cities
+#include <iostream>
+using namespace std;
+
+/* Direct driving distances between cities, in miles */
+/* 0: Boston  1: Chicago  2: Los Angeles */
+
+int main() {
+   int cityA;                  // Starting city
+   int cityB;                  // Destination city
+   int drivingDistances[3][3]; // Driving distances
+
+   // Initialize distances array
+   drivingDistances[0][0] = 0;
+   drivingDistances[0][1] = 960;  // Boston-Chicago
+   drivingDistances[0][2] = 2960; // Boston-Los Angeles
+   drivingDistances[1][0] = 960;  // Chicago-Boston
+   drivingDistances[1][1] = 0;
+   drivingDistances[1][2] = 2011; // Chicago-Los Angeles
+   drivingDistances[2][0] = 2960; // Los Angeles-Boston
+   drivingDistances[2][1] = 2011; // Los Angeles-Chicago
+   drivingDistances[2][2] = 0;
+
+   cout << "0: Boston  1: Chicago  2: Los Angeles" << endl;
+
+   cout << "Enter city pair (Ex: 1 2) -- ";
+   cin >> cityA;
+   cin >> cityB;
+
+   if ((cityA >= 0) && (cityA <= 2) && (cityB >= 0) && (cityB <= 2)) { //makes sure all inputs are within the ranges we set
+      cout << "Distance: " << drivingDistances[cityA][cityB];
+      cout << " miles." << endl;
+   }
+
+   return 0;
+}
+
+//2D arrays can be initialized during declaration usign nested braces, multiple lines improve readability but not needed
+// Initializing a 2D array
+int numVals[2][3] = { {22, 44, 66}, {97, 98, 99} };
+
+// Use multiple lines to make rows more visible
+int numVals[2][3] = {
+   {22, 44, 66}, // Row 0
+   {97, 98, 99}  // Row 1
+};
+//Arrays of more than 2D can be declared, but keep in mind the exponential growth in size and memory
+myArray[2][3][5]// 2*3*5 elements - 30
+myArray[100][100][5][3]// 100*100*5*3 elements - 150,000
+//remember that index values start at 0, so the 5th row and 3rd column is not [5][3] but is [4][2]
+
+/*Write a loop to iterate from 0 to the last row of milesTracker
+Within each row, use a nested loop to iterate from 0 to the last column of milesTracker.
+Within the nested loop, if an element is greater than maxMiles, assign maxMiles with the value of the element. Similarly, if an element is less than minMiles, assign minMiles with the value of the element.
+Ex: If the input is: -10 20 30 40 the output is:
+Min miles: -10
+Max miles: 40*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+   const int NUM_ROWS = 2;
+   const int NUM_COLS = 2;
+   int milesTracker[NUM_ROWS][NUM_COLS];
+   int i;
+   int j;
+   int maxMiles = 0;
+   int minMiles = 0;
+   int value;
+
+   for (i = 0; i < NUM_ROWS; i++){
+      for (j = 0; j < NUM_COLS; j++){
+         cin >> value;
+         milesTracker[i][j] = value;
+      }
+   }
+
+   maxMiles = milesTracker[0][0];
+   minMiles = milesTracker[0][0];
+//this nested for loop was what I wrote, did it wrong a LOT
+   for (i = 0; i < NUM_ROWS; ++i) { //iterates through the rows
+      for (j = 0; j < NUM_COLS; ++j) { //iterates through the columns for each iteration through the row
+         if (milesTracker[i][j] > maxMiles) { //if the entry in any of the row and colunmn spaces is over max miles (think tables)
+         maxMiles = milesTracker[i][j]; //sets that row and column entry value to Max Miles
+      }
+         if (milesTracker[i][j] < minMiles) {
+            minMiles = milesTracker[i][j];
+         }
+      }
+}
+   cout << "Min miles: " << minMiles << endl;
+   cout << "Max miles: " << maxMiles << endl;
+
+   return 0;
+}
+
+
+//Functions - names list of statements for repeated use
+//declutters program, DRY, reduces errors, efficient and concise
+//has a definition and a call
+//definition - consists of function name and block of staements
+//call - useing the function by name causing the code to execute
+
+#include <iostream>
+using namespace std;
+
+double CalcPizzaArea() { //definition and subsequent code block
+  double pizzaDiameter;
+  double pizzaRadius;
+  double pizzaArea;
+  double piVal = 3.14159265;
+
+  pizzaDiameter = 12.0;
+  pizzaRadius = pizzaDiameter / 2.0;
+  pizzaArea = piVal * pizzaRadius * pizzaRadius;
+  return pizzaArea;
+}
+
+int main() {
+  cout << "12 inch pizza is " << CalcPizzaArea(); //function call
+  cout << " inches squared." << endl;
+  return 0;
+}
+//main() is a function, it's automatically executed during program execution
+//return statements pass data back from the function, the function data type is the return data type, VOID returns NOTHING
+//functions can only return one item
+
+//Parameters - function input that's specifed in the definition
+//Argument - the data passed to the function for that parameter's value, can be an expression
+#include <iostream>
+using namespace std;
+
+double CalcPizzaArea(double pizzaDiameter) { //value in parentheses is the parameter
+   double pizzaRadius;
+   double pizzaArea;
+   double piVal = 3.14159265;
+
+   pizzaRadius = pizzaDiameter / 2.0;
+   pizzaArea = piVal * pizzaRadius * pizzaRadius;
+   return pizzaArea;
+}
+
+int main() {
+   cout << "12.0 inch pizza is "<< CalcPizzaArea(12.0) //value is the argument
+        << " square inches." << endl;
+   cout << "16.0 inch pizza is "<< CalcPizzaArea(16.0)
+        << " square inches." << endl;
+   return 0;
+}
+
+myFunction(int param1, int param2) {
+    //function body
+}
+myFunction(1,3) //function call with arguments
+//functions can call other functions, if the function being called has a parameter it needs accounted for in the parent call
+//https://cplusplus.com/doc/tutorial/functions/
+
+
+//Complete the function definition to return the hours given minutes. Output for sample program when the user inputs 210.0: 3.5
+#include <iostream>
+using namespace std;
+
+double GetMinutesAsHours(double origMinutes) {
+   return origMinutes / 60;
+}
+
+int main() {
+   double minutes;
+
+   cin >> minutes;
+
+   // Will be run with 210.0, 3600.0, and 0.0.
+   cout << GetMinutesAsHours(minutes) << endl;
+
+   return 0;
+}
+
+//functions are often used to output text, not needing a return value
+//no return value -> Void keyword
+//functions with void keyword are Void Functions
+//after execution, control returns to caller without a value being returned
+
+void PrintSummary(int id, int items, double price) { //void, no return value but can still take paremeters and args
+    cout << "Order " << id << ":" << endl;
+    cout << "   Items: " << items << endl;
+    cout << fixed << setprecision(2);
+    cout << "   Total: $" << price << endl;
+}
+
+PrintSummary(id, items, price); //outputs all the text in the above functions
+
+//void functions and print fucntions are useful for repetition, like a menu system or listing out unchanging data
+
+//example - menu system
+#include <iostream>
+using namespace std;
+
+void PrintMenu() { //text block that will be printed each time it's called
+   cout << "Today's Menu:" << endl;
+   cout << "   1) Gumbo" << endl;
+   cout << "   2) Jambalaya" << endl;
+   cout << "   3) Quit" << endl << endl;
+}
+
+int main() {
+   bool quit = false; //set to false to act as sentinel value, once changed while loop breaks
+   int choice;
+
+   while (!quit) {
+      PrintMenu();
+      cout << "Enter choice: ";
+      cin >> choice;
+
+      if (choice == 3) { //exit logic
+         cout << "Goodbye" << endl;
+         quit = true;
+      }
+
+      else {
+         cout << "Order: ";
+         if (choice == 1) {
+            cout << "Gumbo" << endl;
+         }
+         else if (choice == 2) {
+            cout << "Jambalaya" << endl;
+         }
+         cout << endl;
+      }
+   }
+   return 0;
+}
+//Modular development is the process of dividing a program into separate modules that can be developed and tested separately and then integrated into a single program
+//Incremental development is a process in which a programmer writes, compiles, and tests a small amount of code, then writes, compiles, and tests a small amount more. etc, etc....
+//function stub is a function definition whose statements have not yet been written
+//function stubs catch the high level detaisl and flow of the functions and code before writing out full code and statements
+//use return statements or cout's to ensure the function stub tells user and coder it's not done yet
+double FunctionStubExample(double StubCount) {
+    cout << "STUB";
+    return 0.0; //needs to be a double since i made the function a double
+}
+//usually the high-level flow and behavior is written out in main() and then the function stubs will return simple fixme's to show where they are in the code
+
+//ex MPG
+#include <iostream>
+using namespace std;
+// Program converts a trip's kilometers and liters into miles, gallons, and mpg
+
+double ConvKilometersToMiles(double numKm) {
+   double milesPerKm = 0.621371;
+   return numKm * milesPerKm;
+}
+
+double ConvLitersToGallons(double numLiters) {
+   double gallonsPerLiter = 0.264172;
+   return numLiters * gallonsPerLiter;
+}
+
+double CalcMpg(double distMiles, double gasGallons) {
+   double userMpg = distMiles / gasGallons; //this WAS a stub, wrote this part out and changed return from 0.0
+   return userMpg;
+}
+
+int main() {
+   double distKm;
+   double distMiles;
+   double gasLiters;
+   double gasGal;
+   double userMpg;
+
+   cout << "Enter kilometers driven: " << endl;
+   cin >> distKm;
+   cout << "Enter liters of gas consumed: " << endl;
+   cin >> gasLiters;
+
+   distMiles = ConvKilometersToMiles(distKm);
+   gasGal = ConvLitersToGallons(gasLiters);
+   userMpg = CalcMpg(distMiles, gasGal);
+
+   cout << "Miles driven: " << distMiles << endl;
+   cout << "Gallons of gas: " << gasGal << endl;
+   cout << "Mileage: " << userMpg << " mpg" << endl;
+
+   return 0;
+}
+
+//Functions are often used to calculate mathematic formulas and conversions
+
+//ex - height conversion
+#include <iostream>
+using namespace std;
+
+/* Converts a height in feet/inches to centimeters */
+double HeightFtInToCm(int heightFt, int heightIn) {
+   const double CM_PER_IN = 2.54;
+   const int IN_PER_FT = 12;
+   int totIn;
+   double cmVal;
+
+   totIn = (heightFt * IN_PER_FT) + heightIn; // Total inches
+   cmVal = totIn * CM_PER_IN;                 // Conv inch to cm
+   return cmVal;
+}
+
+int main() {
+   int userFt;  // User defined feet
+   int userIn;  // User defined inches
+
+   // Prompt user for feet/inches
+   cout << "Enter feet: ";
+   cin >> userFt;
+
+   cout << "Enter inches: ";
+   cin >> userIn;
+
+   // Output the conversion result
+   cout << "Centimeters: ";
+   cout << HeightFtInToCm(userFt, userIn) << endl;
+
+   return 0;
+}
+
+
+//C to F
+#include <iostream>
+using namespace std;
+
+
+double FahrenheitToCelsius(double fahren, double cels) {
+   fahren = (1.8 * cels) + 32;
+   return fahren;
+}
+
+int main() {
+   double tempF;
+   double tempC;
+
+   cout << "Enter temperature in Celsius: " << endl;
+   cin >> tempC;
+
+   tempF = FahrenheitToCelsius(tempF, tempC);
+
+   cout << "Fahrenheit: " << tempF;
+
+   return 0;
+}
+
+//math functions often call other functions - i.e. volume or surface area wil need to calculate area
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+double CalcCircularBaseArea(double radius) {
+   return M_PI * radius * radius;
+}
+
+double CalcCylinderVolume(double baseRadius, double height) {
+   return CalcCircularBaseArea(baseRadius) * height;
+}
+
+double CalcCylinderSurfaceArea(double baseRadius, double height) {
+   return (2 * M_PI * baseRadius * height) + (2 * CalcCircularBaseArea(baseRadius));
+}
+
+int main() {
+   double radius;  // User defined radius
+   double height;  // User defined height
+
+   // Prompt user for radius
+   cout << "Enter base radius: ";
+   cin >> radius;
+
+   // Prompt user for height
+   cout << "Enter height: ";
+   cin >> height;
+
+   // Output the cylinder volume result
+   cout << "Cylinder volume: ";
+   cout << CalcCylinderVolume(radius, height) << endl;
+
+   // Output the cylinder surface area result
+   cout << "Cylinder surface area: ";
+   cout << CalcCylinderSurfaceArea(radius, height) << endl;
+
+   return 0;
+}
+
+//functions may need to include branches and other statements, these can be included in fucntiosn and behave the same
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+double CalcTax(double cost) {
+   return cost * 0.15;
+}
+
+// Determine shipping cost based on weight
+double CalcShippingCost(double weight) {
+   double cost;
+
+   if (weight < 1) {
+      cost = 7.88;
+   }
+   else if (weight < 6) {
+      cost = 14.32;
+   }
+   else if (weight < 10) {
+      cost = 21.11;
+   }
+   else {
+      cost = 25.5;
+   }
+   cost = cost + CalcTax(cost);
+   return cost;
+}
+
+int main() {
+   double weightOfPackage;        // User defined package weight
+
+   cout << "Enter package weight: ";
+   cin >> weightOfPackage;
+   cout << "Shipping cost: $";
+   cout << fixed << setprecision(2) << CalcShippingCost(weightOfPackage) << endl;
+   return 0;
+}
+
+//Functions can also utilize for loops for iterative calculations and expressions
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+double ComputeAverage(int numCount) {
+   double valuesSum = 0;
+   int currValue = 0;
+
+   for (int i = 0; i < numCount; ++i) {
+      cout << "Enter number: ";
+      cin >> currValue;
+      valuesSum += currValue;
+   }
+   return valuesSum / numCount;
+}
+
+int main() {
+   int numValues;
+   double averageVal;
+
+   cout << "Enter number of values: ";
+   cin >> numValues;
+   averageVal = ComputeAverage(numValues);
+
+   cout << "Average: ";
+   cout << fixed << setprecision(3) << averageVal << endl;
+   return 0;
+}
+
+//example - Least Common Multiple
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+// Function prompts user to enter positive non-zero number
+int PromptForPositiveNumber() {
+   int userNum;
+
+   userNum = 0;
+
+   while (userNum <= 0) {
+      cout << "Enter a positive number (>0): " << endl;
+      cin >> userNum;
+
+      if (userNum <= 0) {
+         cout << "Invalid number." << endl;
+      }
+   }
+
+   return userNum;
+}
+
+
+// Function returns greatest common divisor of two inputs
+int FindGCD(int aVal, int bVal) {
+   int numA;
+   int numB;
+
+   numA = aVal;
+   numB = bVal;
+
+   while (numA != numB) { // Euclid's algorithm
+      if (numB > numA) {
+         numB = numB - numA;
+      }
+      else {
+         numA = numA - numB;
+      }
+   }
+
+   return numA;
+}
+
+// Function returns least common multiple of two inputs
+int FindLCM(int aVal, int bVal) {
+   int lcmVal;
+
+   lcmVal = abs(aVal * bVal) / FindGCD(aVal, bVal);
+
+   return lcmVal;
+}
+
+int main() {
+   int usrNumA;
+   int usrNumB;
+   int lcmResult;
+
+   cout << "Enter value for first input" << endl;
+   usrNumA = PromptForPositiveNumber();
+
+   cout << endl << "Enter value for second input" << endl;
+   usrNumB = PromptForPositiveNumber();
+
+   lcmResult = FindLCM(usrNumA, usrNumB);
+
+   cout << endl << "Least common multiple of " << usrNumA
+        << " and " << usrNumB << " is " << lcmResult << endl;
+
+   return 0;
+}
+
+
+//Testing is the process of checking whether or not a program behaves correctly
+//testing large programs is tricky as bugs can be anywhere throughout the code and bugs often interact with eachother
+//good practice is to test small parts of the code individually and THEN the whole program
+//UNIT TESTING - individually testing a small part (unit) of a program - often a function
+//unit testing is typically conducted using a TESTBENCH or TESTHARNESS - separate program whose sole purpose is to check that a function returns the right output for input
+//TEST VECTORS - unique set of input values used for unit tests
+
+//Test harness for a function that converts a specified time in hours and minutes to total amount of minutes - HrMinToMin()
+include <iostream>
+using namespace std;
+
+// Function converts hrs/min to min
+int HrMinToMin(int origHours, int origMinutes) {
+   int totMinutes; // Resulting minutes
+
+   totMinutes = (origHours * 60) + origMinutes;
+
+   return origMinutes;
+}
+
+int main() {
+
+   cout << "Testing started" << endl;
+
+   cout << "0:0, expecting 0, got: "    << HrMinToMin(0, 0)  << endl;
+   cout << "0:1, expecting 1, got: "    << HrMinToMin(0, 1)  << endl;
+   cout << "0:99, expecting 99, got: "  << HrMinToMin(0, 99) << endl;
+   cout << "1:0, expecting 60, got: "   << HrMinToMin(1, 0)  << endl;
+   cout << "5:0, expecting 300, got: "  << HrMinToMin(5, 0)  << endl;
+   cout << "2:30, expecting 150, got: " << HrMinToMin(2, 30) << endl;
+   // Many more test vectors would be typical...
+
+   cout << "Testing completed" << endl;
+
+   return 0;
+}
+
+//OUTPUT
+/*Testing started
+0:0, expecting 0, got: 0
+0:1, expecting 1, got: 1
+0:99, expecting 99, got: 99
+1:0, expecting 60, got: 0
+5:0, expecting 300, got: 0
+2:30, expecting 150, got: 30
+Testing completed */
+//examining the output of the tests can help show where the code is going wrong
+//for instance, we can tell that the test works up until there's a value for the hours, checkign our code we see that
+//we are returning origMinutes and not totMinutes
+
+//manually examining all of the input can be a slog, instead configure the test harness to only print errors for incorrect output
+//C++ provides a compact way to do this - assert()
+//assert() is a macro (like a function) that prints an error & exits the program if it's input expression is false
+//the message includes the line number and the expression
+//requires including cassert
+
+//EX - hours to minuites test harness usint assert()s
+#include <iostream>
+#include <cassert>
+using namespace std;
+
+double HrMinToMin(int origHours, int origMinutes) {
+   int totMinutes;  // Resulting minutes
+
+   totMinutes = (origHours * 60) + origMinutes;
+
+   return origMinutes;
+}
+
+int main() {
+
+   cout << "Testing started" << endl;
+
+   assert(HrMinToMin(0, 0)  == 0);
+   assert(HrMinToMin(0, 1)  == 1);
+   assert(HrMinToMin(0, 99) == 99);
+   assert(HrMinToMin(1, 0)  == 60);
+   assert(HrMinToMin(5, 0)  == 300);
+   assert(HrMinToMin(2, 30) == 150);
+   // Many more test vectors would be typical...
+
+   cout << "Testing completed" << endl;
+
+   return 0;
+}
+
+//if statements could be used as well, but asserts are more compact
+if ( HrMinToMin(0, 0) != 0 ) {
+   cout << "0:0, expecting 0, got: " << HrMinToMin(0, 0) << endl;
+} //this would need to be included for each test case
+
+//assert enables compact & readable test harnesses and easese the task of checkign code output for accuracy
+
+//test vectors should be chosen thouroughly so taht they exercise a function to it's limits
+//all input values being tested is ideal but not practical
+//good test vectors include a number of normal cases that represent a rich variety of typical and expected input values
+//mixing large and cmall, common and uncommon values is ideal
+//good test vectors include BORDE CASES that represent fringe scnearios like 0 adn 99999999, negatives, massive numbers, thinks that are extreme, weird and unlikely
+
+//each function call creates a new set of local variables forming part of the stack frame
+//a return causes these vars to be discarded
+
+
+//new programmers sometimes assign a value to a parameter believing the assignment updates the corresponding argument variable
+//example situation is when a function should return 2 values, even though a function's return construct can ONLY return one value
+//assigning a normal parameter fails to update the argument's variable becuase normal paremeters are PASS BY VALUE meaning the argument's value is copied into a local variabel for the paremeter
+
+//Pass By Value - user tries printing the usrHr and usrMin values but the arguments AREN'T updated as the function uses alocal variable copy
+#include <iostream>
+using namespace std;
+
+void ConvHrMin(int timeVal, int hrVal, int minVal) {
+   hrVal  = timeVal / 60;
+   minVal = timeVal % 60;
+}
+
+int main() {
+   int totTime;
+   int usrHr;
+   int usrMin;
+
+   totTime = 0;
+   usrHr = 0;
+   usrMin = 0;
+
+   cout << "Enter total minutes: ";
+   cin >> totTime;
+
+   ConvHrMin(totTime, usrHr, usrMin);
+
+   cout << "Equals: ";
+   cout << usrHr << " hrs ";
+   cout << usrMin << " mins" << endl;
+
+   return 0;
+}
+
+//Pass by Reference - add & after the datatype in the paremeters of the function
+//the paremeter instead doesn't create a local copy of the argument but instead refers DIRECTLY to it's memory location
+
+//PASS BY REFERENCE - Parameters WILL directly modify the argument values
+#include <iostream>
+using namespace std;
+
+void ConvHrMin(int timeVal, int& hrVal, int& minVal) { //int& means it's pass by reference parameter now
+   hrVal = timeVal / 60;
+   minVal = timeVal % 60;
+}
+
+int main() {
+   int totTime;
+   int usrHr;
+   int usrMin;
+
+   totTime = 0;
+   usrHr = 0;
+   usrMin = 0;
+
+   cout << "Enter total minutes: ";
+   cin >> totTime; //156
+
+   ConvHrMin(totTime, usrHr, usrMin);
+
+   cout << "Equals: ";
+   cout << usrHr << " hrs "; //2
+   cout << usrMin << " min" << endl; //36 - userHr and userMin keep teh updated values from ConvHrMin()
+
+   return 0;
+}
+//Pass by reference should be used sparingly, it's better to just use multiple fubnctions for multiple return values
+//exceptions are when output values may be intertwined, this makes sense to use multiple pass-by-refference parameters
+//like when converting money into change or conveting from Polar to Cartesian coordinates
+void ComputeChange(int totCents, int& numQuarters, int& numDimes, int& numNickels, int& numPennies)
+void PolarToCartesian(int radialPol, int anglePol, int& xCar, int& yCar)
+
+//money change example
+
+#include <iostream>
+using namespace std;
+
+void ComputeChange(int totCents, int& numQuarters, int& numDimes, int& numNickels, int& numPennies ) {
+   numQuarters = totCents / 25;
+   totCents = totCents % 25;
+
+   numDimes = totCents / 10;
+   totCents = totCents % 10;
+
+   numNickels = totCents / 5;
+   totCents = totCents % 5;
+
+   numPennies = totCents;
+}
+
+int main() {
+   int userCents;
+   int numQuarters;
+   int numDimes;
+   int numNickels;
+   int numPennies;
+
+   cout << "Enter total cents: " << endl;
+   cin >> userCents;
+
+   ComputeChange(userCents, numQuarters, numDimes, numNickels, numPennies);
+
+   cout << "Quarters: " << numQuarters << endl;
+   cout << "Dimes: " << numDimes << endl;
+   cout << "Nickels: " << numNickels << endl;
+   cout << "Pennies: " << numPennies << endl;
+
+   return 0;
+}
+
+//Although a pass-by-value parameter creates a local copy, good practice is to avoid assigning such a paremeter
+//below code is technically correct but bad practice
+int IntMax(int numVal1, int numVal2) {
+   if (numVal1 > numVal2) {
+      numVal2 = numVal1; // numVal2 holds max, should have just used a temp value to avoid issues
+   }
+
+   return numVal2;
+}
+
+//assigning a parameter may slightly reduce code, but is lazy and can mislead readers into believing the argument variable is supposed to be updated
+//also increases likliehood of a bug caused by a statement reading the paramter later on but assuming it's value is the original passed value
+
+
+//Reference Variables - type of variable that refers to another variable
+//ex: int& maxValRef; - declares a refrence variable of type int
+//dev MUST initialize EACH reference with an existing variable, which is done by initializing the reference var when the refernce is declared:
+int & maxValRef = usrInput3;
+
+//ex - Refernce Variable - below code usrValRef is a refernce that refers to usrValInt. user entered number gets assigned to the variable userValInt
+//since usrValRef refers to userVallInt, printing usrValInt OR userValRef will print the same thing
+
+#include <iostream>
+using namespace std;
+
+int main() {
+   int usrValInt;
+   int& usrValRef = usrValInt;  // Refers to usrValInt | any time userValInt is changed, the reference will reflect it too
+
+   cout << "Enter an integer: ";
+   cin  >> usrValInt;
+
+   cout << "We wrote your integer to usrValInt." << endl;
+   cout << "usrValInt is: " << usrValInt << "." << endl;
+   cout << "usrValRef refers to usrValInt, and is: " << usrValRef << "." << endl;
+
+   usrValInt = 99;
+   cout << endl << "We assigned usrValInt with 99." << endl;
+   cout << "usrValInt is now: " << usrValInt << "." << endl;
+   cout << "usrValRef is now: " << usrValRef << "." << endl;
+   cout << "Note that usrValRef refers to usrValInt, so it changed too." << endl;
+   return 0;
+}
+//output - they enter 42, printing either var will show 42, changing usrValInt will ALSO change usrValRef
+//useful for Abstraction from user to ensure variables are not altered but can still be interacted with (i think, just guessing)
+
+//pass by reference is often used to modify a string or vector
+//ex - modifying a string using pass by reference
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Function replaces spaces with hyphens
+void StrSpaceToHyphen(string& modStr) {
+   unsigned int i;   // Loop index
+   for (i = 0; i < modStr.size(); ++i) {
+      if (modStr.at(i) == ' ') {
+         modStr.at(i) = '-';
+      }
+   }
+}
+
+int main() {
+   string userStr;  // Input string from user
+
+   // Prompt user for input
+   cout << "Enter string with spaces: " << endl;
+   getline(cin, userStr); //gets entire stringfrom input until newline
+
+   // Call function to modify user defined string
+   StrSpaceToHyphen(userStr); //userStr is passed as the argument to the string& parameter, so the function performs it's code blocks and it's return values are now userStr
+
+   // Output modified string
+   cout << "String with hyphens: ";
+   cout << userStr << endl;
+
+   return 0;
+}
+
+//the string serves as the functions input & output, the paramter MUST be pass by reference so that the original string can be modified and not a copy
+
+//same thing can be doen without pass by reference but requires a return type, modifying the function and adding some steps
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Function replaces spaces with hyphens
+string StrSpaceToHyphen(string modStr) {
+   unsigned int i;   // Loop index
+
+   for (i = 0; i < modStr.size(); ++i) {
+      if (modStr.at(i) == ' ') {
+         modStr.at(i) = '-';
+      }
+   }
+}
+
+int main() {
+   string userStr;  // Input string from user
+
+   // Prompt user for input
+   cout << "Enter string with spaces: " << endl;
+   getline(cin, userStr);
+
+   // Output modified string
+   cout << "String with hyphens: ";
+   cout << StrSpaceToHyphen(userStr) << endl;
+
+   return 0;
+}
+
+//sometiems coders define a vector/string param as pass by reference despite the function not modifying the parameter
+//this is often done to prevent the performance & memory overhead of copyign the arg that would otherwise happen
+
+//const keyword can be added before the vector/string parameter in the function to prevent the parameter from being modified
+//this is often done on large vector or string inputs for effieciency
+//make it a pass by reference, but also a const to avoid assignmetn and gain teh efficiency benefits
+
+//EX: Normal & const pass by reference for vector parameters in vector reversal
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void ReverseVals(vector<int>& vctrVals) { //void for no return, int& for pass by reference
+   unsigned int i;  // Loop index
+   int tmpVal;      // Temp variable for swapping
+
+   for (i = 0; i < (vctrVals.size() / 2); ++i) { ///2 for only doign half otehrwise keeps swapping incorrectly
+      tmpVal = vctrVals.at(i); // These statements swap //sets i to be the temp val for temporary handling during swap
+      vctrVals.at(i) = vctrVals.at(vctrVals.size() - 1 - i); //current index becomes last element
+      vctrVals.at(vctrVals.size() - 1 - i) = tmpVal; //last element becomes first index, this repeats
+   }
+}
+
+void PrintVals(const vector<int>& vctrVals) { //const so it doesn't get assigned, does NOT modify the vector but uses a constant pass by reference to be efficient
+   unsigned int i;  // Loop index
+
+   // Print updated vector
+   cout << endl << "New values: ";
+   for (i = 0; i < vctrVals.size(); ++i) {
+      cout << " " << vctrVals.at(i);
+   }
+   cout << endl;
+}
+
+int main() {
+   const int NUM_VALUES = 8;            // Vector size
+   vector<int> userValues(NUM_VALUES);  // User values
+   int i;                               // Loop index
+
+   // Prompt user to populate vector
+   cout << "Enter " << NUM_VALUES << " values..." << endl;
+   for (i = 0; i < NUM_VALUES; ++i) {
+      cout << "Value: ";
+      cin >> userValues.at(i);
+   }
+
+   // Call function to reverse vector values
+   ReverseVals(userValues); //passed to first function as a reference, instead of makign local copy it overwrites this vector's values
+
+   // Print reversed values
+   PrintVals(userValues);
+
+   return 0;
+}
+
+//making a local copy enables compiler to generage more efficient code, partly becuase it can place the copies inside a register file - tiny and fast memory inside processor
+
+//Define a function's input/output params as pass by reference but creat output params sparingly, use returns instead if you can
+//pass by value - use a constant pass by reference for large items, otherwise use pass by value
+
+//vector/string descript         | param type
+// Small, not modified by func    - Const, not pass by ref
+//Small, modified by func      -    not const, pass by ref
+//Large, modified by func      -     pass by ref, not const
+//large, not modified by func   -    pass by ref, const
+
+//Functions with C Stering Parameters - Functiosn may often need to modify C style Strings
+//C strings are low-level arrays of characters, they have fixed sizes and use different functiosn for manipulation
+//c strings need #include <cstring>
+//copmarison is done with strcmp()
+//length found with strlen()
+//concatenation done with strcat()
+char cStr[] = "Hello"; -> C string
+string cppStr = "Hello"; -> C++ string
+//c strings are justarrays of 1-byte chars, ending in a null termainator
+//so char str[] = "foo" is {'f', 'o', 'o', NULL}
+
+
+//EX - modifying C strings usign functions
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+// Function replaces spaces with hyphens
+void StrSpaceToHyphen(char modString[]) {
+   int i;      // Loop index
+
+   for (i = 0; i < strlen(modString); ++i) {
+      if (modString[i] == ' ') {
+         modString[i] = '-';
+      }
+   }
+}
+
+int main() {
+   const int INPUT_STR_SIZE = 50;  // Input C string size
+   char userStr[INPUT_STR_SIZE];   // Input C string from user
+
+   // Prompt user for input
+   cout << "Enter string with spaces: " << endl;
+   cin.getline(userStr, INPUT_STR_SIZE);
+
+   // Call function to modify user defined C string
+   StrSpaceToHyphen(userStr);
+
+   cout << "String with hyphens: " << userStr << endl;
+
+   return 0;
+}
+
+//paramter definition uses [] to indicate an array paramter, function call does NOT use []
+//this is because the compiler automatically passes the C string as a pointer (variable storign a memory address of another variable)
+//therefore, the function modifies the original string argument userSTr and nto a copy
+
+//programmers can expliticly define an array paramter as a pointer
+//uses char* modString instead of char modString[]
+//it's a pointer paramter
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+// Function replaces spaces with hyphens
+void StrSpaceToHyphen(char* modString) { //pointer notation
+   int i;      // Loop index
+
+   for (i = 0; i < strlen(modString); ++i) {
+      if (modString[i] == ' ') {
+         modString[i] = '-';
+      }
+   }
+}
+
+int main() {
+   const int INPUT_STR_SIZE = 50;  // Input string size
+   char userStr[INPUT_STR_SIZE];   // Input C string from user
+
+   // Prompt user for input
+   cout << "Enter string with spaces: " << endl;
+   cin.getline(userStr, INPUT_STR_SIZE);
+
+   // Call function to modify user defined C string
+   StrSpaceToHyphen(userStr);
+
+   cout << "String with hyphens: " << userStr << endl;
+
+   return 0;
+}
+//both programs do the same thing
+
+//Scope - name of a defined variabel / fucntion is only visible to the part of the program which it exists and is declared
+//variables declared in a function have scope limited to inside that function
+//Compilers scan programs line by line from top to bottom so the scope starts AFTER the declaration and until the functions end
+#include <iostream>
+using namespace std;
+
+const double CM_PER_IN = 2.54;
+const int    IN_PER_FT = 12;
+
+/* Converts a height in feet/inches to centimeters */
+double HeightFtInToCm(int heightFt, int heightIn) {
+   int totIn;
+   double cmVal; //cmVal scope starts
+   totIn = (heightFt * IN_PER_FT) + heightIn; // Total inches
+   cmVal = totIn * CM_PER_IN;                 // Conv inch to cm
+   return cmVal; //cmVal scope ends
+}
+
+int main() {
+   int userFt;     // User defined feet
+   int userIn;     // User defined inches
+
+   // Prompt user for feet/inches
+   cout << "Enter feet: ";
+   cin >> userFt;
+
+   cout << "Enter inches: ";
+   cin >> userIn;
+
+   // Output the conversion result
+   cout << "Centimeters: ";
+   cout << HeightFtInToCm(userFt, userIn) << endl;
+
+   return 0;
+}
+//local variable - vars declared in functions - can be used from declaration to return
+//global variables - vars declared outside of functions - can be used from declaration to end of file
+//Global variables should be used sparingly, if a function's local variable/parameter update than in that function the names refering to the local itema nd the gloval item is inaccessible
+//if a function updates a global variable it has effects goign beyond it's parameters and return value -> SIDE EFFECTS
+//side effects make program maintence hard
+//globals usually limited to constant variables
+
+//functions also have scope, extending from it's definition to end of the file
+//often, coders want to have main() definition near top of the file with other functions below it so that main is the first thign seen, however due to scope
+//main wouldn't be able to call any of those functions
+//Work around -> Function Declarations - speficying the return type, name and parameters ending with a semicolon where the definition's { would be
+//also called a function Prototype
+//gives the compiler enough information to recognize valid calls to the function, place them at top of the file and then you can add main() with teh actual functiosn being later on
+#include <iostream>
+#include <cmath> // To use "pow" function
+using namespace std;
+
+/* Program to convert given-year U.S. dollars to
+   current dollars, using simplistic method of 4% annual inflation.
+   Source: http://inflationdata.com (See: Historical) */
+
+// (Function DECLARATION)
+double ToCurrDollars (double pastDol, int pastYr, int currYr);
+
+int main() {
+   double pastDol;        // Starting dollar amount
+   double currDol;        // Ending dollar amount (converted value)
+   int pastYr;            // Starting year
+   int currYr;            // Ending year (converted to year)
+
+   // Prompt user for previous year/dollar and current year
+   cout << "Enter current year: ";
+   cin >> currYr;
+   cout << "Enter past year: ";
+   cin >> pastYr;
+   cout << "Enter past dollars (Ex: 1000): ";
+   cin >> pastDol;
+
+   // Function call to convert past to current dollars
+   currDol = ToCurrDollars(pastDol, pastYr, currYr);
+
+   cout << "$" << pastDol << " in " << pastYr;
+   cout << " is about $" << currDol << " in ";
+   cout << currYr << endl;
+
+   return 0;
+}
+
+// (Function DEFINITION)
+// Function returns equivalent value of pastDol in pastYr to currYr
+double ToCurrDollars (double pastDol, int pastYr, int currYr) {
+   double currDol;      // Equivalent dollar amount given inflation
+
+   currDol = pastDol * pow(1.04, currYr - pastYr );
+
+   return currDol;
+}
+
+//default parameter values - sometimes a function's last or last few paramters should be optional, unless they need changes a function call can just omit the last argument using a preset value
+#include <iostream>
+using namespace std;
+
+// Function prints date in two styles (0: American (default), 1: European)
+void PrintDate(int currDay, int currMonth, int currYear, int printStyle = 0) { //settign a value for the last param will have it be that value unless specified
+
+   if (printStyle == 0) {      // American
+      cout << currMonth << "/" << currDay << "/" << currYear;
+   }
+   else if (printStyle == 1) { // European
+      cout << currDay << "/" << currMonth << "/" << currYear;
+   }
+   else {
+      cout << "(invalid style)";
+   }
+}
+
+int main() {
+
+   // Print dates given various style settings
+   PrintDate(30, 7, 2012, 0);
+   cout << endl;
+
+   PrintDate(30, 7, 2012, 1);
+   cout << endl;
+
+   PrintDate(30, 7, 2012); // Uses default value for printStyle
+   cout << endl;
+
+   return 0;
+}
+
+//Function Name Overloading / Function Overloading
+//sometimes a program has multiple functiosn with same name but different in the amount or type of paramters this is function overloading
+//allows the same calls to be used with diffretn data types or parameters
+//ex - function overloading
+#include <iostream>
+#include <string>
+using namespace std;
+
+void PrintDate(int currDay, int currMonth, int currYear) {
+   cout << currMonth << "/" << currDay << "/" << currYear;
+}
+
+void PrintDate(int currDay, string currMonth, int currYear) {
+   cout << currMonth << " " << currDay << ", " << currYear;
+}
+
+int main() {
+
+   PrintDate(30, 7, 2012);
+   cout << endl;
+
+   PrintDate(30, "July", 2012);
+   cout << endl;
+
+   return 0;
+}
+//multiple overloading instances can be coded as long as the paramters are different, if they're the same it's an error in compilation
+//Return type does NOT influence overloading, you can have 2 functions of same name with same param but different return types - compilation error
+
+//often paramters need to be within a specific rane, otherwise it can generate errors, terminate code, give wrong values, etc
+
+#include <iostream>
+using namespace std;
+
+void PrintDate(int currDay, int currMonth, int currYear) {
+
+   // Parameter error checking
+   if ((currDay < 1) || (currDay > 31)) {
+      cout << "Invalid day (" << currDay << "). Using 1." << endl;
+      currDay = 1;
+   }
+
+   if ((currMonth < 1) || (currMonth > 12)) {
+      cout << "Invalid month (" << currMonth << "). Using 1." << endl;
+      currMonth = 1;
+   }
+
+   // Begin function's normal behavior
+   cout << currMonth << "/" << currDay << "/" << currYear;
+}
+
+
+int main() {
+
+   PrintDate(30, 7, 2012);
+   cout << endl << endl;
+
+   PrintDate(40, 7, 2012);
+   cout << endl << endl;
+
+   PrintDate(30, 13, 2012);
+   cout << endl << endl;
+
+   return 0;
+}
+
+//Preprocessor is a tool that scans a file top to bottom looking for lines beginning with a hash symbol #
+//each line liek this is not a program statement but directs the preprocessor to modify thefile in some way
+//called a PreProcessor Directive - ends at end of line, no semicolon needed
+//#include is the include directive, directs the copmiler to replacethat line by the contents of the given filename, the most commonly used
+#include "filename"
+#include <filename>
+//"" cause preprocessor to look in the same directory as the file being compiled
+//<> cause preprocessor to look for file in the system sndard library
+//Good Pracitce - use .h suffix for any file that will be included in another, .h is short for header
+//header indicates file to be included at top
+
+//Separating part of a program's code into a separate file can yield several benefits
+//One benefit is preventing a main file from becoming unmanageably large. Another benefit is that the separated part could be useful in other program
+//Suppose a program has several related functions that operate on triples of numbers, such as computing the maximum of three numbers or computing the average of three numbers
+//Those related functions' definitions can be placed in their own file as shown below in the file threeintsfcts.cpp
+
+//maibn.cpp
+include <iostream>
+#include "threeintsfcts.h"
+using namespace std;
+
+// Normally lots of other code here
+
+int main() {
+
+   cout << ThreeIntsSum(5, 10, 20) << endl;
+   cout << ThreeIntsAvg(5, 10, 20) << endl;
+
+   return 0;
+}
+
+// Normally lots of other code here
+
+//threeintsfcts.cpp
+int ThreeIntsSum(int num1, int num2, int num3) {
+   return (num1 + num2 + num3);
+}
+
+int ThreeIntsAvg(int num1, int num2, int num3) {
+   int sum;
+   sum = num1 + num2 + num3;
+   return (sum / 3);
+}
+
+//threeintsfcts.h
+int ThreeIntsSum(int num1, int num2, int num3);
+int ThreeIntsAvg(int num1, int num2, int num3);
+
+//One could then compile the main.cpp and threeintsfcts.cpp files together
+g++ -Wall main.cpp threeintsfcts.cpp //compiles all files together, otherwise you get an error as the copmiler doesn't see the function definitions while processing main file
+
+//two file approach has two key advantages over just having function definitions in the .h file
+//one - .h seres as brief summary of all available functions
+//two - main files copy doesn't become large during compilation
+
+//header files could get included more than once, causign errors durign compilation
+//solution - add preprocessor directives known as header file guards to teh .h
+#ifndef FILENAME_H
+#define FILENAME_H
+
+// Header file contents
+
+#endif
+//Header file guards are preprocessor directives, which cause the compiler to only include the contents of the header file once
+//#define FILENAME_H defines the symbold FILENAME_H to the preprocessor
+//#ifndef FILENAME_H & #endif form a pair that instructs preprocessor to process the code between the pair ONLY if FILENAME_H isn't defined
+//if preprocessor includes encounter the header more than once, code in the file during 2nd and any subsequent encounters will be skipped
+#ifndef THREEINTSFCTS_H
+#define THREEINTSFCTS_H
+
+int ThreeIntsSum(int num1, int num2, int num3);
+int ThreeIntsAvg(int num1, int num2, int num3);
+
+#endif
