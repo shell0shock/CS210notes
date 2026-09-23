@@ -8072,3 +8072,327 @@ int main() {
    cout << endl;
    return 0;
 }
+
+//Objects - grouping of data (variables) and operations that can be performed on that data (functions)
+//real world made up of materiakls - wood, metal, glass, etc
+//we identify things as objects, not their material - chari (wood) or couch (fabric)
+//programs are the same way, made up of items and ways to do thigns with them
+//objects help group items and actions those items can do
+//Abstraction - hiding information from a user; having them interact with the item ata high level while the low level details are hidden
+//this is encapsulation or information hiding - think of a stove -> you use food holes and knobs, not the gas pipes and igniter, etc
+//Abstract Dtat Type - data type whose creation & update are constrained to specific and well definied operations
+//classes often used to implemement ADT's
+//classes are constructs that define a new type that can group data & functions together into objects
+//public member functions - all operatiosn a class user can perform on the object
+//classes power comes from the user not needing to know how the data and functiosn are implemented, only needing to know how to use the public member functions
+
+//EX
+class Restaruant { //info on a restaurant
+  public:
+    void SetName(string restaurantName); //sets restaurant name
+    void SetRating(int userRating); // sets rating 
+    void Print(); //pritns name and rating
+}
+
+//how the data for the class is used
+Restaruant favPlace; //creates a new class object favPlace
+favPlace.SetName("Favorite"); //usign the public member functions
+favPlace.SetRating(4);
+favPlace.Print(); 
+
+//multiple objects of the same class can be created
+//declaring a variable of a class type creates an object of that type - Restaruant favPlace
+//using the member access operator "." allows you to invoke functions on an object from that class - favPlace.SetRating()
+
+//Strings in C++ are a class type, the string calss stores a strings chars in memory along with variables indicating length, etc
+//users of a string don't need all that, just need the public member functions and how to use them
+
+//String Public Member Functions
+char& at(size_t pos); // Returns a reference to the character at position pos in the string.
+size_t length() const; // Returns the number of characters in the string
+void push_back(char c); // Appends character c to the string's end (increasing length by 1).
+
+//private data members - variables that can be accesses by other member functiosn but NOT by users
+
+class Restaurant {                          // Keeps a user's review of a restaurant
+   public:                                    
+      void SetName(string restaurantName);  // Sets the restaurant's name        
+      void SetRating(int userRating);       // Sets the rating (1-5, with 5 best)    
+      void Print();                         // Prints name and rating on one line 
+   private://users cannot use these
+      string name;
+      int rating;
+};
+int main() {
+  Restaurant favLunchPlace;
+  favLunchPlace.SetRating(3); //perfectly fine, this is public
+  favLunchPlace.name("My place"); //won't work, private member function, only class functions can use these
+  return 0;
+}
+
+//public member function definitions
+//programmers defining a class first DECLARES member functions after the word pulic in the class definition, then they must DEFINE each member function
+//Function Declaration - provides function name, return type, parameter types - NOT function statements
+//Function Definition - Provides class name, return type, paramter names & types, AND the function statements
+//Member function definition has the class name adn then 2 colons preceeding the function's name
+//the 2 colons - Scope REsolution Operator (::)
+//member functions CAN access private data members
+
+class MyClass {
+  public:
+     void Fct1(); //function declaration
+
+  private:
+     int numA;
+};
+
+void Fct1() { //comiler error - numA is undefinied - missing the definition from MyClass's Fct1()
+  numA = 0;
+}
+//function definition
+void MyClass::Fct1() { //works fine, uses the scope resolution operator so now the class is visible
+  numA = 0;
+}
+
+
+//EX - restaruant info
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+//START CLASS DEFINITION AND DECLARATION
+class Restaurant {                          // Info about a restaurant
+   public:
+      void SetName(string restaurantName);  // Sets the restaurant's name
+      void SetRating(int userRating);       // Sets the rating (1-5, with 5 best)
+      void Print();//declaration                         // Prints name and rating on one line
+   
+   private:
+      string name;
+      int rating;
+};
+
+// Sets the restaurant's name
+void Restaurant::SetName(string restaurantName) { //function definitions for the private data members
+   name = restaurantName;
+}
+
+// Sets the rating (1-5, with 5 best)
+void Restaurant::SetRating(int userRating) {
+   rating = userRating;
+}
+
+// Prints name and rating on one line
+void Restaurant::Print() {
+   cout << name << " -- " << rating << endl;
+}
+
+//END CLASS DEFINITION AND DECLARATION
+
+int main() {
+   Restaurant favLunchPlace;
+   Restaurant favDinnerPlace;
+   
+   favLunchPlace.SetName("Central Deli");
+   favLunchPlace.SetRating(4);
+   
+   favDinnerPlace.SetName("Friends Cafe");
+   favDinnerPlace.SetRating(5);
+   
+   cout << "My favorite restaurants: " << endl;
+   favLunchPlace.Print();
+   favDinnerPlace.Print();
+   
+   return 0;
+}
+
+/*In the Penguin class, complete the function definition for SetAge() with the integer parameter newAge.
+
+Ex: If the input is beige 13, then the output is:
+
+Color: beige
+Age: 13
+ */
+#include <iostream>
+using namespace std;
+
+class Penguin {
+   public:
+      void SetColor(string newColor);
+      void SetAge(int newAge);
+      string GetColor();
+      int GetAge();
+   private:
+      string color;
+      int age;
+};
+
+void Penguin::SetColor(string newColor) {
+   color = newColor;
+}
+
+void Penguin::SetAge(int newAge) {   
+   age = newAge;
+}
+
+string Penguin::GetColor() {
+   return color;
+}
+
+int Penguin::GetAge() {
+   return age;
+}
+
+int main() {
+   Penguin penguin1;
+   string inputColor;
+   int inputAge;
+
+   cin >> inputColor;
+   cin >> inputAge;
+
+   penguin1.SetColor(inputColor);
+   penguin1.SetAge(inputAge);
+   
+   cout << "Color: " << penguin1.GetColor() << endl;
+   cout << "Age: " << penguin1.GetAge() << endl;
+
+   return 0;
+}
+
+/*In the Customer class, declare the following public member functions:
+
+    SetHeight() with one double parameter
+    SetName() with one string parameter
+
+and the following private data members:
+
+    double height
+    string name 
+
+Ex: If the input is 4.5 Suki, then the output is:
+
+Height: 4.5
+Name: Suki
+ */
+
+#include <iostream>
+using namespace std;
+
+class Customer {
+   public:
+      double GetHeight();
+      string GetName();
+      void SetHeight(double customHeight);
+      void SetName(string customName);
+   private:
+      double height;
+      string name;
+};
+
+void Customer::SetHeight(double customHeight) {
+   height = customHeight;
+}
+
+void Customer::SetName(string customName) {   
+   name = customName;
+}
+
+double Customer::GetHeight() {
+   return height;
+}
+
+string Customer::GetName() {
+   return name;
+}
+
+int main() {
+   Customer customer1;
+   double inputHeight;
+   string inputName;
+
+   cin >> inputHeight;
+   cin >> inputName;
+
+   customer1.SetHeight(inputHeight);
+   customer1.SetName(inputName);
+   
+   cout << "Height: " << customer1.GetHeight() << endl;
+   cout << "Name: " << customer1.GetName() << endl;
+
+   return 0;
+}
+
+//Inline Member Functions - member functions may appear WITHIN the class definition
+//this is known as an inline memver function
+//programmers use these to yield more compact code adn keep function definitions outside the class definition
+//basically just write your funcitons WITHIN the class itself
+
+//Normal
+class MyClass {
+   public:
+      void Fct1();
+   private:
+      int numA;
+};
+void MyClass::Fct1() {
+   numA = 0;
+}
+//Inline
+class MyClass {
+  public: 
+    void Fct1() {
+      numa = 0;
+    }
+  private:
+    int numA;
+}
+
+//EX: Inline Member Functions
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Restaurant {                          // Info about a restaurant
+   public:
+      void SetName(string restaurantName) { // Sets the restaurant's name
+         name = restaurantName;
+      }
+      void SetRating(int userRating) {      // Sets the rating (1-5, with 5 best)
+         rating = userRating;
+      }
+      void Print();                         // Prints name and rating on one line
+   
+   private:
+      string name;
+      int rating;
+};
+
+// Prints name and rating on one line
+void Restaurant::Print() {
+   cout << name << " -- " << rating << endl;
+}
+
+int main() {
+   Restaurant favLunchPlace;
+   Restaurant favDinnerPlace;
+   
+   favLunchPlace.SetName("Central Deli");
+   favLunchPlace.SetRating(4);
+   
+   favDinnerPlace.SetName("Friends Cafe");
+   favDinnerPlace.SetRating(5);
+   
+   cout << "My favorite restaurants: " << endl;
+   favLunchPlace.Print();
+   favDinnerPlace.Print();
+   
+   return 0;
+}
+
+//Normally variables need declared before user but that doesn't apply in a class definition allowing a clas to have the desired form with public at top and private at bottom
+//public inline member functions can access a private data memver even though it's declared after teh function
+//inliens member functions can also be one liners
+void SetName(string restaurantName) { name = restaurantName; }
+void SetRating(int userRating) { rating = userRating; }
